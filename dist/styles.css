@@ -282,3 +282,4 @@ html.lenis,html.lenis body{height:auto}
 .reveal.from-top:not(.in){transform:translateY(-28px)}
 .head.reveal.from-top:not(.in) h2{transform:translateY(-34px)}
 .reveal:not(.in){transition-delay:0s!important}
+.foot>span{line-height:1.6}.foot>span a{color:var(--ind3);text-decoration:underline;text-underline-offset:3px}.foot>span a:hover{color:#fff}
