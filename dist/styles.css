@@ -283,3 +283,11 @@ html.lenis,html.lenis body{height:auto}
 .head.reveal.from-top:not(.in) h2{transform:translateY(-34px)}
 .reveal:not(.in){transition-delay:0s!important}
 .foot>span{line-height:1.6}.foot>span a{color:var(--ind3);text-decoration:underline;text-underline-offset:3px}.foot>span a:hover{color:#fff}
+
+/* team credits */
+.people{display:flex;justify-content:center;gap:clamp(28px,6vw,72px);flex-wrap:wrap}
+.people figure{margin:0;text-align:center}
+.people img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:2px solid #7b72ff66;box-shadow:0 0 0 6px #4f46f01f,0 18px 50px -12px #5a4fff99;transition:transform .5s var(--ease),box-shadow .5s}
+.people figure:hover img{transform:translateY(-6px) scale(1.03);box-shadow:0 0 0 6px #4f46f033,0 24px 60px -10px #6a5fffcc}
+.people figcaption{margin-top:16px;font:500 17px Poppins,sans-serif}
+.team .head{margin-bottom:40px}
