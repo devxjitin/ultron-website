@@ -9,8 +9,7 @@ Pages: `index.html` (features, pricing, install guide, FAQ, support), `privacy.h
 Plans and prices (Spark 7 days ₹199, Surge 1 month ₹699, Apex 3 months ₹1,499) are written in the pricing section of
 `index.html` and in section 1 of `terms.html`. Keep them the same as `PLANS` in `ultronapp/app.js`.
 
-The Buy buttons open an email to devxjitin@gmail.com. To send orders to WhatsApp instead, set `BUY_WHATSAPP` at the end of
-`app.js` (country code first, digits only, for example `919876543210`); the buttons and a WhatsApp card under Support switch
-over by themselves.
+The Buy buttons and a WhatsApp card under Support open a WhatsApp chat with the number in `BUY_WHATSAPP` at the end of
+`app.js` (country code first, digits only). Leave it empty and the Buy buttons use email to devxjitin@gmail.com instead.
 
 Preview locally: `python -m http.server 4173 --directory dist`

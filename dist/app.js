@@ -96,7 +96,7 @@ if(reduce){mb.hidden=true}
 // plan buttons: open a WhatsApp chat when a number is set, otherwise the email already in each link
 (()=>{
   // Orders go to this WhatsApp number. Country code first, digits only, for example "919876543210". Empty: orders use email.
-  const BUY_WHATSAPP='';
+  const BUY_WHATSAPP='917078710389';
   const number=BUY_WHATSAPP.replace(/\D/g,'');
   if(!number)return;
   const wa=text=>`https://wa.me/${number}?text=${encodeURIComponent(text)}`;
