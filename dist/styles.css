@@ -24,7 +24,7 @@ main,.nav-wrap{position:relative;z-index:1}
 .nav{max-width:1100px;margin:auto;display:flex;align-items:center;gap:20px;padding:9px 10px 9px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(8,8,18,.7);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .brand{display:flex;align-items:center;gap:9px;font:500 18px Poppins,sans-serif}
 .nav-links{display:flex;gap:2px;margin-inline:auto}
-.nav-links a{padding:7px 12px;border-radius:999px;font-size:14px;color:var(--mute);transition:.2s}
+.nav-links a{padding:7px 12px;border-radius:999px;font-size:14px;color:var(--mute);transition:.2s;white-space:nowrap}
 .nav-links a:hover{color:#fff;background:var(--glass)}
 .menu-toggle{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);position:relative}
 .menu-toggle span{position:absolute;left:12px;right:12px;height:1.5px;background:#fff;transition:.25s}
@@ -291,3 +291,78 @@ html.lenis,html.lenis body{height:auto}
 .people figure:hover img{transform:translateY(-6px) scale(1.03);box-shadow:0 0 0 6px #4f46f033,0 24px 60px -10px #6a5fffcc}
 .people figcaption{margin-top:16px;font:500 17px Poppins,sans-serif}
 .team .head{margin-bottom:40px}
+
+/* personality */
+.persona-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.persona{position:relative;display:flex;flex-direction:column;gap:8px;padding:26px 22px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(165deg,#12122a,#05050d);transition:transform .35s var(--ease),border-color .3s}
+.persona:hover{transform:translateY(-4px);border-color:#7b72ff77}
+.persona h3{font-size:22px}.persona p{font-size:14.5px}
+.persona q{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px;font-style:italic;color:#d4d2ea;quotes:"“" "”"}
+.pbadge{position:absolute;top:18px;right:18px;font-size:11.5px;padding:3px 10px;border-radius:999px;color:var(--ind3);background:#7b72ff1f;border:1px solid #7b72ff40}
+
+/* schedule illustration */
+.sched-stack{display:grid;gap:12px;width:min(380px,100%)}
+.sched{display:grid;gap:3px;padding:16px 18px;border:1px solid var(--line);border-radius:18px;background:rgba(8,8,18,.82);backdrop-filter:blur(10px)}
+.sched b{font:500 15px Poppins,sans-serif}
+.sched .when{font-size:13px;color:var(--ind3)}
+.sched .res{display:flex;gap:6px;align-items:center;margin-top:6px;font-size:12.5px;color:var(--mute)}
+.sched .res .ic{width:15px;height:15px;color:#7fe0a6}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;padding:32px 28px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(165deg,#12122a,#05050d)}
+.plan.best{border-color:#8f88ff;background:linear-gradient(165deg,#241f6a,#08081a);box-shadow:0 0 70px -20px #5a4fff}
+.plan h3{font-size:26px}
+.plan .plen{margin-top:2px;color:var(--ind3);font-size:15px}
+.plan .price{margin-top:22px}
+.plan .price b{font:500 52px/1 Poppins,sans-serif;letter-spacing:-.03em}
+.plan .per{font-size:13.5px;margin-top:6px;color:var(--dim)}
+.plan .plain{margin:24px 0 28px}
+.plan .buy{margin-top:auto;justify-content:center}
+.ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);padding:4px 14px;border-radius:999px;background:linear-gradient(180deg,#6358ff,#4338e6);border:1px solid #8a82ff;font:500 12.5px Poppins,sans-serif;white-space:nowrap}
+.inline{color:var(--ind3);text-decoration:underline;text-underline-offset:3px}
+.inline:hover{color:#fff}
+
+/* install */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:none}
+.step{display:flex;gap:18px;align-items:flex-start;padding:22px 24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(165deg,#10101f,#06060d)}
+.step>b{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(180deg,#6358ff,#4338e6);border:1px solid #8a82ff;font:500 17px Poppins,sans-serif}
+.step h3{font-size:19px;margin-bottom:4px}.step p{font-size:15px}.step i{color:#d4d2ea;font-style:normal;font-weight:500}
+
+/* support */
+.support-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.sup{display:flex;flex-direction:column;gap:8px;padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(165deg,#12122a,#05050d)}
+.sup[hidden]{display:none}
+.sup .ci{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:var(--glass);border:1px solid var(--line);color:var(--ind3);margin-bottom:6px}
+.sup h3{font-size:21px}.sup p{font-size:14.5px}
+.sup .link{margin-top:auto;padding-top:14px;display:inline-flex;align-items:center;gap:6px;color:var(--ind3);font-size:14px}
+.sup .link .ic{width:16px;height:16px;transition:.25s}.sup .link:hover .ic{transform:translateX(4px)}
+
+/* legal pages */
+.legal-top{display:flex;align-items:center;justify-content:space-between;gap:16px;width:min(820px,calc(100% - 40px));margin:0 auto;padding:26px 0 8px}
+.legal-top a:last-child{font-size:14px;color:var(--mute)}.legal-top a:last-child:hover{color:#fff}
+.legal{width:min(820px,calc(100% - 40px));margin:0 auto;padding:40px 0 90px;position:relative;z-index:1}
+.legal h1{font-size:clamp(34px,5vw,52px);margin-bottom:10px}
+.legal .upd{font-size:14px;color:var(--dim);margin-bottom:36px}
+.legal h2{font-size:24px;margin:42px 0 12px}
+.legal h3{font-size:18px;margin:24px 0 8px;color:#e4e2f6}
+.legal p,.legal li{font-size:16px;color:#c3c1da}
+.legal p{margin-top:12px}
+.legal ul{margin:12px 0 0;padding-left:22px;display:grid;gap:8px}
+.legal a{color:var(--ind3);text-decoration:underline;text-underline-offset:3px}
+.legal .callout{margin-top:20px;padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:var(--glass)}
+.legal-foot{width:min(820px,calc(100% - 40px));margin:0 auto;padding:24px 0 40px;border-top:1px solid var(--line);display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--dim)}
+.legal-foot a:hover{color:#fff}
+
+@media(max-width:1020px){.persona-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.plans{grid-template-columns:1fr;max-width:440px;margin-inline:auto}.plan.best{order:-1}}
+@media(max-width:560px){.persona-grid{grid-template-columns:1fr}.step{padding:18px}.plan .price b{font-size:44px}}
+
+/* seven links need the menu button a little earlier than the other mobile rules */
+@media(max-width:1000px) and (min-width:761px){
+.nav-links{position:absolute;top:62px;left:16px;right:16px;flex-direction:column;padding:10px;border:1px solid var(--line);border-radius:20px;background:#0a0a16f2;backdrop-filter:blur(18px);display:none}
+.nav-links.open{display:flex}
+.nav-links a{padding:12px}
+.nav .btn-sm{margin-left:auto}
+.menu-toggle{display:block}
+}
