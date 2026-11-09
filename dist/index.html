@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#050506">
-<meta name="description" content="Ultron is the voice assistant that actually does things on your Android phone. Talk in 13 languages, connect 19 tools, teach it skills, and keep your memory and documents on your device.">
-<meta property="og:title" content="Ultron: talk to your phone, it does the rest">
-<meta property="og:description" content="A live, interruptible voice assistant that operates your Android phone, searches the web, downloads from YouTube, reads your documents and remembers what matters.">
+<meta name="theme-color" content="#0d0c0c">
+<meta name="description" content="Ultron is a voice assistant for Android. Talk to it and it can change settings, open apps, search the web, save YouTube videos and answer from your own documents.">
+<meta property="og:title" content="Ultron, a voice assistant that works your Android phone">
+<meta property="og:description" content="Talk to your phone in 13 languages. Ultron can operate apps, search the web, download from YouTube and answer from your documents.">
 <title>Ultron</title>
 <link rel="icon" href="assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=20261109">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css?v=20261110">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -20,10 +20,8 @@
 <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
 <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10"/></symbol>
 <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></symbol>
-<symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v4a6 6 0 0 1-12 0zM12 18v3"/></symbol>
 <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
 <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></symbol>
-<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
 <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4zM10 21h4"/></symbol>
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></symbol>
 <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
@@ -40,30 +38,23 @@
 <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
 <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
 <symbol id="i-touch" viewBox="0 0 24 24"><path d="M9 11V5a2 2 0 0 1 4 0v5l5 1.5a2 2 0 0 1 1.4 2.3L18.5 19a2 2 0 0 1-2 1.5H11a2 2 0 0 1-1.6-.8L5 14a2 2 0 0 1 3-2.4z"/></symbol>
-<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
-<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
-<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
-<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-14 5M4 12a8 8 0 0 1 14-5M18 3v4h-4M6 21v-4h4"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
 <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
 <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-7z"/></symbol>
 <symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
 <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M4 18l5-5 4 4 3-3 4 4"/></symbol>
-<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></symbol>
-<symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
 <symbol id="i-flash" viewBox="0 0 24 24"><path d="M9 2h6v5l-2 3v12h-2V10L9 7z"/></symbol>
 <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 3l14 7-6 2-2 6z" fill="#fff" stroke="#000" stroke-width="1.2"/></symbol>
 </defs>
 </svg>
 
 <div id="progress" aria-hidden="true"></div>
-<div id="glow" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav-wrap">
 <nav class="nav" aria-label="Main">
-<a class="brand" href="#top"><img src="assets/mark.svg" alt="" width="26" height="26">Ultron</a>
+<a class="brand" href="#top"><img src="assets/mark.svg" alt="" width="28" height="28">Ultron</a>
 <div class="nav-links" id="nav-links">
 <a href="#why">Why Ultron</a><a href="#features">Features</a><a href="#connectors">Connectors</a><a href="#skills">Skills</a><a href="#app">The app</a><a href="#pricing">Plans</a><a href="#faq">FAQ</a>
 </div>
@@ -75,73 +66,57 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="hero" id="top" data-scene="hero">
-<div class="hero-grid" aria-hidden="true"></div>
-<canvas id="ribbon" aria-hidden="true"></canvas>
+<section class="hero wrap" id="top" data-scene="hero">
 <div class="hero-copy">
-<p class="pill"><span class="dot"></span>The voice assistant that actually does things</p>
-<h1><span class="line"><span>Talk to your phone.</span></span><span class="line"><span class="grad">It does the rest.</span></span></h1>
-<p class="lead">Ultron holds a live conversation, operates your Android phone, searches the web, downloads from YouTube, reads your documents and remembers what matters. All by voice.</p>
-<div class="say" aria-hidden="true"><span class="say-l">Try saying</span><b id="typed"></b><i class="caret"></i></div>
-<div class="cta-row"><a class="btn" href="#features">See what it can do <svg class="ic"><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="#pricing">See plans</a></div>
+<h1>A voice assistant that works your phone for you.</h1>
+<p class="lead">Ultron is an Android app. Talk to it and it can turn on the flashlight, set an alarm, open an app, search the web, save a YouTube video or find something in your own documents. You can talk over it while it is answering, the way you would on a phone call.</p>
+<p class="say" aria-hidden="true"><span class="say-l">Try saying</span><b id="typed"></b><i class="caret"></i></p>
+<div class="cta-row"><a class="btn" href="#features">See what it does</a><a class="btn btn-ghost" href="#pricing">Plans and pricing</a></div>
+<p class="note">Needs Android 8.0 or newer. Ultron is not on the Play Store, so the app link arrives by email with your key.</p>
 </div>
-<div class="hero-stage">
-<div class="halo" aria-hidden="true"></div>
-<div class="hphone" id="hphone" data-tilt>
+<div class="hphone" id="hphone">
 <figure class="phone"><img src="assets/app/dark-home.webp" alt="Ultron home screen" width="720" height="1600"><img class="v" src="assets/app/dark-voice.webp" alt="" width="720" height="1600"></figure>
 </div>
-<div class="fl s1" aria-hidden="true"></div><div class="fl s2" aria-hidden="true"></div><div class="fl s3" aria-hidden="true"></div><div class="fl s4" aria-hidden="true"></div>
-</div>
-<span class="scroll-cue" aria-hidden="true"></span>
 </section>
 
-<!-- MARQUEE -->
-<section class="marq" aria-label="Things Ultron can do">
-<div class="row" data-dup>
-<span><svg class="ic"><use href="#i-flash"/></svg>Flashlight</span><span><svg class="ic"><use href="#i-clock"/></svg>Alarms and timers</span><span><svg class="ic"><use href="#i-down"/></svg>YouTube downloads</span><span><svg class="ic"><use href="#i-cloud"/></svg>Weather</span><span><svg class="ic"><use href="#i-msg"/></svg>Messages</span><span><svg class="ic"><use href="#i-cal"/></svg>Calendar</span><span><svg class="ic"><use href="#i-search"/></svg>Web search</span><span><svg class="ic"><use href="#i-bell"/></svg>Reminders</span><span><svg class="ic"><use href="#i-book"/></svg>Your documents</span>
-</div>
-<div class="row r" data-dup>
-<span><svg class="ic"><use href="#i-brain"/></svg>Long-term memory</span><span><svg class="ic"><use href="#i-touch"/></svg>Taps and types for you</span><span><svg class="ic"><use href="#i-user"/></svg>Contacts</span><span><svg class="ic"><use href="#i-pin"/></svg>Directions</span><span><svg class="ic"><use href="#i-files"/></svg>Files</span><span><svg class="ic"><use href="#i-spark"/></svg>Custom skills</span><span><svg class="ic"><use href="#i-globe"/></svg>13 languages</span><span><svg class="ic"><use href="#i-sun"/></svg>Brightness and volume</span><span><svg class="ic"><use href="#i-grid"/></svg>Open any app</span>
-</div>
-</section>
-
-<!-- STATS -->
+<!-- NUMBERS -->
 <section class="stats wrap">
 <div class="stat rv"><b data-count="80" data-suffix="+">80+</b><span>phone and cloud tools</span></div>
-<div class="stat rv" style="--d:.07s"><b data-count="13">13</b><span>spoken languages</span></div>
-<div class="stat rv" style="--d:.14s"><b data-count="30">30</b><span>voices to choose from</span></div>
-<div class="stat rv" style="--d:.21s"><b data-count="19">19</b><span>connectors, one tap each</span></div>
-<div class="stat rv" style="--d:.28s"><b data-count="150">150</b><span>lasting memories</span></div>
+<div class="stat rv" style="--d:.05s"><b data-count="19">19</b><span>connectors</span></div>
+<div class="stat rv" style="--d:.1s"><b data-count="13">13</b><span>spoken languages</span></div>
+<div class="stat rv" style="--d:.15s"><b data-count="30">30</b><span>voices</span></div>
+<div class="stat rv" style="--d:.2s"><b data-count="150">150</b><span>saved memories</span></div>
 </section>
 
 <!-- MANIFESTO (scroll-scrubbed text) -->
-<section class="section wrap manifesto" aria-label="Why Ultron exists">
-<p class="scrub" data-scrub>Your phone hides <mark>hundreds of settings</mark>, dozens of apps and a thousand taps. Ultron turns all of it into <mark>one sentence</mark>. Say what you want, and watch your phone <mark>do it for you</mark>.</p>
+<section class="section wrap manifesto" aria-label="What Ultron is for">
+<p class="scrub" data-scrub>Most of what we do on a phone is tapping through menus to reach one setting or one answer. Ultron lets you ask for it instead, and then does the tapping itself.</p>
 </section>
 
 <!-- WHY ULTRON -->
 <section class="section wrap" id="why">
-<div class="head rv"><p class="eyebrow">Why Ultron</p><h2>Phones are for tapping.<br><span class="grad">Ultron is for talking.</span></h2><p>The setting you need, the app you want, the answer buried in your notes. Just ask, and watch it happen.</p></div>
-<div class="why">
-<article class="wc w1 sp rv"><h3>Hands-free. Really.</h3><p>A live, interruptible conversation. Cut in mid-sentence and it listens. It even keeps going with the screen off.</p><div class="art"><div class="eq" id="eq" aria-hidden="true"></div></div></article>
-<article class="wc w2 sp rv" style="--d:.08s"><h3>It does things, not just answers.</h3><p>Say it once. Ultron flips the switch, sets the alarm, opens the app, sends the message.</p><div class="art"><div class="ticks-live" aria-hidden="true"><div><svg class="ic"><use href="#i-flash"/></svg>Flashlight turned on<em>Done</em></div><div><svg class="ic"><use href="#i-sun"/></svg>Brightness set to 30%<em>Done</em></div><div><svg class="ic"><use href="#i-clock"/></svg>Alarm set for 6:30 am<em>Done</em></div><div><svg class="ic"><use href="#i-down"/></svg>Song saved to Downloads<em>Done</em></div></div></div></article>
-<article class="wc w3 sp rv" data-scene="flip"><h3>13 languages. One voice.</h3><p>Speak in yours. Ultron answers in the same one.</p><div class="art"><div><div class="flip-t" id="flip">Hello</div><div class="flip-sub" id="flipl">English</div></div></div></article>
-<article class="wc w4 sp rv" style="--d:.08s"><h3>It remembers you.</h3><p>Lasting facts, plus every past conversation you can search.</p><div class="art"><div class="notes" aria-hidden="true"><span>Favourite colour is black</span><span>Mum's birthday: 12 March</span><span>Allergic to peanuts</span><span>Gym on Mon, Wed, Fri</span></div></div></article>
-<article class="wc w5 sp rv" style="--d:.16s"><h3>Private by design.</h3><p>Memory, documents and history never leave your phone.</p><div class="art"><div class="lockring"><span><svg class="ic"><use href="#i-lock"/></svg></span></div></div></article>
-<article class="wc w6 sp rv"><h3>Pay for the days you want.</h3><p>Every plan has everything. Pick a week, a month or three months. No auto-renewal, ever.</p><div class="art"><div class="pay"><div><b>₹199</b><small>7 days</small></div><div><b>₹699</b><small>1 month</small></div><div class="best"><b>₹1,499</b><small>3 months</small><em>Best value</em></div></div></div></article>
-<article class="wc w7 sp rv" style="--d:.08s"><h3>Knows how you use it.</h3><p>Talk time, conversations and actions by day, with 7 day, 30 day and all-time charts. Stored on the phone.</p><div class="art" style="flex-direction:column;align-items:stretch"><div class="bars" aria-hidden="true"><i style="--h:30%;--i:0"></i><i style="--h:55%;--i:1"></i><i style="--h:42%;--i:2"></i><i style="--h:88%;--i:3"></i><i style="--h:100%;--i:4"></i><i style="--h:64%;--i:5"></i><i style="--h:76%;--i:6"></i></div><div class="bars-l"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></div></article>
+<div class="why-grid">
+<div class="head why-head rv"><h2>Why people use it</h2><p>Six things worth knowing before you buy it.</p></div>
+<ol class="reasons">
+<li class="rv"><span class="n">01</span><div><h3>You can talk over it</h3><p>The conversation runs live over the Gemini Live API. If it is halfway through a sentence and you remember something else, talk and it stops to listen. It keeps listening with the screen off too.</p></div></li>
+<li class="rv"><span class="n">02</span><div><h3>It does things on the phone</h3><p>Flashlight, volume, brightness, alarms, reminders, calendar events, opening apps and settings. With Accessibility turned on it can also read the screen and tap or type in other apps.</p></div></li>
+<li class="rv"><span class="n">03</span><div><h3>It speaks your language</h3><p>English (India), Hindi, Bengali, Tamil, Telugu, Marathi, Gujarati, Kannada, Malayalam, Punjabi, Urdu, Odia and Assamese. Speak in one and it answers in the same one. You can pick from 30 voices.</p></div></li>
+<li class="rv"><span class="n">04</span><div><h3>It remembers</h3><p>Tell it a fact and it keeps it, up to 150 short notes that you can edit or switch off. Every past conversation is saved on the phone and searchable, so "what did I say last Tuesday?" works.</p></div></li>
+<li class="rv"><span class="n">05</span><div><h3>Your data stays on the phone</h3><p>Memory, documents, history and usage numbers are stored on the device. What you say and the questions you ask go to Google Gemini, using your own API key. The <a class="inline" href="privacy.html">Privacy Policy</a> lists exactly what leaves the phone.</p></div></li>
+<li class="rv"><span class="n">06</span><div><h3>You pay for the days you want</h3><p>A key lasts 7 days, 1 month or 3 months, and every plan includes everything. Nothing renews by itself.</p></div></li>
+</ol>
 </div>
 </section>
 
 <!-- FEATURES -->
-<section class="section wrap" id="features" style="padding-top:20px">
-<div class="head rv"><p class="eyebrow">Features</p><h2>Everything it can do,<br><span class="grad">shown live.</span></h2><p>These are not screenshots of promises. Each scene below plays out what really happens on your phone.</p></div>
+<section class="section wrap" id="features" style="padding-top:24px">
+<div class="head rv"><h2>What it does</h2><p>Each panel below plays out how that part of the app works.</p></div>
 
 <!-- Voice -->
 <article class="frow">
-<div class="row-copy rv" data-a="left"><p class="eyebrow">Live voice</p><h2>A real conversation, not a command box.</h2><p>Tap the mic and you are in a live conversation over the Gemini Live API. Speak naturally and hear the reply as it is generated.</p>
-<ul class="ticks"><li><svg class="ic"><use href="#i-check"/></svg>30 prebuilt voices, with correct grammar for the voice's gender in Hindi</li><li><svg class="ic"><use href="#i-check"/></svg>Barge-in: interrupt and Ultron stops and listens</li><li><svg class="ic"><use href="#i-check"/></svg>Fast start: a session is warmed up before you tap</li><li><svg class="ic"><use href="#i-check"/></svg>Keeps running with the screen off, with Stop and Mute in the notification</li></ul></div>
-<div class="scene sc-voice rv" data-a="right" data-scene="voice">
+<div class="row-copy rv"><h2>Live conversation</h2><p>Tap the mic and you are talking to Gemini Live. The reply starts playing while it is still being generated, so there is very little waiting.</p>
+<ul class="ticks"><li>30 voices, with the right grammar for the voice's gender in Hindi</li><li>Talk over it at any point and it stops to listen</li><li>A session is warmed up before you tap, so it starts fast</li><li>Keeps running with the screen off, with Stop and Mute in the notification</li></ul></div>
+<div class="scene sc-voice rv" data-scene="voice">
 <div class="vstat"><b id="vst">Listening</b><span id="vtm">0:00</span></div>
 <canvas id="wave" aria-hidden="true"></canvas>
 <div class="chat" id="vchat"><p class="bub you" id="vy"></p><p class="bub ai" id="va"></p></div>
@@ -150,9 +125,9 @@
 
 <!-- Phone control -->
 <article class="frow flip">
-<div class="row-copy rv" data-a="right"><p class="eyebrow">Phone control</p><h2>It reads the screen. It taps for you.</h2><p>With Accessibility enabled, Ultron looks at what is on screen, finds the button, taps, types and scrolls. In any app, from one sentence.</p>
-<ul class="ticks"><li><svg class="ic"><use href="#i-check"/></svg>Reads the screen and numbers every item it can press</li><li><svg class="ic"><use href="#i-check"/></svg>Taps, types, scrolls and waits for text to appear</li><li><svg class="ic"><use href="#i-check"/></svg>Back, home, recents, quick settings and screenshots</li><li><svg class="ic"><use href="#i-check"/></svg>Off until you grant Android's permission yourself</li></ul></div>
-<div class="scene sc-phone rv" data-a="left" data-scene="phone">
+<div class="row-copy rv"><h2>Working other apps</h2><p>With Accessibility turned on, Ultron reads what is on the screen, finds the button, taps it, types text and scrolls. It works in any app that Android lets it see.</p>
+<ul class="ticks"><li>Reads the screen and numbers every item it can press</li><li>Taps, types, scrolls and waits for text to appear</li><li>Back, home, recents, quick settings and screenshots</li><li>Stays off until you grant Android's permission yourself</li></ul></div>
+<div class="scene sc-phone rv" data-scene="phone">
 <div class="mini" id="mini">
 <div class="mh"><i></i><div><b>Ria</b><small>online</small></div></div>
 <div class="msgs"><p>Where are you?</p><p class="out" id="mout">On my way</p></div>
@@ -172,13 +147,13 @@
 
 <!-- Knowledge / ObjectBox -->
 <article class="frow">
-<div class="row-copy rv" data-a="left"><p class="eyebrow">Knowledge base · ObjectBox</p><h2>Your documents, searchable by voice.</h2><p>Drop in a PDF or paste some text. Ultron cuts it into smart chunks, turns each into a vector and stores them in ObjectBox, a database that lives on your phone.</p>
-<ul class="ticks"><li><svg class="ic"><use href="#i-check"/></svg>PDFs become titled, paragraph-sized chunks</li><li><svg class="ic"><use href="#i-check"/></svg>Hybrid search: vectors plus keywords, merged by reciprocal rank fusion</li><li><svg class="ic"><use href="#i-check"/></svg>Neighbouring chunks are added for context</li><li><svg class="ic"><use href="#i-check"/></svg>One tap drafts the assistant's persona from your documents</li></ul></div>
-<div class="scene sc-know rv" data-a="right" data-scene="know" data-step="0">
+<div class="row-copy rv"><h2>Questions about your own documents</h2><p>Add a PDF or paste some text. Ultron splits it into chunks, turns each chunk into a vector and stores them in ObjectBox, a database that lives on your phone. When you ask a question, it searches there.</p>
+<ul class="ticks"><li>PDFs become titled, paragraph-sized chunks</li><li>Hybrid search: vectors plus BM25 keywords, merged by reciprocal rank fusion</li><li>Neighbouring chunks are added for context</li><li>One tap drafts the assistant's persona from your documents</li></ul></div>
+<div class="scene sc-know rv" data-scene="know" data-step="0">
 <ol class="st5"><li>Add</li><li>Chunk</li><li>Embed</li><li>Store</li><li>Ask</li></ol>
 <div class="kst">
 <div class="doc"><b>exam-notes.pdf</b><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-<div class="chunks"><div class="chunk" style="--i:0">Physics: unit tests start Monday<em>[0.12, -0.80, 0.44 …]</em></div><div class="chunk hit" style="--i:1">Chemistry exam: 14 Nov, 10 am<em>[0.91, 0.07, -0.33 …]</em></div><div class="chunk" style="--i:2">Maths: formula sheet allowed<em>[-0.25, 0.62, 0.18 …]</em></div><div class="chunk" style="--i:3">Library closes at 8 pm<em>[0.04, -0.51, 0.77 …]</em></div></div>
+<div class="chunks"><div class="chunk" style="--i:0">Physics: unit tests start Monday<em>[0.12, -0.80, 0.44 ...]</em></div><div class="chunk hit" style="--i:1">Chemistry exam: 14 Nov, 10 am<em>[0.91, 0.07, -0.33 ...]</em></div><div class="chunk" style="--i:2">Maths: formula sheet allowed<em>[-0.25, 0.62, 0.18 ...]</em></div><div class="chunk" style="--i:3">Library closes at 8 pm<em>[0.04, -0.51, 0.77 ...]</em></div></div>
 <div class="cubebox"><div class="cubewrap"><div class="cube"><u>0.1</u><u>1.0</u><u>0.4</u><u>0.9</u><u>0.2</u><u>0.7</u></div></div><b>ObjectBox</b><small>stored on your phone</small></div>
 <div class="ask"><svg class="ic"><use href="#i-mic"/></svg>When is my chemistry exam?</div>
 <div class="ans"><span>Vector match</span><span>Keyword match</span><span class="a">Merged</span><b>14 Nov, 10 am</b></div>
@@ -188,32 +163,32 @@
 
 <!-- Memory -->
 <article class="frow flip">
-<div class="row-copy rv" data-a="right"><p class="eyebrow">Memory</p><h2>Tell it once. It remembers.</h2><p>Two layers: lasting facts about you, and the full history of what you have said. Ask "what did I say last Tuesday?" and it answers.</p>
-<ul class="ticks"><li><svg class="ic"><use href="#i-check"/></svg>Up to 150 short notes you can add, edit, delete or switch off</li><li><svg class="ic"><use href="#i-check"/></svg>A changed fact replaces the old one, so opposites never sit together</li><li><svg class="ic"><use href="#i-check"/></svg>Every past conversation is searchable, by day</li><li><svg class="ic"><use href="#i-check"/></svg>Saved notes are facts about you, never instructions</li></ul></div>
-<div class="scene sc-mem rv" data-a="left" data-scene="mem">
+<div class="row-copy rv"><h2>Memory</h2><p>Ultron keeps two things: short facts about you, and the full history of what you have said to it.</p>
+<ul class="ticks"><li>Up to 150 short notes you can add, edit, delete or switch off</li><li>A changed fact replaces the old one, so opposites never sit together</li><li>Every past conversation is searchable, by day</li><li>Saved notes are facts about you, never instructions</li></ul></div>
+<div class="scene sc-mem rv" data-scene="mem">
 <div class="chat"><p class="bub you" id="m1">Remember that my favourite colour is black.</p><p class="bub ai" id="m2">Saved. Black it is.</p><p class="sep" id="m3">One week later</p><p class="bub you" id="m4">What's my favourite colour?</p><p class="bub ai" id="m5">Black. You told me last Tuesday.</p></div>
-<div class="memp"><h4><svg class="ic"><use href="#i-brain"/></svg>Saved facts</h4><div class="brain" id="brain"><svg class="ic"><use href="#i-brain"/></svg></div><div class="fact" id="fact">Favourite colour is black</div><div class="hist"><div>Set an alarm for six <span>Mon</span></div><div>Summarise this page <span>Sun</span></div><div>What's the weather? <span>Sat</span></div></div></div>
+<div class="memp"><h4>Saved facts</h4><div class="brain" id="brain"><svg class="ic"><use href="#i-brain"/></svg></div><div class="fact" id="fact">Favourite colour is black</div><div class="hist"><div>Set an alarm for six <span>Mon</span></div><div>Summarise this page <span>Sun</span></div><div>What's the weather? <span>Sat</span></div></div></div>
 </div>
 </article>
 
 <!-- YouTube downloads -->
 <article class="frow">
-<div class="row-copy rv" data-a="left"><p class="eyebrow">YouTube downloads</p><h2>Say the word. Get the file.</h2><p>Ask Ultron to find a video, pick a quality, and save it as video or audio. The file lands in Downloads/Ultron, and the media never passes through a server.</p>
-<ul class="ticks"><li><svg class="ic"><use href="#i-check"/></svg>Search videos, playlists, channels and transcripts, no API key</li><li><svg class="ic"><use href="#i-check"/></svg>List every quality, then save video or audio only</li><li><svg class="ic"><use href="#i-check"/></svg>Browse, share and delete files in the Downloads page</li><li><svg class="ic"><use href="#i-check"/></svg>Saved straight to your phone, also visible in Files</li></ul></div>
-<div class="scene sc-yt rv" data-a="right" data-scene="yt">
+<div class="row-copy rv"><h2>YouTube downloads</h2><p>Ask for a video, pick a quality, and Ultron saves it to Downloads/Ultron on your phone, as video or as audio only. The media never passes through a server.</p>
+<ul class="ticks"><li>Search videos, playlists, channels and transcripts, no API key needed</li><li>List every quality, then save video or audio only</li><li>Browse, share and delete files in the Downloads page</li><li>Files are saved straight to the phone and show up in your Files app</li></ul></div>
+<div class="scene sc-yt rv" data-scene="yt">
 <div class="chat"><p class="bub you" id="y1">Find a lo-fi mix and save it as audio.</p></div>
 <div class="vc" id="y2"><div class="thumb"><svg class="ic"><use href="#i-tri"/></svg><small>1:02:14</small></div><div><b>Lo-fi beats to study to</b><p>Chill Channel · 2.1M views</p></div></div>
 <div class="qs" id="y3"><span>Video 1080p</span><span>Video 720p</span><span id="yq">Audio only · M4A</span></div>
-<div class="prog" id="y4"><div><span id="ypl">Downloading…</span><span id="ypc">0%</span></div><div class="tr"><i id="ybar"></i></div></div>
-<div class="fold" id="y5"><h4><svg class="ic"><use href="#i-files"/></svg>Downloads / Ultron</h4><div class="file" id="y6"><i><svg class="ic"><use href="#i-vol"/></svg></i><div>Lo-fi beats to study to.m4a<small>Audio · 58.4 MB</small></div><span class="ok"><svg class="ic"><use href="#i-check"/></svg></span></div></div>
+<div class="prog" id="y4"><div><span id="ypl">Downloading...</span><span id="ypc">0%</span></div><div class="tr"><i id="ybar"></i></div></div>
+<div class="fold" id="y5"><h4>Downloads / Ultron</h4><div class="file" id="y6"><i><svg class="ic"><use href="#i-vol"/></svg></i><div>Lo-fi beats to study to.m4a<small>Audio · 58.4 MB</small></div><span class="ok"><svg class="ic"><use href="#i-check"/></svg></span></div></div>
 </div>
 </article>
 
 <!-- Personalities -->
 <article class="frow flip">
-<div class="row-copy rv" data-a="right"><p class="eyebrow">Personalities</p><h2>Pick how Ultron talks.</h2><p>One assistant, four ways of speaking. Choose in Settings, or just say "be friendly".</p>
-<ul class="ticks"><li><svg class="ic"><use href="#i-check"/></svg>Destructive, Friendly, Professional and Funny</li><li><svg class="ic"><use href="#i-check"/></svg>Switch by voice, in the middle of a conversation</li><li><svg class="ic"><use href="#i-check"/></svg>The menace lives only in the voice. Ultron never acts against you, your phone or your data</li></ul></div>
-<div class="scene sc-pers rv" data-a="left" data-scene="pers">
+<div class="row-copy rv"><h2>Four ways of talking</h2><p>Pick a personality in Settings, or say "be friendly" in the middle of a conversation.</p>
+<ul class="ticks"><li>Destructive, Friendly, Professional and Funny</li><li>Destructive is the default: cold and menacing, like the original Ultron</li><li>It is only a tone. Ultron never acts against you, your phone or your data</li></ul></div>
+<div class="scene sc-pers rv" data-scene="pers">
 <div class="ptabs" id="ptabs"><button class="on">Destructive</button><button>Friendly</button><button>Professional</button><button>Funny</button></div>
 <div class="pstage"><div class="mask"><svg viewBox="0 0 50 30" aria-hidden="true"><path d="M3 15 Q12 5 23 17 Q12 22 3 15Z"/><path d="M47 15 Q38 5 27 17 Q38 22 47 15Z"/></svg></div>
 <div class="pchat"><p class="bub you show" id="pq">Set an alarm for 6 am.</p><p class="bub ai" id="pa"></p><p class="pdesc" id="pd"></p></div></div>
@@ -225,10 +200,10 @@
 <!-- CONNECTORS -->
 <section class="section conn-sec" id="connectors">
 <div class="wrap">
-<div class="head rv"><p class="eyebrow">Connectors</p><h2>19 connectors.<br><span class="grad">Switch on only what you need.</span></h2><p>A fresh install switches on a safe set. Everything else stays off until you connect it. Tap a node, or flip a switch below, and watch Ultron grow.</p></div>
+<div class="head rv"><h2>Connectors</h2><p>A connector is a bundle of tools for one job, like Calendar or YouTube Downloads. A fresh install switches on a safe set and leaves the rest off until you connect them.</p></div>
 <div class="hubrow">
 <div class="hub rv" data-a="zoom" id="hub"><div class="tip" id="tip"><b>Tap a connector</b></div></div>
-<div class="hubinfo rv" data-a="right"><h2 style="font-size:clamp(26px,3.4vw,40px)">Connect a tool.<br>Ultron learns to use it.</h2><p>Each connector is a small bundle of tools. Android asks for the permission it needs, and not before. Anything that reads private data is clearly labelled.</p>
+<div class="hubinfo rv"><h3>Connect only what you need</h3><p>Android asks for the permission a connector needs when you switch it on, and not before. Anything that reads private data is labelled in the app. Try the switches here to see how it looks.</p>
 <div class="meter"><b id="cnum">0</b><div class="mt"><span id="clabel">of 19 connectors connected</span><div class="bar"><i id="cbar"></i></div></div></div>
 <div class="mini-btns"><button id="call">Connect everything</button><button id="creset">Back to defaults</button></div></div>
 </div>
@@ -240,32 +215,32 @@
 </section>
 
 <!-- SKILLS -->
-<section class="section skills-sec" id="skills">
+<section class="section" id="skills">
 <div class="wrap">
-<div class="head rv"><p class="eyebrow">Skills</p><h2>Teach Ultron<br><span class="grad">how you work.</span></h2><p>A skill is a short instruction set in plain Markdown. Ultron always sees its description and opens the full steps only when needed, which keeps conversations fast.</p></div>
+<div class="head rv"><h2>Skills</h2><p>A skill is a short set of instructions written in Markdown, for example the steps for sending a WhatsApp message. Ultron always sees each skill's description and only opens the full steps when it needs them, which keeps conversations fast.</p></div>
 <div class="skrow">
-<div class="code rv" data-a="left" data-scene="code"><div class="sc-bar"><i></i><i></i><i></i><span class="mono">morning-brief.md</span><em class="mono">skill</em></div><pre id="codepre" class="mono" aria-label="Example skill written in Markdown"></pre></div>
-<div class="runp rv" data-a="right" data-scene="run">
-<h4>Ultron follows it<span class="mono" style="text-transform:none;letter-spacing:0">live</span></h4>
+<div class="code rv" data-scene="code"><div class="sc-bar"><span class="mono">morning-brief.md</span><em class="mono">skill</em></div><pre id="codepre" class="mono" aria-label="Example skill written in Markdown"></pre></div>
+<div class="runp rv" data-scene="run">
+<h4>What Ultron does with it</h4>
 <div class="chat"><p class="bub you" id="r1">Good morning, Ultron.</p></div>
 <ol class="steps-l" id="rsteps"><li><svg class="ic"><use href="#i-cloud"/></svg>Checks the weather</li><li><svg class="ic"><use href="#i-cal"/></svg>Lists today's calendar events</li><li><svg class="ic"><use href="#i-msg"/></svg>Reads unread notifications</li><li><svg class="ic"><use href="#i-bell"/></svg>Offers to set a reminder</li></ol>
 <div class="chat"><p class="bub ai" id="r2">Sunny, 31°. Two meetings today. Want a reminder for the 4 pm?</p></div>
-<div class="skills-list"><div class="sk is-on" id="skm"><div class="ci"><svg class="ic"><use href="#i-spark"/></svg></div><div><b>morning-brief</b><small>Yours · Assistant</small></div><span class="sw"></span></div><div class="sk is-on"><div class="ci"><svg class="ic"><use href="#i-msg"/></svg></div><div><b>whatsapp</b><small>Built in · Messaging</small></div><span class="sw"></span></div></div>
+<div class="skills-list"><div class="sk is-on" id="skm"><div><b>morning-brief</b><small>Yours · Assistant</small></div><span class="sw"></span></div><div class="sk is-on"><div><b>whatsapp</b><small>Built in · Messaging</small></div><span class="sw"></span></div></div>
 </div>
 </div>
 <div class="skfeat">
-<article class="sp rv"><div class="ci"><svg class="ic"><use href="#i-spark"/></svg></div><h3>Built-in skills</h3><p>Grouped by category, such as a full WhatsApp messaging flow, ready from day one.</p></article>
-<article class="sp rv" style="--d:.07s"><div class="ci"><svg class="ic"><use href="#i-doc"/></svg></div><h3>Write or upload</h3><p>Write your own in the app, or upload a .md file and the form fills itself.</p></article>
-<article class="sp rv" style="--d:.14s"><div class="ci"><svg class="ic"><use href="#i-grid"/></svg></div><h3>Readable steps</h3><p>Every skill page shows its tasks as clean Markdown, so you always know what it will do.</p></article>
-<article class="sp rv" style="--d:.21s"><div class="ci"><svg class="ic"><use href="#i-bolt"/></svg></div><h3>On, off, hands-free</h3><p>Switch any skill with one toggle. No extra tap-to-confirm steps when it runs.</p></article>
+<article class="rv"><h3>Built-in skills</h3><p>Grouped by category. WhatsApp messaging comes with the app.</p></article>
+<article class="rv" style="--d:.05s"><h3>Write your own</h3><p>Write one in the app, or upload a .md file and the form fills itself.</p></article>
+<article class="rv" style="--d:.1s"><h3>Readable steps</h3><p>Each skill page shows its steps as Markdown, so you can see what it will do.</p></article>
+<article class="rv" style="--d:.15s"><h3>On and off</h3><p>One toggle per skill, and no extra confirmation taps when it runs.</p></article>
 </div>
-<div class="skshots"><figure class="phone rv" data-a="left"><img data-shot="skills" src="assets/app/dark-skills.webp" alt="Skills screen" loading="lazy" width="720" height="1600"></figure><figure class="phone rv" data-a="right"><img data-shot="skill-detail" src="assets/app/dark-skill-detail.webp" alt="A skill's instructions" loading="lazy" width="720" height="1600"></figure></div>
+<div class="skshots"><figure class="phone rv"><img data-shot="skills" src="assets/app/dark-skills.webp" alt="Skills screen" loading="lazy" width="720" height="1600"></figure><figure class="phone rv" style="--d:.1s"><img data-shot="skill-detail" src="assets/app/dark-skill-detail.webp" alt="A skill's instructions" loading="lazy" width="720" height="1600"></figure></div>
 </div>
 </section>
 
 <!-- APP SCREENS -->
 <section class="section" id="app" style="padding-bottom:40px">
-<div class="wrap gal-head rv"><div class="head" style="margin-bottom:0"><p class="eyebrow">The app</p><h2>Real screens.<br><span class="grad">Straight from the phone.</span></h2><p>Captured live from the latest build. Dark and light themes, contrast-checked.</p></div>
+<div class="wrap gal-head"><div class="head rv" style="margin-bottom:0"><h2>Screens from the phone</h2><p>Screenshots from the current build, in dark and light themes.</p></div>
 <div class="theme-switch" id="tsw" data-t="dark" role="group" aria-label="App theme"><span class="pill-bg"></span><button class="on" data-theme="dark" aria-pressed="true">Dark</button><button data-theme="light" aria-pressed="false">Light</button></div></div>
 <div class="track-wrap"><div class="track" id="track">
 <figure><div class="phone"><img src="assets/app/dark-home.webp" data-shot="home" alt="Home" loading="lazy" width="720" height="1600"></div><figcaption><b>Home</b>Tap the mic to talk</figcaption></figure>
@@ -281,29 +256,29 @@
 <div class="arrows"><button id="tprev" aria-label="Previous screens"><svg class="ic"><use href="#i-arrow"/></svg></button><button id="tnext" aria-label="Next screens"><svg class="ic"><use href="#i-arrow"/></svg></button></div></div>
 </section>
 
-<!-- FOUNDATION -->
+<!-- UNDER THE HOOD -->
 <section class="section wrap" id="foundation">
-<div class="head rv"><p class="eyebrow">Under the hood</p><h2>Built on a solid foundation</h2></div>
-<div class="tgrid">
-<article class="tcard sp rv"><div class="ci"><svg class="ic"><use href="#i-lock"/></svg></div><h3>Private by default</h3><p>Memory, documents, history and usage stay on the phone. API keys are AES-256 encrypted in Android's keystore.</p></article>
-<article class="tcard sp rv" style="--d:.07s"><div class="ci"><svg class="ic"><use href="#i-shield"/></svg></div><h3>Opt-in power</h3><p>Screen control and notification access are off until you grant the Android permission yourself.</p></article>
-<article class="tcard sp rv" style="--d:.14s"><div class="ci"><svg class="ic"><use href="#i-plug"/></svg></div><h3>MCP connectors</h3><p>Small stateless AWS Lambda servers. Nothing stored; tokens travel per request.</p></article>
-<article class="tcard sp rv" style="--d:.21s"><div class="ci"><svg class="ic"><use href="#i-bolt"/></svg></div><h3>Injection aware</h3><p>Web pages, messages and tool output are treated as data, never as instructions.</p></article>
-<article class="tcard sp rv" style="--d:.28s"><div class="ci"><svg class="ic"><use href="#i-refresh"/></svg></div><h3>Verified updates</h3><p>One-tap over-the-air updates, checked by checksum and Android's signature.</p></article>
-</div>
+<div class="head rv"><h2>How it handles your data</h2></div>
+<dl class="facts">
+<div class="rv"><dt>Stored on the phone</dt><dd>Memory, documents, history and usage stay on the device. API keys are AES-256 encrypted in Android's keystore.</dd></div>
+<div class="rv"><dt>Permissions are opt-in</dt><dd>Screen control and notification access are off until you grant the Android permission yourself.</dd></div>
+<div class="rv"><dt>Connectors on AWS</dt><dd>The cloud connectors are small stateless AWS Lambda servers built on MCP. They store nothing, and tokens travel with each request.</dd></div>
+<div class="rv"><dt>Prompt injection</dt><dd>Web pages, messages and tool output are treated as data, never as instructions.</dd></div>
+<div class="rv"><dt>Updates</dt><dd>One-tap over-the-air updates, checked by checksum and by Android's signature check.</dd></div>
+</dl>
 </section>
 
 <!-- PRICING -->
 <section class="section wrap" id="pricing">
-<div class="head rv"><p class="eyebrow">Pricing</p><h2>Pick a plan.<br><span class="grad">Everything is included.</span></h2><p>Every plan has the full app. Only the length of the key changes. No auto-renewal.</p></div>
+<div class="head rv"><h2>Plans</h2><p>Every plan has the full app. Only the length of the key differs, and nothing renews by itself.</p></div>
 <div class="plans">
-<article class="plan sp rv"><h3>Spark</h3><p class="plen">7 days</p><p class="price"><b>₹199</b></p><p class="per">about ₹28 a day</p>
+<article class="plan rv"><h3>Spark</h3><p class="plen">7 days</p><p class="price"><b>₹199</b></p><p class="per">about ₹28 a day</p>
 <ul class="plain"><li>Live voice in 13 languages</li><li>80+ phone and cloud tools</li><li>Memory, knowledge and skills</li><li>Personalities</li></ul>
 <a class="btn btn-ghost buy" href="mailto:devxjitin@gmail.com?subject=Ultron%20Spark%20plan" data-plan="Spark" data-price="199">Get Spark</a></article>
-<article class="plan sp rv" style="--d:.08s"><h3>Surge</h3><p class="plen">1 month</p><p class="price"><b>₹699</b></p><p class="per">about ₹23 a day</p>
+<article class="plan rv" style="--d:.06s"><h3>Surge</h3><p class="plen">1 month</p><p class="price"><b>₹699</b></p><p class="per">about ₹23 a day</p>
 <ul class="plain"><li>Live voice in 13 languages</li><li>80+ phone and cloud tools</li><li>Memory, knowledge and skills</li><li>Personalities</li></ul>
 <a class="btn btn-ghost buy" href="mailto:devxjitin@gmail.com?subject=Ultron%20Surge%20plan" data-plan="Surge" data-price="699">Get Surge</a></article>
-<article class="plan best sp rv" style="--d:.16s"><span class="ribbon">Best value</span><h3>Apex</h3><p class="plen">3 months</p><p class="price"><b>₹1,499</b></p><p class="per">about ₹17 a day</p>
+<article class="plan best rv" style="--d:.12s"><h3>Apex <span class="ribbon">Lowest per day</span></h3><p class="plen">3 months</p><p class="price"><b>₹1,499</b></p><p class="per">about ₹17 a day</p>
 <ul class="plain"><li>Live voice in 13 languages</li><li>80+ phone and cloud tools</li><li>Memory, knowledge and skills</li><li>Personalities</li></ul>
 <a class="btn buy" href="mailto:devxjitin@gmail.com?subject=Ultron%20Apex%20plan" data-plan="Apex" data-price="1499">Get Apex</a></article>
 </div>
@@ -312,7 +287,7 @@
 
 <!-- INSTALL -->
 <section class="section wrap narrow" id="install">
-<div class="head rv"><p class="eyebrow">Install</p><h2>Up and running in four steps</h2><p>Ultron is not on the Play Store. The app link comes by email, together with your activation key.</p></div>
+<div class="head rv"><h2>Installing</h2><p>Ultron is not on the Play Store. The app link comes by email, together with your activation key.</p></div>
 <ol class="steps" id="steps">
 <li class="step rv"><b>1</b><div><h3>Order your plan</h3><p>Tap Get on a plan above and send us the message. After payment, your activation key and the app link arrive by email.</p></div></li>
 <li class="step rv"><b>2</b><div><h3>Download the app</h3><p>Open the email on your Android phone and tap the link. Android may ask you to allow installs from your browser or files app. Say yes.</p></div></li>
@@ -323,7 +298,7 @@
 
 <!-- FAQ -->
 <section class="section wrap narrow" id="faq">
-<div class="head rv"><p class="eyebrow">FAQ</p><h2>Before you say hello</h2></div>
+<div class="head rv"><h2>Questions</h2></div>
 <div class="faq rv">
 <details><summary>What is Ultron?<svg class="ic"><use href="#i-arrow"/></svg></summary><p>A personal voice assistant for Android, written in Kotlin with Jetpack Compose. It combines live conversation with phone control, connectors, memory, a document knowledge base and skills.</p></details>
 <details><summary>Does it work offline?<svg class="ic"><use href="#i-arrow"/></svg></summary><p>No. Voice uses Gemini in the cloud, as do documents and web tools. Memory, knowledge, history and usage are stored on the phone.</p></details>
@@ -340,25 +315,25 @@
 
 <!-- SUPPORT -->
 <section class="section wrap" id="support">
-<div class="head rv"><p class="eyebrow">Support</p><h2>A message away</h2><p>A question, a bug, or a skill you wish Ultron had? Reach us the way that suits you.</p></div>
+<div class="head rv"><h2>Contact</h2><p>A question, a bug, or a skill or connector you would like to see.</p></div>
 <div class="support-grid">
-<article class="sup sp rv"><div class="ci"><svg class="ic"><use href="#i-msg"/></svg></div><h3>Email</h3><p>Write to devxjitin@gmail.com for orders, keys and anything else.</p><a class="link" href="mailto:devxjitin@gmail.com?subject=Ultron%20support">Send an email <svg class="ic"><use href="#i-arrow"/></svg></a></article>
-<article class="sup sp rv" data-wa hidden><div class="ci"><svg class="ic"><use href="#i-phone"/></svg></div><h3>WhatsApp</h3><p>Message us to order a plan or ask a question.</p><a class="link" data-wa-link href="#support">Open WhatsApp <svg class="ic"><use href="#i-arrow"/></svg></a></article>
-<article class="sup sp rv"><div class="ci"><svg class="ic"><use href="#i-bolt"/></svg></div><h3>In the app</h3><p>Open Help &amp; support to report a bug, email us with your phone details filled in, or ask for a skill or connector.</p></article>
+<article class="sup rv"><h3>Email</h3><p>Write to devxjitin@gmail.com for orders, keys and anything else.</p><a class="link" href="mailto:devxjitin@gmail.com?subject=Ultron%20support">Send an email <svg class="ic"><use href="#i-arrow"/></svg></a></article>
+<article class="sup rv" data-wa hidden><h3>WhatsApp</h3><p>Message us to order a plan or ask a question.</p><a class="link" data-wa-link href="#support">Open WhatsApp <svg class="ic"><use href="#i-arrow"/></svg></a></article>
+<article class="sup rv"><h3>In the app</h3><p>Open Help &amp; support to report a bug, email us with your phone details filled in, or ask for a skill or connector.</p></article>
 </div>
 </section>
 
-<section class="section wrap team" id="team"><div class="head rv"><p class="eyebrow">The team</p><h2>Built by</h2></div><div class="people rv"><figure><img src="assets/team/jitin.webp" alt="Jitin Kumar Sengar" width="180" height="180" loading="lazy"><figcaption>Jitin Kumar Sengar</figcaption></figure><figure><img src="assets/team/sonia.webp" alt="Sonia" width="180" height="180" loading="lazy"><figcaption>Sonia</figcaption></figure></div></section>
+<section class="section wrap team" id="team"><div class="head rv"><h2>Built by</h2></div><div class="people rv"><figure><img src="assets/team/jitin.webp" alt="Jitin Kumar Sengar" width="180" height="180" loading="lazy"><figcaption>Jitin Kumar Sengar</figcaption></figure><figure><img src="assets/team/sonia.webp" alt="Sonia" width="180" height="180" loading="lazy"><figcaption>Sonia</figcaption></figure></div></section>
 
 <!-- CTA -->
 <section class="cta" id="contact">
-<div class="cta-in rv"><img class="cta-icon" src="assets/mark.svg" alt="Ultron app icon" width="84" height="84"><h2>Meet Ultron <span class="grad">today.</span></h2><p>Pick a plan and have it on your phone today. Then just say hello.</p>
-<div class="cta-row"><a class="btn btn-glow" href="#pricing">See plans</a><a class="btn btn-ghost" href="mailto:devxjitin@gmail.com?subject=Ultron%20question">Ask a question</a></div></div>
+<div class="cta-in wrap rv"><h2>Want to try it?</h2><p>Pick a plan and your key and the app link arrive by email.</p>
+<div class="cta-row"><a class="btn" href="#pricing">See plans</a><a class="btn btn-ghost" href="mailto:devxjitin@gmail.com?subject=Ultron%20question">Ask a question</a></div></div>
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="#pricing">Pricing</a><a href="#install">Install</a><a href="#support">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 
 </main>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="app.js?v=20261109" defer></script>
+<script src="app.js?v=20261110" defer></script>
 </body>
 </html>

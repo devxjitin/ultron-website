@@ -35,14 +35,8 @@ if(window.Lenis&&!still){
   }));
 }
 
-/* scroll-linked effects: parallax, hero depth, word-by-word text scrub */
+/* scroll-linked effects: word-by-word text scrub and the install line */
 const prog=$('#progress'),stepsEl=$('#steps');
-const heroCopy=$('.hero-copy'),heroRib=$('#ribbon');
-const par=[];
-const reg=(sel,f,o)=>$$(sel).forEach((el,i)=>par.push({el,f:typeof f==='function'?f(i):f,cur:0,scale:!!(o&&o.scale)}));
-reg('.scene',.05);reg('.code,.runp',.035);
-reg('.frow .row-copy',-.03);reg('.wc',i=>i%2?.05:-.05);reg('.tcard',i=>i%2?.04:-.04);
-reg('.skshots .phone',i=>i?-.08:.06);reg('.head',-.025);
 function splitScrub(el){
   const ws=[];
   const walk=n=>[...n.childNodes].forEach(c=>{
@@ -63,27 +57,9 @@ if(still)scrubs.forEach(s=>s.ws.forEach(w=>w.classList.add('lit')));
 function fx(){
   const vh=innerHeight,y=scrollY;
   if(!still){
-    if(y<vh*1.3){
-      const p=clamp(y/vh,0,1);
-      heroCopy.style.translate=`0 ${(-y*.2).toFixed(1)}px`;heroCopy.style.opacity=(1-p*1.2).toFixed(3);
-      hph.style.translate=`0 ${(-y*.12).toFixed(1)}px`;hph.style.scale=(1+p*.14).toFixed(3);
-      slots.forEach((s,i)=>{s.style.translate=`0 ${(-y*(.16+.06*i)).toFixed(1)}px`});
-      heroRib.style.translate=`0 ${(y*.14).toFixed(1)}px`;
-    }
-    // read phase first, write phase after, so the browser lays out once per frame instead of once per element
-    const reads=[];
-    for(const p of par){
-      const r=p.el.getBoundingClientRect();
-      if(r.bottom<-300||r.top>vh+300)continue;
-      reads.push([p,(r.top-p.cur+r.height/2-vh/2)/vh]);
-    }
-    let sr=null,pr=null;
-    if(stepsEl)sr=stepsEl.getBoundingClientRect();
+    // read phase first, write phase after, so the browser lays out once per frame
+    const sr=stepsEl?stepsEl.getBoundingClientRect():null;
     const scr=scrubs.map(s=>s.el.getBoundingClientRect().top);
-    for(const [p,c] of reads){
-      const v=clamp(c*p.f*100,-60,60);
-      if(Math.abs(v-p.cur)>.15){p.cur=v;p.el.style.translate=`0 ${v.toFixed(1)}px`}
-    }
     scrubs.forEach((s,k)=>{
       const lit=Math.ceil(clamp((vh*.9-scr[k])/(vh*.55),0,1)*s.ws.length);
       if(lit!==s.lit){s.ws.forEach((w,i)=>w.classList.toggle('lit',i<lit));s.lit=lit}
@@ -113,28 +89,7 @@ const secIO=new IntersectionObserver(es=>es.forEach(e=>{
 }),{rootMargin:'-45% 0px -50% 0px'});
 navA.forEach(a=>{const s=$(a.getAttribute('href'));if(s)secIO.observe(s)});
 
-// cursor glow, spotlight, tilt, magnetic buttons
-const glow=$('#glow');
-let gx=0,gy=0,gq=false;
-addEventListener('pointermove',e=>{
-  gx=e.clientX;gy=e.clientY;
-  if(!gq){gq=true;requestAnimationFrame(()=>{gq=false;glow.style.transform=`translate(${gx}px,${gy}px)`})}
-  const sp=e.target.closest&&e.target.closest('.sp');
-  if(sp){const r=sp.getBoundingClientRect();sp.style.setProperty('--mx',(e.clientX-r.left)+'px');sp.style.setProperty('--my',(e.clientY-r.top)+'px')}
-},{passive:true});
 const hero=$('#top'),hph=$('#hphone');
-hero.addEventListener('pointermove',e=>{
-  if(still||e.pointerType==='touch')return;
-  const r=hph.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/innerWidth,y=(e.clientY-(r.top+r.height/2))/innerHeight;
-  hph.style.setProperty('--ry',(x*22).toFixed(2)+'deg');hph.style.setProperty('--rx',(-y*16).toFixed(2)+'deg');
-});
-hero.addEventListener('pointerleave',()=>{hph.style.setProperty('--ry','0deg');hph.style.setProperty('--rx','0deg')});
-if(!still&&matchMedia('(hover:hover)').matches){
-  $$('.btn').forEach(b=>{
-    b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${((e.clientX-r.left)/r.width-.5)*10}px,${((e.clientY-r.top)/r.height-.5)*12-2}px)`});
-    b.addEventListener('pointerleave',()=>{b.style.transform=''});
-  });
-}
 
 // reveal on scroll
 // two-way: animates in from whichever edge it enters, and resets once fully out of view so it replays
@@ -160,13 +115,6 @@ const cio=new IntersectionObserver(es=>es.forEach(e=>{
   requestAnimationFrame(step);
 }),{threshold:.6});
 $$('[data-count]').forEach(b=>cio.observe(b));
-
-// marquee: duplicate content for a seamless loop
-$$('[data-dup]').forEach(r=>{r.innerHTML+=r.innerHTML;$$('span',r).slice(r.children.length/2).forEach(s=>s.setAttribute('aria-hidden','true'))});
-
-// equalizer bars
-const eq=$('#eq');
-if(eq)for(let i=0;i<30;i++){const b=document.createElement('i');b.style.animationDelay=(-Math.random()*1.4).toFixed(2)+'s';b.style.animationDuration=(.6+Math.random()*.9).toFixed(2)+'s';eq.appendChild(b)}
 
 /* ---------- ribbons (canvas waves like the app's voice ribbon) ---------- */
 const ribbons=[];
@@ -195,7 +143,6 @@ function drawRibbon(r,t){
   }
   x.globalAlpha=1;
 }
-const rbHero=makeRibbon($('#ribbon'),hero,{amp:.07,mid:.5,layers:20});
 const rbVoice=makeRibbon($('#wave'),$('[data-scene=voice]'),{amp:.1,mid:.5,layers:16});
 if(still){ribbons.forEach(r=>drawRibbon(r,1))}
 else{
@@ -217,42 +164,19 @@ async function boot(el){
 }
 $$('[data-scene]').forEach(el=>{el._vis=false;sio.observe(el)});
 
-/* hero: typed commands + floating action chips */
-const CMDS=[
-  {say:'Turn on the flashlight',ic:'i-flash',t:'Flashlight on',s:'Device controls'},
-  {say:'Set an alarm for 6:30 tomorrow',ic:'i-clock',t:'Alarm set · 6:30 am',s:'Alarms & timers'},
-  {say:'Save this song as audio',ic:'i-down',t:'Saved to Downloads/Ultron',s:'YouTube Downloads'},
-  {say:"What's the weather tomorrow?",ic:'i-cloud',t:'Sunny, high of 31°',s:'Weather'},
-  {say:'Message Ria: on my way',ic:'i-send',t:'Message sent',s:'Screen control'},
-  {say:'Remind me about the 4 pm meeting',ic:'i-bell',t:'Reminder set · 4 pm',s:'Reminders'},
-  {say:'What did I say on Tuesday?',ic:'i-brain',t:'Found in your history',s:'Memory'},
-  {say:'When is my chemistry exam?',ic:'i-book',t:'14 Nov, 10 am',s:'Knowledge'}
-];
-const typed=$('#typed'),slots=$$('.fl');
-const fillSlot=(el,c)=>{el.innerHTML=`<span class="fi"><svg class="ic"><use href="#${c.ic}"/></svg></span><div><b>${c.t}</b><small>${c.s}</small></div><span class="ok"><svg class="ic"><use href="#i-check"/></svg></span>`};
+/* hero: typed example commands; the phone shows the listening screen while one is typed */
+const CMDS=['Turn on the flashlight','Set an alarm for 6:30 tomorrow','Save this song as audio',"What's the weather tomorrow?",'Message Ria that I am on my way','Remind me about the 4 pm meeting','What did I say on Tuesday?','When is my chemistry exam?'];
+const typed=$('#typed');
 let hi=0;
 S.hero={
-  still(){typed.textContent=CMDS[0].say;CMDS.slice(0,4).forEach((c,i)=>{fillSlot(slots[i],c);slots[i].classList.add('show')})},
+  still(){typed.textContent=CMDS[0]},
   async play(el){
-    const c=CMDS[hi%CMDS.length],slot=slots[hi%slots.length];hi++;
-    hph.classList.add('listening');rbHero.amp=.16;
-    await typeInto(typed,c.say,38,el);
-    await nap(el,350);
-    rbHero.amp=.07;hph.classList.remove('listening');
-    slot.classList.remove('show');await sleep(250);fillSlot(slot,c);slot.classList.add('show');
-    await nap(el,2100);
-  }
-};
-
-/* languages card */
-const LANGS=[['Hello','English'],['नमस्ते','हिन्दी'],['வணக்கம்','தமிழ்'],['నమస్కారం','తెలుగు'],['নমস্কার','বাংলা'],['નમસ્તે','ગુજરાતી'],['ನಮಸ್ಕಾರ','ಕನ್ನಡ'],['നമസ്കാരം','മലയാളം'],['ਸਤ ਸ੍ਰੀ ਅਕਾਲ','ਪੰਜਾਬੀ'],['नमस्कार','मराठी'],['آداب','اردو'],['ନମସ୍କାର','ଓଡ଼ିଆ'],['নমস্কাৰ','অসমীয়া']];
-const flip=$('#flip'),flipl=$('#flipl');let li=0;
-S.flip={
-  still(){flip.textContent='नमस्ते';flipl.textContent='हिन्दी'},
-  async play(el){
-    flip.classList.add('out');await sleep(350);
-    li=(li+1)%LANGS.length;flip.textContent=LANGS[li][0];flipl.textContent=LANGS[li][1];
-    flip.classList.remove('out');await nap(el,1700);
+    const c=CMDS[hi++%CMDS.length];
+    hph.classList.add('listening');
+    await typeInto(typed,c,38,el);
+    await nap(el,1600);
+    hph.classList.remove('listening');
+    await nap(el,900);
   }
 };
 
@@ -534,19 +458,6 @@ $$('#cfilters button').forEach(b=>b.addEventListener('click',()=>{
   $('#tprev').addEventListener('click',()=>by(-1));$('#tnext').addEventListener('click',()=>by(1));
 })();
 
-/* marquee speeds up with scroll velocity */
-(()=>{
-  if(still||!lenis)return;
-  const anims=$$('.marq .row').map(r=>r.getAnimations()[0]).filter(Boolean);
-  let rate=1;
-  const loop=()=>{
-    const target=1+Math.min(7,Math.abs(lenis.velocity||0)*.45);
-    const next=rate+(target-rate)*.08;
-    if(Math.abs(next-rate)>.01||(target===1&&rate!==1)){rate=Math.abs(next-1)<.02?1:next;anims.forEach(a=>{a.playbackRate=rate})}
-    requestAnimationFrame(loop);
-  };
-  requestAnimationFrame(loop);
-})();
 onScroll();
 
 /* ---------- pause motion ---------- */
