@@ -367,6 +367,7 @@ html.lenis,html.lenis body{height:auto}
 .steps::before{content:"";position:absolute;left:20px;top:24px;bottom:24px;width:2px;background:var(--red);opacity:.6;transform-origin:0 0;transform:scaleY(var(--sp,0))}
 .step{display:flex;gap:20px;padding:20px 22px;border:1px solid var(--line);border-radius:12px;background:var(--s1);position:relative}
 .step>b{flex:none;width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--line2);display:grid;place-items:center;font:600 16px var(--fh)}
+.step .dl{margin-top:12px}
 .step h3{font-size:19px;margin-bottom:6px}.step p{font-size:15.5px}.step i{color:#fff;font-style:normal;font-weight:500}
 
 /* faq */
