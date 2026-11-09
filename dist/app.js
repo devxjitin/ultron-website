@@ -92,3 +92,23 @@ if(reduce){mb.hidden=true}
   }else addEventListener('scroll',update,{passive:true});
   addEventListener('resize',update);
 })();
+
+// plan buttons: open a WhatsApp chat when a number is set, otherwise the email already in each link
+(()=>{
+  // Orders go to this WhatsApp number. Country code first, digits only, for example "919876543210". Empty: orders use email.
+  const BUY_WHATSAPP='917078710389';
+  const number=BUY_WHATSAPP.replace(/\D/g,'');
+  if(!number)return;
+  const wa=text=>`https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+  document.querySelectorAll('.buy').forEach(a=>{
+    const {plan,price}=a.dataset;
+    a.href=wa(`Hi, I want the Ultron ${plan} plan (₹${Number(price).toLocaleString('en-IN')}).`);
+    a.target='_blank';a.rel='noopener';
+  });
+  const card=document.querySelector('[data-wa]');
+  if(card){
+    card.hidden=false;
+    const link=card.querySelector('[data-wa-link]');
+    link.href=wa('Hi, I have a question about Ultron.');link.target='_blank';link.rel='noopener';
+  }
+})();
