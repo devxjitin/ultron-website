@@ -18,7 +18,7 @@ from usecases import CONNECTORS, SCENE_TOOLS, TOOLS
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 DOCS = DIST / "docs"
-V = "20261120"
+V = "20261121"
 SITE = "https://ultron.devxjitin.dev"
 DOWNLOAD = "https://api.devxjitin.dev/v1/releases/download"
 

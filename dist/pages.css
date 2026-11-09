@@ -31,31 +31,32 @@
 .meta dt{color:var(--dim)}
 .meta dd{color:#d9d3cd}
 
-.trows{list-style:none;padding:0;margin-top:14px;border-top:1px solid var(--line)}
-.trow{padding:18px 0;border-bottom:1px solid var(--line)}
-.tn{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.trows{list-style:none;padding:0;margin-top:16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.trow{display:flex;flex-direction:column;gap:8px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--s1);transition:border-color .25s}
+.trow:hover{border-color:var(--line2)}
+.tn{display:flex;flex-direction:column;gap:3px}
 .tn h3{font-size:18px}
-.tn code,.trow code{font:400 13px "JetBrains Mono",ui-monospace,Consolas,monospace;color:var(--dim)}
-.trow p{font-size:15.5px;margin-top:5px;max-width:42em}
-.trow .ex{color:#d9d3cd}
+.tn code,.trow code{font:400 12.5px "JetBrains Mono",ui-monospace,Consolas,monospace;color:var(--dim);word-break:break-all}
+.trow p{font-size:15px;line-height:1.5}
+.trow .ex{margin-top:auto;padding:10px 12px;border-radius:10px;background:var(--s3);color:#e4dcd6;font-size:14.5px}
 .trow q{quotes:none;font-style:italic}
 
-.idx{list-style:none;padding:0;margin-top:14px;border-top:1px solid var(--line)}
-.idx a{display:grid;grid-template-columns:200px 1fr auto;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
-.idx a:hover b{color:var(--red3)}
-.idx b{font:600 16.5px var(--fh)}
-.idx span{color:var(--mute);font-size:15px}
-.idx em{font-style:normal;color:var(--dim);font-size:13.5px}
+.idx{list-style:none;padding:0;margin-top:16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.idx a{display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--s1);transition:border-color .25s,transform .25s var(--ease)}
+.idx a:hover{border-color:rgba(207,47,58,.55);transform:translateY(-2px)}
+.idx b{font:600 18px var(--fh)}
+.idx span{color:var(--mute);font-size:15px;line-height:1.5;flex:1}
+.idx em{font-style:normal;color:var(--dim);font-size:13.5px;margin-top:4px}
 
-.dl{margin-top:12px;border-top:1px solid var(--line);max-width:44em}
-.dl>div{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-.dl dt{font:600 16px var(--fh)}
-.dl dd{color:var(--mute);font-size:15.5px}
+.dl{margin-top:16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dl>div{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--s1)}
+.dl dt{font:600 17px var(--fh)}
+.dl dd{color:var(--mute);font-size:15px;line-height:1.5}
 .rel{padding-left:20px;margin-top:10px;display:grid;gap:6px}
 
-.osteps{margin-top:26px;padding-left:0;list-style:none;counter-reset:s;max-width:44em;border-top:1px solid var(--line)}
-.osteps li{counter-increment:s;padding:16px 0 16px 46px;border-bottom:1px solid var(--line);position:relative}
-.osteps li::before{content:counter(s);position:absolute;left:0;top:16px;width:28px;height:28px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font-size:13.5px;color:var(--mute)}
+.osteps{margin-top:26px;padding-left:0;list-style:none;counter-reset:s;display:grid;gap:12px}
+.osteps li{counter-increment:s;padding:16px 20px 16px 66px;border:1px solid var(--line);border-radius:14px;background:var(--s1);position:relative}
+.osteps li::before{content:counter(s);position:absolute;left:20px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--accsoft);color:var(--red3);display:grid;place-items:center;font:600 14px var(--fh)}
 .osteps h3{font-size:17.5px;margin-bottom:3px}
 .osteps p{font-size:15.5px}
 
@@ -117,9 +118,7 @@
   .demo{position:static;width:min(260px,100%)}
 }
 @media(max-width:700px){
-  .idx a{grid-template-columns:1fr;gap:3px}
-  .idx em{display:none}
-  .dl>div{grid-template-columns:1fr;gap:3px}
+  .trows,.idx,.dl{grid-template-columns:1fr}
   .meta>div{grid-template-columns:1fr;gap:2px}
   .pn{grid-template-columns:1fr}
 }
