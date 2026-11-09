@@ -364,7 +364,7 @@ const CONN=[
   ['weather','Weather','ess','i-cloud','Free, no sign-in','Weather now and for the next few days.','Will it rain tomorrow?',1],
   ['duckduckgo','Web search','web','i-search','No sign-in','Search the web, with sources.','Search for the best laptop deals.',1],
   ['web_reader','Web pages','web','i-globe','Free, no sign-in','Read any web page or link, and summarise it by voice.','Summarise this page for me.',1],
-  ['youtube','YouTube Search','web','i-play','On AWS','Search videos and playlists, get details, transcripts and channel uploads.','Find a lo-fi playlist.',0],
+  ['youtube','YouTube Search','web','i-play','Online','Search videos and playlists, get details, transcripts and channel uploads.','Find a lo-fi playlist.',0],
   ['youtube_downloads','YouTube Downloads','web','i-down','On your phone','List qualities and save video or audio to Downloads/Ultron.','Save this video as audio.',0],
   ['images','Pictures','web','i-img','On your phone','Show pictures you saved in Ultron, or photos from your phone.','Show the picture I saved.',0],
   ['calendar','Calendar','data','i-cal','On your phone','Check your schedule, spot conflicts and add events.','What is on my calendar today?',0],

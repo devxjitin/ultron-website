@@ -11,7 +11,7 @@
 <link rel="icon" href="assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles.css?v=20261110">
+<link rel="stylesheet" href="styles.css?v=20261111">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -262,7 +262,7 @@
 <dl class="facts">
 <div class="rv"><dt>Stored on the phone</dt><dd>Memory, documents, history and usage stay on the device. API keys are AES-256 encrypted in Android's keystore.</dd></div>
 <div class="rv"><dt>Permissions are opt-in</dt><dd>Screen control and notification access are off until you grant the Android permission yourself.</dd></div>
-<div class="rv"><dt>Connectors on AWS</dt><dd>The cloud connectors are small stateless AWS Lambda servers built on MCP. They store nothing, and tokens travel with each request.</dd></div>
+<div class="rv"><dt>Online connectors store nothing</dt><dd>The connectors that use the internet, like web search and YouTube search, do not keep your requests.</dd></div>
 <div class="rv"><dt>Prompt injection</dt><dd>Web pages, messages and tool output are treated as data, never as instructions.</dd></div>
 <div class="rv"><dt>Updates</dt><dd>One-tap over-the-air updates, checked by checksum and by Android's signature check.</dd></div>
 </dl>
@@ -270,15 +270,15 @@
 
 <!-- PRICING -->
 <section class="section wrap" id="pricing">
-<div class="head rv"><h2>Plans</h2><p>Every plan has the full app. Only the length of the key differs, and nothing renews by itself.</p></div>
+<div class="head rv"><h2>Plans</h2><p>Every plan has the full app. Only the length of the key differs, and nothing renews by itself. <b class="offer">Launch offer: up to 33% off.</b></p></div>
 <div class="plans">
-<article class="plan rv"><h3>Spark</h3><p class="plen">7 days</p><p class="price"><b>₹199</b></p><p class="per">about ₹28 a day</p>
+<article class="plan rv"><h3>Spark</h3><p class="plen">7 days</p><p class="price"><s>₹299</s><b>₹199</b><span class="off">33% off</span></p><p class="per">about ₹28 a day</p>
 <ul class="plain"><li>Live voice in 13 languages</li><li>80+ phone and cloud tools</li><li>Memory, knowledge and skills</li><li>Personalities</li></ul>
 <a class="btn btn-ghost buy" href="mailto:devxjitin@gmail.com?subject=Ultron%20Spark%20plan" data-plan="Spark" data-price="199">Get Spark</a></article>
-<article class="plan rv" style="--d:.06s"><h3>Surge</h3><p class="plen">1 month</p><p class="price"><b>₹699</b></p><p class="per">about ₹23 a day</p>
+<article class="plan rv" style="--d:.06s"><h3>Surge</h3><p class="plen">1 month</p><p class="price"><s>₹999</s><b>₹699</b><span class="off">30% off</span></p><p class="per">about ₹23 a day</p>
 <ul class="plain"><li>Live voice in 13 languages</li><li>80+ phone and cloud tools</li><li>Memory, knowledge and skills</li><li>Personalities</li></ul>
 <a class="btn btn-ghost buy" href="mailto:devxjitin@gmail.com?subject=Ultron%20Surge%20plan" data-plan="Surge" data-price="699">Get Surge</a></article>
-<article class="plan best rv" style="--d:.12s"><h3>Apex <span class="ribbon">Lowest per day</span></h3><p class="plen">3 months</p><p class="price"><b>₹1,499</b></p><p class="per">about ₹17 a day</p>
+<article class="plan best rv" style="--d:.12s"><h3>Apex <span class="ribbon">Lowest per day</span></h3><p class="plen">3 months</p><p class="price"><s>₹2,199</s><b>₹1,499</b><span class="off">32% off</span></p><p class="per">about ₹17 a day</p>
 <ul class="plain"><li>Live voice in 13 languages</li><li>80+ phone and cloud tools</li><li>Memory, knowledge and skills</li><li>Personalities</li></ul>
 <a class="btn buy" href="mailto:devxjitin@gmail.com?subject=Ultron%20Apex%20plan" data-plan="Apex" data-price="1499">Get Apex</a></article>
 </div>
@@ -300,7 +300,7 @@
 <section class="section wrap narrow" id="faq">
 <div class="head rv"><h2>Questions</h2></div>
 <div class="faq rv">
-<details><summary>What is Ultron?<svg class="ic"><use href="#i-arrow"/></svg></summary><p>A personal voice assistant for Android, written in Kotlin with Jetpack Compose. It combines live conversation with phone control, connectors, memory, a document knowledge base and skills.</p></details>
+<details><summary>What is Ultron?<svg class="ic"><use href="#i-arrow"/></svg></summary><p>A personal voice assistant for Android. It combines live conversation with phone control, connectors, memory, a document knowledge base and skills.</p></details>
 <details><summary>Does it work offline?<svg class="ic"><use href="#i-arrow"/></svg></summary><p>No. Voice uses Gemini in the cloud, as do documents and web tools. Memory, knowledge, history and usage are stored on the phone.</p></details>
 <details><summary>Can it control any app?<svg class="ic"><use href="#i-arrow"/></svg></summary><p>With Accessibility enabled it can read and tap supported screens. Results depend on the app and on Android's restrictions.</p></details>
 <details><summary>What leaves my phone?<svg class="ic"><use href="#i-arrow"/></svg></summary><p>Your voice goes to Gemini to produce replies, documents are sent to be embedded, and tool calls go to the connectors you enable. The app also includes Firebase Crashlytics and Analytics. Read the full <a class="inline" href="privacy.html">Privacy Policy</a>.</p></details>
@@ -323,7 +323,11 @@
 </div>
 </section>
 
-<section class="section wrap team" id="team"><div class="head rv"><h2>Built by</h2></div><div class="people rv"><figure><img src="assets/team/jitin.webp" alt="Jitin Kumar Sengar" width="180" height="180" loading="lazy"><figcaption>Jitin Kumar Sengar</figcaption></figure><figure><img src="assets/team/sonia.webp" alt="Sonia" width="180" height="180" loading="lazy"><figcaption>Sonia</figcaption></figure></div></section>
+<section class="section wrap team" id="team"><div class="head rv"><h2>The people behind Ultron</h2><p>Ultron is made by two people who use it every day.</p></div>
+<div class="team-grid">
+<article class="person rv"><img src="assets/team/jitin.webp" alt="Jitin Kumar Sengar" width="180" height="180" loading="lazy"><div><h3>Jitin Kumar Sengar</h3><p class="role">Creator and developer</p><p>Jitin designed and built Ultron, from the voice conversation and phone control to the memory, knowledge base and skills. He also handles orders, keys and support, so a message to the contact address reaches him directly.</p></div></article>
+<article class="person rv" style="--d:.08s"><img src="assets/team/sonia.webp" alt="Sonia" width="180" height="180" loading="lazy"><div><h3>Sonia</h3><p class="role">Co-builder</p><p>Sonia works on Ultron alongside Jitin, helping shape how it looks and behaves and testing it on a real phone before each release.</p></div></article>
+</div></section>
 
 <!-- CTA -->
 <section class="cta" id="contact">
@@ -334,6 +338,6 @@
 
 </main>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="app.js?v=20261110" defer></script>
+<script src="app.js?v=20261111" defer></script>
 </body>
 </html>

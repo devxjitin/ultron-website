@@ -354,7 +354,7 @@ html.lenis,html.lenis body{height:auto}
 .plan{padding:30px 26px;border:1px solid var(--line);border-radius:14px;background:var(--s1);display:flex;flex-direction:column}
 .plan h3{font-size:24px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .plen{margin-top:4px;color:var(--mute);font-size:15px}
-.price{margin:20px 0 4px}.price b{font:600 48px/1 var(--fh);color:#fff;letter-spacing:-.03em}.per{font-size:14.5px;color:var(--dim);margin-bottom:24px}
+.price{margin:20px 0 4px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.price s{font:500 22px var(--fh);color:var(--dim);text-decoration-thickness:2px}.off{font:600 12.5px var(--fb);color:#fff;background:var(--red);padding:3px 9px;border-radius:6px}.offer{color:var(--red3);font-weight:500}.price b{font:600 48px/1 var(--fh);color:#fff;letter-spacing:-.03em}.per{font-size:14.5px;color:var(--dim);margin-bottom:24px}
 .plain{list-style:none;padding:0;display:grid;gap:10px}
 .plain li{position:relative;padding-left:24px;font-size:15px;color:#d6d0cb}
 .plain li::before{content:"";position:absolute;left:1px;top:7px;width:11px;height:6px;border-left:2px solid var(--red2);border-bottom:2px solid var(--red2);transform:rotate(-45deg)}
@@ -383,9 +383,10 @@ html.lenis,html.lenis body{height:auto}
 .sup{padding:24px;border:1px solid var(--line);border-radius:12px;background:var(--s1);display:flex;flex-direction:column;gap:8px}
 .sup h3{font-size:19px}.sup p{font-size:15.5px}
 .link{display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-size:15px;margin-top:8px;text-decoration:underline;text-decoration-color:var(--dim);text-underline-offset:4px}.link .ic{width:16px;height:16px}
-.people{display:flex;gap:36px;flex-wrap:wrap}
-.people figure{text-align:left}.people img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid var(--line2)}
-.people figcaption{margin-top:12px;font-size:15.5px;color:#e6e0db}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.person{display:flex;gap:20px;padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--s1);align-items:flex-start}
+.person img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--line2);flex:none}
+.person h3{font-size:21px}.person .role{font-size:14px;color:var(--red3);margin:2px 0 10px}.person p:last-child{font-size:15.5px}
 .cta{border-top:1px solid var(--line);padding-top:clamp(64px,9vw,110px)}
 .cta-in{padding-bottom:80px}
 .cta h2{font-size:clamp(32px,4.6vw,56px);margin-bottom:12px}
@@ -412,6 +413,7 @@ html.lenis,html.lenis body{height:auto}
   .sc-phone{grid-template-columns:1fr;justify-items:center}.sc-mem{grid-template-columns:1fr}
   .kst{height:400px}.chunks{left:33%;width:35%}.doc{width:29%;min-width:0;padding:10px}.cubebox{width:26%;min-width:0}.cubewrap{transform:scale(.68);transform-origin:50% 0;margin:8px auto 4px}.chunk{font-size:10.5px;padding:7px 8px}.st5 li{font-size:11px;padding:6px 0}.st5 li::before{display:none}.ask{bottom:78px;font-size:13px}.ans{gap:5px}.ans span{font-size:10.5px;padding:4px 8px}.ans b{width:100%;margin:2px 0 0;font-size:13.5px}
   .skfeat{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}.person{flex-direction:column}
   .thumb{width:104px}.pstage{flex-direction:column}
   .step{padding:16px}.step>b{width:36px;height:36px}.steps::before{left:18px}
   .skshots .phone:nth-child(2){display:none}
