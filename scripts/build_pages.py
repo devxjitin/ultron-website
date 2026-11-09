@@ -18,7 +18,7 @@ from usecases import CONNECTORS, SCENE_TOOLS, TOOLS
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 DOCS = DIST / "docs"
-V = "20261119"
+V = "20261120"
 SITE = "https://ultron.devxjitin.dev"
 DOWNLOAD = "https://api.devxjitin.dev/v1/releases/download"
 
@@ -89,7 +89,7 @@ def sidebar(current):
         cur = ' aria-current="page"' if href == current else ""
         return f'<a href="{href}"{cur}{extra}>{e(text)}</a>'
 
-    out = ['<aside class="dside" aria-label="Docs"><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in">']
+    out = ['<aside class="dside" aria-label="Docs" data-lenis-prevent><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in" data-lenis-prevent>']
     out.append(a("/docs/", "Overview") + a("/docs/getting-started.html", "Getting started"))
     out.append('<h4>Features</h4>' + "".join(a(f"/docs/features/{f['slug']}.html", f["name"]) for f in FEATURES))
     out.append(a("/docs/skills.html", "Skills").replace("<a", '<a class="solo"', 1))
