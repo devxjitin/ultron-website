@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d0c0c">
+<meta name="description" content="Save a video or just its audio straight to your phone. Save YouTube videos or audio to your phone.">
+<meta property="og:title" content="YouTube Downloads connector | Ultron">
+<meta property="og:description" content="Save a video or just its audio straight to your phone. Save YouTube videos or audio to your phone.">
+<link rel="canonical" href="https://ultron.devxjitin.dev/connectors/youtube_downloads.html">
+<title>YouTube Downloads connector | Ultron</title>
+<link rel="icon" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles.css?v=20261113">
+<link rel="stylesheet" href="/pages.css?v=20261113">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10"/></symbol>
+<symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4zM10 21h4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.5-8 5.5 5.5 0 0 1 10.6 1A3.5 3.5 0 0 1 17 18z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9.5v5l4-2.5z"/></symbol>
+<symbol id="i-tri" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+<symbol id="i-files" viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+<symbol id="i-touch" viewBox="0 0 24 24"><path d="M9 11V5a2 2 0 0 1 4 0v5l5 1.5a2 2 0 0 1 1.4 2.3L18.5 19a2 2 0 0 1-2 1.5H11a2 2 0 0 1-1.6-.8L5 14a2 2 0 0 1 3-2.4z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-7z"/></symbol>
+<symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
+<symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M4 18l5-5 4 4 3-3 4 4"/></symbol>
+<symbol id="i-flash" viewBox="0 0 24 24"><path d="M9 2h6v5l-2 3v12h-2V10L9 7z"/></symbol>
+<symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 3l14 7-6 2-2 6z" fill="#fff" stroke="#000" stroke-width="1.2"/></symbol>
+</defs></svg>
+<div id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav-wrap">
+<nav class="nav" aria-label="Main">
+<a class="brand" href="/"><img src="/assets/mark.svg" alt="" width="28" height="28">Ultron</a>
+<div class="nav-links" id="nav-links">
+<a href="/#features">Features</a><a href="/connectors/" class=on>Connectors</a><a href="/#skills">Skills</a><a href="/#pricing">Plans</a><a href="/#faq">FAQ</a>
+</div>
+<a class="btn btn-sm" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a>
+<button class="menu-toggle" aria-label="Open navigation" aria-controls="nav-links" aria-expanded="false"><span></span><span></span></button>
+</nav>
+</header>
+<main id="main">
+
+<section class="page-hero wrap">
+<p class="crumb"><a href="/connectors/">Connectors</a><span>/</span>Search and media</p>
+<div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-down"/></svg></span><h1>YouTube Downloads</h1></div>
+<p class="lead">Save a video or just its audio straight to your phone.</p>
+<div class="chips"><span class="chip">Search and media</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
+<div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="#tools">See all 2 tools</a></div>
+</section>
+
+<section class="section wrap">
+<div class="head rv"><h2>Why you will want it</h2><p>Ask for a video, pick a quality, and the file lands in Downloads/Ultron on your phone. The media never passes through a server. Download only what you have the right to keep.</p></div>
+<div class="ucs"><article class="uc rv" style="--d:0.0s">
+<small>Offline for a flight</small>
+<p class="uc-say"><span>You say</span>Is video ko 720p mein download karo.</p>
+<p class="uc-does"><span>Ultron</span>Lists the qualities, then saves the video to Downloads/Ultron.</p>
+</article><article class="uc rv" style="--d:0.08s">
+<small>A podcast on a bus</small>
+<p class="uc-say"><span>You say</span>Is video ka sirf audio save karo.</p>
+<p class="uc-does"><span>Ultron</span>Saves audio only, as a small file.</p>
+</article><article class="uc rv" style="--d:0.16s">
+<small>Not sure what to pick</small>
+<p class="uc-say"><span>You say</span>Is video ke kaun kaun se quality options hain?</p>
+<p class="uc-does"><span>Ultron</span>Lists every format and size, then waits for your choice.</p>
+</article></div>
+</section>
+
+<section class="section wrap" id="tools">
+<div class="head rv"><h2>Every tool in this connector</h2><p>Lets you pick a quality, then saves the video or audio to Downloads/Ultron. Ultron picks the right tool from what you say, so you never have to name one.</p></div>
+<ul class="tools"><li class="tool rv"><div><h3>Download options</h3><p>List the formats and qualities a video can be downloaded in.</p></div><p class="try"><span>Try saying</span>Is video ki kaun kaun si quality milti hai?</p></li><li class="tool rv"><div><h3>Download YouTube video</h3><p>Save a YouTube video or its audio to Downloads/Ultron.</p></div><p class="try"><span>Try saying</span>Ise 720p mein download karo. Sirf audio save karo.</p></li></ul>
+</section>
+
+<section class="section wrap narrow">
+<div class="head rv"><h2>Access and privacy</h2></div>
+<dl class="facts rv">
+<div><dt>Needs</dt><dd>Internet and free space.</dd></div>
+<div><dt>Runs on</dt><dd>Your phone</dd></div>
+<div><dt>Privacy</dt><dd>Files stay on your phone. Download only what you may keep.</dd></div>
+<div><dt>Default</dt><dd>Off. You turn it on from the Connectors page in the app.</dd></div>
+</dl>
+
+</section>
+
+<nav class="pn wrap" aria-label="More connectors">
+<a href="/connectors/youtube.html"><small>Previous</small>YouTube Search</a>
+<a href="/connectors/" class="all">All connectors</a>
+<a href="/connectors/images.html"><small>Next</small>Pictures</a>
+</nav>
+</main>
+<section class="cta" id="contact">
+<div class="cta-in wrap rv"><h2>Ready to try it?</h2><p>Download the app, then pick a plan. Your activation key arrives by email.</p>
+<div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div></div>
+<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/connectors/">Connectors</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="/page.js?v=20261113" defer></script>
+</body>
+</html>
