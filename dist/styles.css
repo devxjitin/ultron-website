@@ -300,14 +300,6 @@ html.lenis,html.lenis body{height:auto}
 .persona q{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px;font-style:italic;color:#d4d2ea;quotes:"“" "”"}
 .pbadge{position:absolute;top:18px;right:18px;font-size:11.5px;padding:3px 10px;border-radius:999px;color:var(--ind3);background:#7b72ff1f;border:1px solid #7b72ff40}
 
-/* schedule illustration */
-.sched-stack{display:grid;gap:12px;width:min(380px,100%)}
-.sched{display:grid;gap:3px;padding:16px 18px;border:1px solid var(--line);border-radius:18px;background:rgba(8,8,18,.82);backdrop-filter:blur(10px)}
-.sched b{font:500 15px Poppins,sans-serif}
-.sched .when{font-size:13px;color:var(--ind3)}
-.sched .res{display:flex;gap:6px;align-items:center;margin-top:6px;font-size:12.5px;color:var(--mute)}
-.sched .res .ic{width:15px;height:15px;color:#7fe0a6}
-
 /* pricing */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
 .plan{position:relative;display:flex;flex-direction:column;padding:32px 28px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(165deg,#12122a,#05050d)}
