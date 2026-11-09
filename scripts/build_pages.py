@@ -13,12 +13,13 @@ from html import escape as e
 from pathlib import Path
 
 from docs_content import FEATURE_SCENE_TOOLS, FEATURES, GETTING_STARTED, SKILLS, SKILLS_SCENE_TOOLS
+from scenes import CONNECTORS as CONN_SCREENS, FEATURES as FEAT_SCREENS, SKILLS as SKILL_SCREENS
 from usecases import CONNECTORS, SCENE_TOOLS, TOOLS
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 DOCS = DIST / "docs"
-V = "20261121"
+V = "20261123"
 SITE = "https://ultron.devxjitin.dev"
 DOWNLOAD = "https://api.devxjitin.dev/v1/releases/download"
 
@@ -120,25 +121,27 @@ def page(title, desc, path, crumbs, inner, pn=None):
 
 
 def demo(items):
-    """One phone for the whole page. `items` is a list of (situation, say, result, tool function or None). The page script
-    plays them one after another; the first one is already in the markup so the page reads fine without scripts."""
+    """One phone for the whole page, in the same frame as the landing page, showing the real voice screen. `items` is a
+    list of (situation, say, result, tool function or None, screen). The page script plays them one after another; the
+    first one is already in the markup so the page reads fine without scripts."""
     data = []
-    for situation, say, result, fn in items:
+    for situation, say, result, fn, screen in items:
         t = ALL_TOOLS.get(fn)
-        data.append({"say": say, "tool": t["label"] if t else "Understanding", "fn": t["fn"] if t else "", "result": result, "title": situation})
+        item = {"title": situation, "say": say, "tool": t["label"] if t else "Understanding", "result": result, "reply": result}
+        item.update(screen)
+        data.append(item)
     first = data[0]
     dots = "".join(f'<button type="button" aria-label="Example {i + 1}"{" aria-current=true" if i == 0 else ""}></button>' for i in range(len(data)))
     return f"""<figure class="demo" data-demo='{e(json.dumps(data, ensure_ascii=False), quote=True)}'>
-<div class="sph">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub"><span class="ty-src">{e(first["say"])}</span></p>
-<p class="schip ok"><span>{e(first["tool"])}</span><i class="spin"></i></p>
-<div class="sres"><span>{e(first["result"])}</span></div>
-</div>
-<div class="sph-mic"><span class="mic">{'<svg class="ic"><use href="#i-mic"/></svg>'}</span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
+<div class="dphone"><div class="dscr">
+<img src="/assets/app/dark-voice.webp" alt="The Ultron voice screen" width="720" height="1600">
+<p class="v-sub"><span class="ty-src">{e(first["say"])}</span></p>
+<p class="v-chip ok"><span>{e(first["tool"])}</span><i class="spin"></i></p>
+<p class="v-reply">{e(first["reply"])}</p>
+<div class="kscr"></div>
+</div></div>
 <figcaption><span class="dcap">{e(first["title"])}</span><span class="dots">{dots}</span></figcaption>
+<p class="demo-note">Example screens. The values shown are made up.</p>
 </figure>"""
 
 
@@ -157,7 +160,7 @@ def connector_page(c, p, n):
         sc = by_fn.get(t["fn"])
         say = sc[1] if sc else t["say"]
         rows.append(f"""<li class="trow"><div class="tn"><h3>{e(t["label"])}</h3><code>{e(t["fn"])}</code></div><p>{e(t["hint"])}</p><p class="ex">Say: <q>{e(say)}</q></p></li>""")
-    scenes = [(s, q, a, fn) for (s, q, a), fn in zip(cp["scenes"], SCENE_TOOLS[c["id"]])]
+    scenes = [(s, q, a, fn, sc) for (s, q, a), fn, sc in zip(cp["scenes"], SCENE_TOOLS[c["id"]], CONN_SCREENS[c["id"]])]
     note = f'<p class="note">{e(CAT_NOTE[c["cat"]])}</p>' if c["cat"] in ("Phone control", "Personal data") else ""
     inner = f"""<h1>{e(c["name"])}</h1>
 <div class="top">
@@ -195,7 +198,7 @@ def dlist(items):
 
 
 def feature_page(f, p, n):
-    scenes = [(s, q, a, fn) for (s, q, a), fn in zip(f["scenes"], FEATURE_SCENE_TOOLS[f["slug"]])]
+    scenes = [(s, q, a, fn, sc) for (s, q, a), fn, sc in zip(f["scenes"], FEATURE_SCENE_TOOLS[f["slug"]], FEAT_SCREENS[f["slug"]])]
     links = "".join(f'<li><a class="inline" href="{h}">{e(t)}</a></li>' for t, h in f["links"])
     notes = "".join(f'<p class="note">{e(x)}</p>' for x in f["notes"])
     inner = f"""<h1>{e(f["name"])}</h1>
@@ -216,7 +219,7 @@ def feature_page(f, p, n):
 
 def skills_page():
     s = SKILLS
-    scenes = [(a, b, c_, fn) for (a, b, c_), fn in zip(s["scenes"], SKILLS_SCENE_TOOLS)]
+    scenes = [(a, b, c_, fn, sc) for (a, b, c_), fn, sc in zip(s["scenes"], SKILLS_SCENE_TOOLS, SKILL_SCREENS)]
     notes = "".join(f'<p class="note">{e(x)}</p>' for x in s["notes"])
     inner = f"""<h1>{e(s["title"])}</h1>
 <div class="top">

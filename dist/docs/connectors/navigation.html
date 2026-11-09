@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261121">
-<link rel="stylesheet" href="/pages.css?v=20261121">
+<link rel="stylesheet" href="/styles.css?v=20261123">
+<link rel="stylesheet" href="/pages.css?v=20261123">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -71,17 +71,16 @@
 <dl class="meta"><div><dt>Group</dt><dd>Phone control</dd></div><div><dt>Needs</dt><dd>Accessibility access. A settings screen opens when you add it.</dd></div><div><dt>Runs on</dt><dd>Your phone</dd></div><div><dt>Privacy</dt><dd>It does not read the screen.</dd></div><div><dt>Default</dt><dd>Off until you add it in the app</dd></div></dl>
 <p class="note">Lets Ultron operate other apps through Android accessibility. It can tap, type and read the screen, so turn it on only if you understand that.</p>
 </div>
-<figure class="demo" data-demo='[{&quot;say&quot;: &quot;Thoda neeche scroll karo.&quot;, &quot;tool&quot;: &quot;Scroll&quot;, &quot;fn&quot;: &quot;scroll_screen&quot;, &quot;result&quot;: &quot;Scrolls the page down by the amount you ask.&quot;, &quot;title&quot;: &quot;Reading in bed&quot;}, {&quot;say&quot;: &quot;Screenshot le lo.&quot;, &quot;tool&quot;: &quot;Screenshot&quot;, &quot;fn&quot;: &quot;take_screenshot&quot;, &quot;result&quot;: &quot;Takes a screenshot and saves it in your gallery.&quot;, &quot;title&quot;: &quot;Capture this&quot;}, {&quot;say&quot;: &quot;Back jao, phir home screen.&quot;, &quot;tool&quot;: &quot;Back button&quot;, &quot;fn&quot;: &quot;press_back&quot;, &quot;result&quot;: &quot;Presses Back, then goes to the home screen.&quot;, &quot;title&quot;: &quot;Leaving an app&quot;}]'>
-<div class="sph">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub"><span class="ty-src">Thoda neeche scroll karo.</span></p>
-<p class="schip ok"><span>Scroll</span><i class="spin"></i></p>
-<div class="sres"><span>Scrolls the page down by the amount you ask.</span></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
+<figure class="demo" data-demo='[{&quot;title&quot;: &quot;Reading in bed&quot;, &quot;say&quot;: &quot;Thoda neeche scroll karo.&quot;, &quot;tool&quot;: &quot;Scroll&quot;, &quot;result&quot;: &quot;Scrolls the page down by the amount you ask.&quot;, &quot;reply&quot;: &quot;Scrolls the page down by the amount you ask.&quot;, &quot;kind&quot;: &quot;scroll&quot;, &quot;rows&quot;: [&quot;Headline one&quot;, &quot;Headline two&quot;, &quot;Headline three&quot;, &quot;Headline four&quot;, &quot;Headline five&quot;, &quot;Headline six&quot;, &quot;Headline seven&quot;, &quot;Headline eight&quot;]}, {&quot;title&quot;: &quot;Capture this&quot;, &quot;say&quot;: &quot;Screenshot le lo.&quot;, &quot;tool&quot;: &quot;Screenshot&quot;, &quot;result&quot;: &quot;Takes a screenshot and saves it in your gallery.&quot;, &quot;reply&quot;: &quot;Takes a screenshot and saves it in your gallery.&quot;, &quot;kind&quot;: &quot;shot&quot;, &quot;rows&quot;: [&quot;Home&quot;, &quot;Messages&quot;, &quot;Gallery&quot;]}, {&quot;title&quot;: &quot;Leaving an app&quot;, &quot;say&quot;: &quot;Back jao, phir home screen.&quot;, &quot;tool&quot;: &quot;Back button&quot;, &quot;result&quot;: &quot;Presses Back, then goes to the home screen.&quot;, &quot;reply&quot;: &quot;Presses Back, then goes to the home screen.&quot;, &quot;kind&quot;: &quot;back&quot;, &quot;app&quot;: &quot;Settings&quot;, &quot;page&quot;: &quot;Wi-Fi&quot;}]'>
+<div class="dphone"><div class="dscr">
+<img src="/assets/app/dark-voice.webp" alt="The Ultron voice screen" width="720" height="1600">
+<p class="v-sub"><span class="ty-src">Thoda neeche scroll karo.</span></p>
+<p class="v-chip ok"><span>Scroll</span><i class="spin"></i></p>
+<p class="v-reply">Scrolls the page down by the amount you ask.</p>
+<div class="kscr"></div>
+</div></div>
 <figcaption><span class="dcap">Reading in bed</span><span class="dots"><button type="button" aria-label="Example 1" aria-current=true></button><button type="button" aria-label="Example 2"></button><button type="button" aria-label="Example 3"></button></span></figcaption>
+<p class="demo-note">Example screens. The values shown are made up.</p>
 </figure>
 </div>
 <h2 class="dh" id="tools">Tools</h2>
@@ -92,6 +91,6 @@
 </main>
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/">Home</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261121" defer></script>
+<script src="/page.js?v=20261123" defer></script>
 </body>
 </html>
