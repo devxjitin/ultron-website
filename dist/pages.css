@@ -67,6 +67,18 @@
 .ccard small{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim)}
 .ccard small .ic{width:16px;height:16px;margin-left:auto;color:var(--red2)}
 .dhome{margin-top:34px}
+/* animated use cases: typed words, a listening dot, a thinking pulse and a tick when done */
+.ty-h{visibility:hidden}
+.uc-say.live span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red2);margin-right:7px;vertical-align:1px;animation:ucpulse 1s ease-in-out infinite}
+.live .ty::after,.try.live .ty::after{content:"";display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--red2);animation:uccaret .7s steps(1) infinite}
+.uc-does.think span::after{content:" \25CF \25CF \25CF";letter-spacing:1px;color:var(--dim);animation:ucthink 1s ease-in-out infinite}
+.uc.done .uc-does span::after{content:" \2713";color:#4ade80;animation:ucpop .4s var(--ease)}
+.tool .try.done span::after{content:" \2713";color:#4ade80;animation:ucpop .4s var(--ease)}
+@keyframes ucpulse{50%{transform:scale(1.7);opacity:.4}}
+@keyframes uccaret{50%{opacity:0}}
+@keyframes ucthink{50%{opacity:.25}}
+@keyframes ucpop{from{transform:scale(.4);opacity:0}}
+.paused .uc-say.live span::before,.paused .live .ty::after,.paused .uc-does.think span::after{animation-play-state:paused}
 @media(max-width:1020px){
   .docs{grid-template-columns:1fr;gap:20px;padding-top:92px}
   .dside{position:static;max-height:none;overflow:visible;padding:0}
