@@ -1,6 +1,6 @@
 /* Docs section. Loaded after styles.css. Plain reference pages: text, lists and one phone demo per page. */
 .docs{display:grid;grid-template-columns:240px minmax(0,1fr);gap:56px;padding-top:104px;align-items:start}
-.dside{position:sticky;top:84px;max-height:calc(100vh - 100px);overflow:auto;padding-bottom:24px;font-size:15px;scrollbar-width:thin;scrollbar-color:var(--s3) transparent}
+.dside{overscroll-behavior:contain;position:sticky;top:84px;max-height:calc(100vh - 100px);overflow:auto;padding-bottom:24px;font-size:15px;scrollbar-width:thin;scrollbar-color:var(--s3) transparent}
 .dside-m>summary{display:none}
 .dside-in{display:flex;flex-direction:column;gap:1px}
 .dside h4{font:600 12px var(--fb);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:22px 0 6px 10px}
