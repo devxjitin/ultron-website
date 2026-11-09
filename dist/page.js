@@ -57,7 +57,7 @@ const rio=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:[0,.12],rootMargin:'0px 0px -6% 0px'});
 $$('.rv').forEach(el=>rio.observe(el));
 
-// use-case animation: every example types out what you say, then Ultron "thinks" and answers
+// phone demo: plays this page's examples one after another (hear, pick the tool, do it, answer)
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const isPaused=()=>document.body.classList.contains('paused');
 const wait=async(ms,tok)=>{await sleep(ms);while(isPaused()&&!tok.dead)await sleep(200)};
@@ -69,71 +69,55 @@ function prep(el){
   a.className='ty';b.className='ty-h';a.textContent=full;tn.replaceWith(a,b);
   return {el,a,b,full,set(n){a.textContent=full.slice(0,n);b.textContent=full.slice(n)}};
 }
-async function typeTo(t,ms,tok){
-  t.el.classList.add('live');
-  for(let i=1;i<=t.full.length;i++){
-    if(tok.dead)return false;
-    t.set(i);await wait(ms,tok);
-  }
-  t.el.classList.remove('live');return true;
-}
 const STAGES=['s-hear','s-tool','s-do','s-say'];
-function setStage(sc,k){
-  // k: index into STAGES, or -1 reset, or 4 = finished (everything visible, steps all done)
-  STAGES.concat('s-fin').forEach(c=>sc.el.classList.remove(c));
-  if(k>=0&&k<4)sc.el.classList.add(STAGES[k]);
-  if(k>=4)sc.el.classList.add('s-fin');
-  sc.steps.forEach((li,i)=>{li.classList.toggle('on',i===k);li.classList.toggle('done',k>=0&&i<k||k>=4)});
-  sc.status.textContent=['Listening','Thinking','Working','Speaking','Done'][k]||'Ready';
-}
-async function playScene(sc,tok,delay){
-  setStage(sc,-1);sc.chip.classList.remove('ok');sc.say.set(0);
-  await wait(delay,tok);if(tok.dead)return;
-  while(!tok.dead){
-    setStage(sc,0);sc.chip.classList.remove('ok');
-    if(!await typeTo(sc.say,32,tok))return;
-    await wait(350,tok);if(tok.dead)return;
-    setStage(sc,1);await wait(1100,tok);if(tok.dead)return;
-    sc.chip.classList.add('ok');await wait(250,tok);if(tok.dead)return;
-    setStage(sc,2);await wait(1500,tok);if(tok.dead)return;
-    setStage(sc,3);await wait(1700,tok);if(tok.dead)return;
-    setStage(sc,4);await wait(3200,tok);if(tok.dead)return;
-    setStage(sc,-1);sc.say.set(0);await wait(700,tok);
-  }
-}
-function stopScene(sc){
-  // off screen: stop, and leave the finished picture so nothing is ever blank
-  if(sc.tok)sc.tok.dead=true;
-  sc.say.el.classList.remove('live');
-  sc.say.set(sc.say.full.length);sc.chip.classList.add('ok');setStage(sc,4);
-}
-if(!still){
-  const scenes=$$('.sc').map(el=>{
-    const bub=$('.bub',el),src=$('.ty-src',bub);
-    const say=prep(src)||{set(){},full:"",el:src};
-    const sc={el,say,bub,chip:$('.schip',el),status:$('.sst',el),steps:$$('.ss li',el),tok:null,i:0};
-    return sc;
-  });
-  const tries=[];
-  $$('.tool .try').forEach(el=>{const t=prep(el);if(t)tries.push({el:el.closest('.tool'),t,cls:el.classList})});
-  const sio=new IntersectionObserver(es=>es.forEach(e=>{
-    const sc=scenes.find(x=>x.el===e.target);if(!sc)return;
-    if(e.isIntersecting){
-      if(sc.tok&&!sc.tok.dead)return;
-      sc.tok={dead:false};playScene(sc,sc.tok,300);
-    }else stopScene(sc);
-  }),{threshold:.45});
-  scenes.forEach(sc=>{setStage(sc,4);sio.observe(sc.el)});
-  const tio=new IntersectionObserver(es=>es.forEach(async e=>{
-    const x=tries.find(y=>y.el===e.target);if(!x)return;
-    if(e.isIntersecting){
-      if(x.tok&&!x.tok.dead)return;
-      x.tok={dead:false};x.cls.remove('done');x.t.set(0);
-      if(await typeTo(x.t,26,x.tok))x.cls.add('done');
-    }else if(x.tok){x.tok.dead=true;x.t.set(x.t.full.length);x.t.el.classList.remove('live');x.cls.add('done')}
-  }),{threshold:.6});
-  tries.forEach(x=>tio.observe(x.el));
-}
+$$('.demo').forEach(el=>{
+  let items;try{items=JSON.parse(el.dataset.demo)}catch(_){return}
+  el.classList.add('js');
+  const bub=$('.bub',el),src=$('.ty-src',bub),chip=$('.schip',el),chipTxt=$('span',chip),res=$('.sres span',el);
+  const status=$('.sst',el),cap=$('.dcap',el),dots=$$('.dots button',el);
+  let say=prep(src),cur=0,tok=null,visible=false;
+  const stage=k=>{
+    STAGES.concat('s-fin').forEach(c=>el.classList.remove(c));
+    if(k>=0&&k<4)el.classList.add(STAGES[k]);
+    if(k>=4)el.classList.add('s-fin');
+    status.textContent=['Listening','Thinking','Working','Speaking','Done'][k]||'Ready';
+  };
+  // show example i as a finished picture (used for reduced motion, off screen and clicks)
+  const show=(i)=>{
+    cur=i;const it=items[i];
+    src.textContent=it.say;say=prep(src);
+    chipTxt.textContent=it.tool;res.textContent=it.result;cap.textContent=it.title;
+    dots.forEach((d,k)=>d.setAttribute('aria-current',k===i));
+    chip.classList.add('ok');stage(4);
+  };
+  const play=async(i,t)=>{
+    while(!t.dead){
+      show(i);stage(-1);chip.classList.remove('ok');say.set(0);
+      await wait(500,t);if(t.dead)return;
+      stage(0);
+      el.classList.add('typing');
+      say.el.classList.add('live');
+      for(let n=1;n<=say.full.length;n++){if(t.dead)return;say.set(n);await wait(32,t)}
+      say.el.classList.remove('live');
+      await wait(350,t);if(t.dead)return;
+      stage(1);await wait(1000,t);if(t.dead)return;
+      chip.classList.add('ok');await wait(250,t);if(t.dead)return;
+      stage(2);await wait(1300,t);if(t.dead)return;
+      stage(3);await wait(1700,t);if(t.dead)return;
+      stage(4);await wait(2600,t);if(t.dead)return;
+      i=(i+1)%items.length;
+    }
+  };
+  const start=(i)=>{if(tok)tok.dead=true;tok={dead:false};play(i,tok)};
+  show(0);
+  dots.forEach((d,k)=>d.addEventListener('click',()=>{if(still||!visible){show(k)}else start(k)}));
+  if(still)return;
+  new IntersectionObserver(es=>es.forEach(e=>{
+    visible=e.isIntersecting;
+    if(visible)start(cur);
+    else{if(tok)tok.dead=true;say.el.classList.remove('live');show(cur)}
+  }),{threshold:.35}).observe(el);
+});
 
 // pause motion
 const mb=$('.motion');

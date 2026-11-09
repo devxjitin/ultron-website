@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0d0c0c">
-<meta name="description" content="Search YouTube, read captions, browse a channel. Search YouTube videos and playlists.">
+<meta name="description" content="Searches videos and shows details, captions and playlists. YouTube sometimes blocks this. Search YouTube videos and playlists.">
 <meta property="og:title" content="YouTube Search connector | Ultron Docs">
-<meta property="og:description" content="Search YouTube, read captions, browse a channel. Search YouTube videos and playlists.">
+<meta property="og:description" content="Searches videos and shows details, captions and playlists. YouTube sometimes blocks this. Search YouTube videos and playlists.">
 <link rel="canonical" href="https://ultron.devxjitin.dev/docs/connectors/youtube.html">
 <title>YouTube Search connector | Ultron Docs</title>
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261118">
-<link rel="stylesheet" href="/pages.css?v=20261118">
+<link rel="stylesheet" href="/styles.css?v=20261119">
+<link rel="stylesheet" href="/pages.css?v=20261119">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -64,121 +64,34 @@
 <aside class="dside" aria-label="Docs"><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in"><a href="/docs/">Overview</a><a href="/docs/getting-started.html">Getting started</a><h4>Features</h4><a href="/docs/features/live-conversation.html">Live conversation</a><a href="/docs/features/phone-control.html">Working other apps</a><a href="/docs/features/knowledge.html">Questions about your documents</a><a href="/docs/features/memory.html">Memory</a><a href="/docs/features/youtube.html">YouTube</a><a href="/docs/features/personalities.html">Personalities</a><a class="solo" href="/docs/skills.html">Skills</a><h4>Connectors</h4><a href="/docs/connectors/">All connectors</a><details class="dcat"><summary>Essentials</summary><a href="/docs/connectors/device_info.html">Device info</a><a href="/docs/connectors/device_controls.html">Device controls</a><a href="/docs/connectors/alarms.html">Alarms &amp; timers</a><a href="/docs/connectors/reminders.html">Reminders</a><a href="/docs/connectors/apps_settings.html">Apps &amp; settings</a><a href="/docs/connectors/weather.html">Weather</a></details><details class="dcat" open><summary>Search and media</summary><a href="/docs/connectors/duckduckgo.html">Web search</a><a href="/docs/connectors/web_reader.html">Web pages</a><a href="/docs/connectors/youtube.html" aria-current="page">YouTube Search</a><a href="/docs/connectors/youtube_downloads.html">YouTube Downloads</a><a href="/docs/connectors/images.html">Pictures</a></details><details class="dcat"><summary>Personal data</summary><a href="/docs/connectors/calendar.html">Calendar</a><a href="/docs/connectors/contacts.html">Contacts</a><a href="/docs/connectors/calls.html">Calls</a><a href="/docs/connectors/location.html">Location</a><a href="/docs/connectors/files.html">Files</a><a href="/docs/connectors/app_usage.html">App usage</a><a href="/docs/connectors/notifications.html">Notifications</a></details><details class="dcat"><summary>Phone control</summary><a href="/docs/connectors/navigation.html">Phone navigation</a><a href="/docs/connectors/screen.html">Screen control</a></details></div></details></aside>
 <article class="dmain">
 <p class="crumb"><a href="/docs/">Docs</a><span>/</span><a href="/docs/connectors/">Connectors</a><span>/</span>YouTube Search</p>
-<div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-play"/></svg></span><h1>YouTube Search</h1></div>
-<p class="lead">Search YouTube, read captions, browse a channel.</p>
-<div class="chips"><span class="chip">Search and media</span><span class="chip">Runs on: Ultron&#x27;s server</span><span class="chip ">Off until you add it</span></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Searches videos and shows details, captions and playlists. YouTube sometimes blocks this. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<section class="tl">
-<div class="tl-h rv"><h3>Search YouTube</h3><p>Search YouTube videos.</p></div>
-<article class="sc rv" style="--d:0.0s">
+<h1>YouTube Search</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">Searches videos and shows details, captions and playlists. YouTube sometimes blocks this.</p>
+<dl class="meta"><div><dt>Group</dt><dd>Search and media</dd></div><div><dt>Needs</dt><dd>Internet only.</dd></div><div><dt>Runs on</dt><dd>Ultron&#x27;s server</dd></div><div><dt>Privacy</dt><dd>Your search goes to Ultron&#x27;s server, which asks YouTube.</dd></div><div><dt>Default</dt><dd>Off until you add it in the app</dd></div></dl>
 
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
+</div>
+<figure class="demo" data-demo='[{&quot;say&quot;: &quot;YouTube par React hooks ke best tutorials dhundo.&quot;, &quot;tool&quot;: &quot;Search YouTube&quot;, &quot;fn&quot;: &quot;youtube_search&quot;, &quot;result&quot;: &quot;Searches YouTube and lists the top videos.&quot;, &quot;title&quot;: &quot;Learning something&quot;}, {&quot;say&quot;: &quot;Is video ka transcript padh ke summary do.&quot;, &quot;tool&quot;: &quot;Video transcript&quot;, &quot;fn&quot;: &quot;youtube_transcript&quot;, &quot;result&quot;: &quot;Reads the captions and summarises them.&quot;, &quot;title&quot;: &quot;No time to watch&quot;}, {&quot;say&quot;: &quot;Is channel ke latest videos dikhao.&quot;, &quot;tool&quot;: &quot;Channel or playlist videos&quot;, &quot;fn&quot;: &quot;youtube_list_videos&quot;, &quot;result&quot;: &quot;Lists the newest videos from that channel or playlist.&quot;, &quot;title&quot;: &quot;Catching up&quot;}]'>
+<div class="sph">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
 <div class="sph-body">
-<p class="bub me"><span class="ty-src">YouTube par React hooks ke best tutorials dhundo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Search YouTube</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-play"/></svg><div><b>YouTube Search</b><span>Searches YouTube and lists the top videos.</span></div></div>
+<p class="bub"><span class="ty-src">YouTube par React hooks ke best tutorials dhundo.</span></p>
+<p class="schip ok"><span>Search YouTube</span><i class="spin"></i></p>
+<div class="sres"><span>Searches YouTube and lists the top videos.</span></div>
 </div>
 <div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
 </div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Search YouTube</b><span>Search YouTube videos.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Searches YouTube and lists the top videos.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
+<figcaption><span class="dcap">Learning something</span><span class="dots"><button type="button" aria-label="Example 1" aria-current=true></button><button type="button" aria-label="Example 2"></button><button type="button" aria-label="Example 3"></button></span></figcaption>
+</figure>
 </div>
-<p class="sr-only">You say: YouTube par React hooks ke best tutorials dhundo. Ultron: Searches YouTube and lists the top videos.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Video details</h3><p>Get the details of a YouTube video.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Is video ke baare mein batao: kitni lambi hai, kisne banayi.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Video details</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-play"/></svg><div><b>YouTube Search</b><span>Get the details of a YouTube video.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Video details</b><span>Get the details of a YouTube video.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Get the details of a YouTube video.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Is video ke baare mein batao: kitni lambi hai, kisne banayi. Ultron: Get the details of a YouTube video.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Video transcript</h3><p>Read the captions of a YouTube video.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Is video ka transcript padh ke summary do.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Video transcript</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-play"/></svg><div><b>YouTube Search</b><span>Reads the captions and summarises them.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Video transcript</b><span>Read the captions of a YouTube video.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Reads the captions and summarises them.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Is video ka transcript padh ke summary do. Ultron: Reads the captions and summarises them.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Channel or playlist videos</h3><p>List the videos of a channel or playlist.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Is channel ke latest videos dikhao.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Channel or playlist videos</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-play"/></svg><div><b>YouTube Search</b><span>Lists the newest videos from that channel or playlist.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Channel or playlist videos</b><span>List the videos of a channel or playlist.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Lists the newest videos from that channel or playlist.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Is channel ke latest videos dikhao. Ultron: Lists the newest videos from that channel or playlist.</p>
-</article>
-</section>
-<h2 class="dh">Access and privacy</h2>
-<dl class="facts1 rv">
-<div><dt>Needs</dt><dd>Internet only.</dd></div>
-<div><dt>Runs on</dt><dd>Ultron&#x27;s server</dd></div>
-<div><dt>Privacy</dt><dd>Your search goes to Ultron&#x27;s server, which asks YouTube.</dd></div>
-<div><dt>Default</dt><dd>Off. You turn it on from the Connectors page in the app.</dd></div>
-</dl>
-
+<h2 class="dh" id="tools">Tools</h2>
+<p class="dp">Ultron picks the right tool from what you say, so you never have to name one. The phrases are only examples.</p>
+<ul class="trows"><li class="trow"><div class="tn"><h3>Search YouTube</h3><code>youtube_search</code></div><p>Search YouTube videos.</p><p class="ex">Say: <q>YouTube par React hooks ke best tutorials dhundo.</q></p></li><li class="trow"><div class="tn"><h3>Video details</h3><code>youtube_video_info</code></div><p>Get the details of a YouTube video.</p><p class="ex">Say: <q>Is video ke baare mein batao: kitni lambi hai, kisne banayi.</q></p></li><li class="trow"><div class="tn"><h3>Video transcript</h3><code>youtube_transcript</code></div><p>Read the captions of a YouTube video.</p><p class="ex">Say: <q>Is video ka transcript padh ke summary do.</q></p></li><li class="trow"><div class="tn"><h3>Channel or playlist videos</h3><code>youtube_list_videos</code></div><p>List the videos of a channel or playlist.</p><p class="ex">Say: <q>Is channel ke latest videos dikhao.</q></p></li></ul>
 <nav class="pn" aria-label="Previous and next"><a href="/docs/connectors/web_reader.html"><small>Previous</small>Web pages</a><a href="/docs/connectors/youtube_downloads.html"><small>Next</small>YouTube Downloads</a></nav>
 </article>
 </main>
-<section class="cta" id="contact">
-<div class="cta-in wrap rv"><h2>Ready to try it?</h2><p>Download the app, then pick a plan. Your activation key arrives by email.</p>
-<div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div></div>
-<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
-</section>
+<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/">Home</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261118" defer></script>
+<script src="/page.js?v=20261119" defer></script>
 </body>
 </html>
