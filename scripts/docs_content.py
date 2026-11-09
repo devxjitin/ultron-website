@@ -121,6 +121,17 @@ FEATURES = [
          links=[]),
 ]
 
+# feature slug -> the tool each scene uses (None when Ultron just talks or remembers, no tool involved)
+FEATURE_SCENE_TOOLS = {
+    "live-conversation": ["get_weather", "get_weather", "set_alarm"],
+    "phone-control": ["type_text", "scroll_screen", "wait_for_screen_text"],
+    "knowledge": [None, None, None],
+    "memory": [None, None, None],
+    "youtube": ["download_youtube_video", "download_youtube_video", "youtube_transcript"],
+    "personalities": [None, None, None],
+}
+SKILLS_SCENE_TOOLS = [None, None, None]
+
 SKILLS = dict(
     title="Skills",
     lead="Short instructions that teach Ultron a routine.",

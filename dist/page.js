@@ -77,41 +77,62 @@ async function typeTo(t,ms,tok){
   }
   t.el.classList.remove('live');return true;
 }
-async function playUc(c,tok,delay){
-  c.cls.remove('done');
-  c.say.set(0);if(c.does)c.does.set(0);
+const STAGES=['s-hear','s-tool','s-do','s-say'];
+function setStage(sc,k){
+  // k: index into STAGES, or -1 reset, or 4 = finished (everything visible, steps all done)
+  STAGES.concat('s-fin').forEach(c=>sc.el.classList.remove(c));
+  if(k>=0&&k<4)sc.el.classList.add(STAGES[k]);
+  if(k>=4)sc.el.classList.add('s-fin');
+  sc.steps.forEach((li,i)=>{li.classList.toggle('on',i===k);li.classList.toggle('done',k>=0&&i<k||k>=4)});
+  sc.status.textContent=['Listening','Thinking','Working','Speaking','Done'][k]||'Ready';
+}
+async function playScene(sc,tok,delay){
+  setStage(sc,-1);sc.chip.classList.remove('ok');sc.say.set(0);
   await wait(delay,tok);if(tok.dead)return;
-  if(!await typeTo(c.say,30,tok))return;
-  if(c.does){
-    await wait(250,tok);if(tok.dead)return;
-    c.does.el.classList.add('think');await wait(750,tok);c.does.el.classList.remove('think');
-    if(tok.dead)return;
-    if(!await typeTo(c.does,13,tok))return;
+  while(!tok.dead){
+    setStage(sc,0);sc.chip.classList.remove('ok');
+    if(!await typeTo(sc.say,32,tok))return;
+    await wait(350,tok);if(tok.dead)return;
+    setStage(sc,1);await wait(1100,tok);if(tok.dead)return;
+    sc.chip.classList.add('ok');await wait(250,tok);if(tok.dead)return;
+    setStage(sc,2);await wait(1500,tok);if(tok.dead)return;
+    setStage(sc,3);await wait(1700,tok);if(tok.dead)return;
+    setStage(sc,4);await wait(3200,tok);if(tok.dead)return;
+    setStage(sc,-1);sc.say.set(0);await wait(700,tok);
   }
-  c.cls.add('done');
+}
+function stopScene(sc){
+  // off screen: stop, and leave the finished picture so nothing is ever blank
+  if(sc.tok)sc.tok.dead=true;
+  sc.say.el.classList.remove('live');
+  sc.say.set(sc.say.full.length);sc.chip.classList.add('ok');setStage(sc,4);
 }
 if(!still){
-  const cards=[];
-  $$('.uc').forEach((el,i)=>{
-    const say=prep($('.uc-say',el)),does=prep($('.uc-does',el));
-    if(say&&does)cards.push({el,cls:el.classList,say,does,i:i%3});
+  const scenes=$$('.sc').map(el=>{
+    const bub=$('.bub',el),src=$('.ty-src',bub);
+    const say=prep(src)||{set(){},full:"",el:src};
+    const sc={el,say,bub,chip:$('.schip',el),status:$('.sst',el),steps:$$('.ss li',el),tok:null,i:0};
+    return sc;
   });
-  $$('.tool .try').forEach(el=>{
-    const say=prep(el);if(say)cards.push({el:el.closest('.tool'),cls:el.classList,say,does:null,i:0});
-  });
-  const aio=new IntersectionObserver(es=>es.forEach(e=>{
-    const c=cards.find(x=>x.el===e.target);if(!c)return;
+  const tries=[];
+  $$('.tool .try').forEach(el=>{const t=prep(el);if(t)tries.push({el:el.closest('.tool'),t,cls:el.classList})});
+  const sio=new IntersectionObserver(es=>es.forEach(e=>{
+    const sc=scenes.find(x=>x.el===e.target);if(!sc)return;
     if(e.isIntersecting){
-      if(c.tok&&!c.tok.dead)return;
-      c.tok={dead:false};playUc(c,c.tok,c.i*350);
-    }else if(c.tok){
-      // off screen: stop and show the full text again, so it is never empty when you scroll back
-      c.tok.dead=true;c.say.set(c.say.full.length);if(c.does)c.does.set(c.does.full.length);
-      c.say.el.classList.remove('live');if(c.does){c.does.el.classList.remove('live','think')}
-      c.cls.add('done');
-    }
+      if(sc.tok&&!sc.tok.dead)return;
+      sc.tok={dead:false};playScene(sc,sc.tok,300);
+    }else stopScene(sc);
+  }),{threshold:.45});
+  scenes.forEach(sc=>{setStage(sc,4);sio.observe(sc.el)});
+  const tio=new IntersectionObserver(es=>es.forEach(async e=>{
+    const x=tries.find(y=>y.el===e.target);if(!x)return;
+    if(e.isIntersecting){
+      if(x.tok&&!x.tok.dead)return;
+      x.tok={dead:false};x.cls.remove('done');x.t.set(0);
+      if(await typeTo(x.t,26,x.tok))x.cls.add('done');
+    }else if(x.tok){x.tok.dead=true;x.t.set(x.t.full.length);x.t.el.classList.remove('live');x.cls.add('done')}
   }),{threshold:.6});
-  cards.forEach(c=>aio.observe(c.el));
+  tries.forEach(x=>tio.observe(x.el));
 }
 
 // pause motion

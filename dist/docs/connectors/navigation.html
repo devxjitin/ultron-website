@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261114">
-<link rel="stylesheet" href="/pages.css?v=20261114">
+<link rel="stylesheet" href="/styles.css?v=20261117">
+<link rel="stylesheet" href="/pages.css?v=20261117">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -69,18 +69,66 @@
 <div class="chips"><span class="chip">Phone control</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
 <h2 class="dh">Why you will want it</h2>
 <p class="dp">This one uses Android accessibility, so it is off until you turn it on. It presses the system buttons and scrolls for you. It does not read what is on your screen.</p>
-<div class="ucs"><article class="uc rv" style="--d:0.0s">
-<small>Reading in bed</small>
-<p class="uc-say"><span>You say</span>Thoda neeche scroll karo.</p>
-<p class="uc-does"><span>Ultron</span>Scrolls the page down by the amount you ask.</p>
-</article><article class="uc rv" style="--d:0.08s">
-<small>Capture this</small>
-<p class="uc-say"><span>You say</span>Screenshot le lo.</p>
-<p class="uc-does"><span>Ultron</span>Takes a screenshot and saves it in your gallery.</p>
-</article><article class="uc rv" style="--d:0.16s">
-<small>Leaving an app</small>
-<p class="uc-say"><span>You say</span>Back jao, phir home screen.</p>
-<p class="uc-does"><span>Ultron</span>Presses Back, then goes to the home screen.</p>
+<div class="scs"><article class="sc rv" style="--d:0.0s">
+<h3 class="sc-t">Reading in bed</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Thoda neeche scroll karo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Scroll</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Scrolls the page down by the amount you ask.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Scroll</b><span>Scroll or swipe the screen up, down, left or right.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Scrolls the page down by the amount you ask.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Thoda neeche scroll karo. Ultron: Scrolls the page down by the amount you ask.</p>
+</article><article class="sc rv" style="--d:0.06s">
+<h3 class="sc-t">Capture this</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Screenshot le lo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Screenshot</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Takes a screenshot and saves it in your gallery.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Screenshot</b><span>Take a screenshot (saved in the gallery).</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Takes a screenshot and saves it in your gallery.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Screenshot le lo. Ultron: Takes a screenshot and saves it in your gallery.</p>
+</article><article class="sc rv" style="--d:0.12s">
+<h3 class="sc-t">Leaving an app</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Back jao, phir home screen.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Back button</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Presses Back, then goes to the home screen.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Back button</b><span>Press the Back button.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Presses Back, then goes to the home screen.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Back jao, phir home screen. Ultron: Presses Back, then goes to the home screen.</p>
 </article></div>
 <h2 class="dh" id="tools">Every tool in this connector</h2>
 <p class="dp">Goes back and home, opens recents, scrolls, locks the screen and takes screenshots. Ultron picks the right tool from what you say, so you never have to name one.</p>
@@ -102,6 +150,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261114" defer></script>
+<script src="/page.js?v=20261117" defer></script>
 </body>
 </html>

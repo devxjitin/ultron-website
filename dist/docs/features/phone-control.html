@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261114">
-<link rel="stylesheet" href="/pages.css?v=20261114">
+<link rel="stylesheet" href="/styles.css?v=20261117">
+<link rel="stylesheet" href="/pages.css?v=20261117">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -71,18 +71,66 @@
 <h2 class="dh">How it works</h2>
 <ul class="how"><li class="rv"><h3>Reads the screen</h3><p>It reads the text and numbers every item it can press, so it can say which one to tap.</p></li><li class="rv"><h3>Taps, types and scrolls</h3><p>It taps, types, scrolls and waits for text to appear before it goes on.</p></li><li class="rv"><h3>System buttons</h3><p>Back, home, recents, quick settings and screenshots.</p></li><li class="rv"><h3>You stay in control</h3><p>It stays off until you grant Android&#x27;s permission yourself.</p></li></ul>
 <h2 class="dh">What it looks like</h2>
-<div class="ucs"><article class="uc rv" style="--d:0.0s">
-<small>An app with no shortcut</small>
-<p class="uc-say"><span>You say</span>Swiggy kholo aur pizza search karo.</p>
-<p class="uc-does"><span>Ultron</span>Opens the app, taps the search box, types and presses Enter.</p>
-</article><article class="uc rv" style="--d:0.08s">
-<small>Reading a long page</small>
-<p class="uc-say"><span>You say</span>Neeche scroll karte raho.</p>
-<p class="uc-does"><span>Ultron</span>Scrolls page by page as you ask.</p>
-</article><article class="uc rv" style="--d:0.16s">
-<small>Waiting on something</small>
-<p class="uc-say"><span>You say</span>Jab payment successful dikhe tab batana.</p>
-<p class="uc-does"><span>Ultron</span>Waits until that text appears on screen, then tells you.</p>
+<div class="scs"><article class="sc rv" style="--d:0.0s">
+<h3 class="sc-t">An app with no shortcut</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Swiggy kholo aur pizza search karo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Type text</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Working other apps</b><span>Opens the app, taps the search box, types and presses Enter.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Type text</b><span>Type into the text field on screen.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Opens the app, taps the search box, types and presses Enter.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Swiggy kholo aur pizza search karo. Ultron: Opens the app, taps the search box, types and presses Enter.</p>
+</article><article class="sc rv" style="--d:0.06s">
+<h3 class="sc-t">Reading a long page</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Neeche scroll karte raho.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Scroll</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Working other apps</b><span>Scrolls page by page as you ask.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Scroll</b><span>Scroll or swipe the screen up, down, left or right.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Scrolls page by page as you ask.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Neeche scroll karte raho. Ultron: Scrolls page by page as you ask.</p>
+</article><article class="sc rv" style="--d:0.12s">
+<h3 class="sc-t">Waiting on something</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Jab payment successful dikhe tab batana.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Wait for text</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Working other apps</b><span>Waits until that text appears on screen, then tells you.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Wait for text</b><span>Wait until some text appears on screen.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Waits until that text appears on screen, then tells you.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Jab payment successful dikhe tab batana. Ultron: Waits until that text appears on screen, then tells you.</p>
 </article></div>
 <p class="warn rv">Screen text is shared with Gemini and can be private. Use it with care and switch it on only if you understand that.</p>
 <div class="cta-row dlinks"><a class="btn btn-ghost btn-sm" href="/docs/connectors/screen.html">Screen control connector</a><a class="btn btn-ghost btn-sm" href="/docs/connectors/navigation.html">Phone navigation connector</a></div>
@@ -95,6 +143,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261114" defer></script>
+<script src="/page.js?v=20261117" defer></script>
 </body>
 </html>

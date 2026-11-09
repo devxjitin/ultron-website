@@ -9,13 +9,13 @@ import shutil
 from html import escape as e
 from pathlib import Path
 
-from docs_content import FEATURES, GETTING_STARTED, SKILLS
-from usecases import ACCESS_TEXT, CONNECTORS, TOOLS
+from docs_content import FEATURE_SCENE_TOOLS, FEATURES, GETTING_STARTED, SKILLS, SKILLS_SCENE_TOOLS
+from usecases import ACCESS_TEXT, CONNECTORS, SCENE_TOOLS, TOOLS
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 DOCS = DIST / "docs"
-V = "20261114"
+V = "20261117"
 SITE = "https://ultron.devxjitin.dev"
 DOWNLOAD = "https://api.devxjitin.dev/v1/releases/download"
 
@@ -40,6 +40,7 @@ for c in conns:
     for t in c["tools"]:
         t["say"] = TOOLS[t["fn"]]
 seq = [c for cat in ORDER for c in conns if c["cat"] == cat]
+ALL_TOOLS = {t["fn"]: t for c in conns for t in c["tools"]}
 
 
 def head(title, desc, path):
@@ -129,12 +130,37 @@ def page(title, desc, path, crumbs, inner, pn=None):
 """ + foot()
 
 
-def scenes_html(scenes):
-    return '<div class="ucs">' + "".join(f"""<article class="uc rv" style="--d:{i * .08}s">
-<small>{e(s)}</small>
-<p class="uc-say"><span>You say</span>{e(q)}</p>
-<p class="uc-does"><span>Ultron</span>{e(a)}</p>
-</article>""" for i, (s, q, a) in enumerate(scenes)) + "</div>"
+def scenes_html(scenes, tools, ic, name):
+    """One animated scene per use case: a phone that hears the request, picks a tool, does it and answers, next to
+    the same four steps in words. `tools` is the tool function name for each scene, or None when no tool is involved."""
+    out = []
+    for i, ((situation, say, does), fn) in enumerate(zip(scenes, tools)):
+        t = ALL_TOOLS.get(fn)
+        label = t["label"] if t else "Understanding you"
+        hint = t["hint"] if t else "Gemini works out what you mean and answers."
+        step2 = f"Picks {label}" if t else "Works out what you mean"
+        out.append(f"""<article class="sc rv" style="--d:{i * .06}s">
+<h3 class="sc-t">{e(situation)}</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">{e(say)}</span></p>
+<p class="schip">{icon("i-spark")}<span>{e(label)}</span><i class="spin"></i></p>
+<div class="sres">{icon(ic)}<div><b>{e(name)}</b><span>{e(does)}</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic">{icon("i-mic")}</span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li>{icon("i-mic")}<div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li>{icon("i-search")}<div><b>{e(step2)}</b><span>{e(hint)}</span></div></li>
+<li>{icon("i-touch")}<div><b>Does it</b><span>{e(does)}</span></div></li>
+<li>{icon("i-vol")}<div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: {e(say)} Ultron: {e(does)}</p>
+</article>""")
+    return '<div class="scs">' + "".join(out) + "</div>"
 
 
 def how_html(items):
@@ -157,7 +183,7 @@ def connector_page(c, p, n):
 <div class="chips">{chips}</div>
 <h2 class="dh">Why you will want it</h2>
 <p class="dp">{e(cp["why"])}</p>
-{scenes_html(cp["scenes"])}
+{scenes_html(cp["scenes"], SCENE_TOOLS[c["id"]], ICON[c["id"]], c["name"])}
 <h2 class="dh" id="tools">{"Every tool" if nt > 1 else "The tool"} in this connector</h2>
 <p class="dp">{e(c["about"])} Ultron picks the right tool from what you say, so you never have to name one.</p>
 <ul class="tools">{tools}</ul>
@@ -202,7 +228,7 @@ def feature_page(f, p, n):
 <h2 class="dh">How it works</h2>
 {how_html(f["how"])}
 <h2 class="dh">What it looks like</h2>
-{scenes_html(f["scenes"])}
+{scenes_html(f["scenes"], FEATURE_SCENE_TOOLS[f["slug"]], f["icon"], f["name"])}
 {notes_html(f["notes"])}
 {('<div class="cta-row dlinks">' + links + '</div>') if links else ''}"""
     return page(f'{f["name"]} | Ultron Docs', f["lead"] + " " + f["why"], f'/docs/features/{f["slug"]}.html',
@@ -219,7 +245,7 @@ def skills_page():
 <h2 class="dh">How they work</h2>
 {how_html(s["how"])}
 <h2 class="dh">What it looks like</h2>
-{scenes_html(s["scenes"])}
+{scenes_html(s["scenes"], SKILLS_SCENE_TOOLS, "i-spark", "Skills")}
 {notes_html(s["notes"])}"""
     return page("Skills | Ultron Docs", s["lead"] + " " + s["why"], "/docs/skills.html", [("Docs", "/docs/"), ("Skills", None)], inner)
 

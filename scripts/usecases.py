@@ -290,3 +290,27 @@ ACCESS_TEXT = {
     "NOTIFICATION_ACCESS": "Notification access.",
     "ACCESSIBILITY": "Accessibility access. A settings screen opens when you add it.",
 }
+
+# connector id -> the tool each of its three scenes uses, in scene order (drives the step list in the animation)
+SCENE_TOOLS = {
+    "device_info": ["get_battery_status", "get_wifi_info", "get_device_info"],
+    "device_controls": ["set_flashlight", "set_do_not_disturb", "set_brightness"],
+    "alarms": ["set_alarm", "set_timer", "modify_alarm"],
+    "reminders": ["schedule_reminder", "schedule_reminder", "modify_reminder"],
+    "apps_settings": ["open_app", "share_text", "open_app_settings"],
+    "weather": ["get_weather", "get_weather", "get_weather"],
+    "duckduckgo": ["web_search", "web_search", "web_search"],
+    "web_reader": ["fetch_webpage", "fetch_webpage", "fetch_webpage"],
+    "youtube": ["youtube_search", "youtube_transcript", "youtube_list_videos"],
+    "youtube_downloads": ["download_youtube_video", "download_youtube_video", "youtube_download_options"],
+    "calendar": ["get_upcoming_events", "check_calendar_conflicts", "create_calendar_event"],
+    "contacts": ["search_contact", "get_contact_birthday", "create_contact"],
+    "calls": ["make_call", "make_call", "make_call"],
+    "location": ["get_current_location", "get_directions", "get_current_location"],
+    "files": ["search_files", "share_file", "list_folder"],
+    "images": ["show_image", "show_image", "show_image"],
+    "app_usage": ["get_most_used_apps", "get_app_usage_time", "get_most_used_apps"],
+    "notifications": ["read_notifications", "reply_to_notification", "get_now_playing"],
+    "navigation": ["scroll_screen", "take_screenshot", "press_back"],
+    "screen": ["type_text", "read_screen", "wait_for_screen_text"],
+}

@@ -28,15 +28,6 @@
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .chip{padding:5px 12px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;color:var(--mute)}
 .chip.on{border-color:rgba(74,222,128,.4);color:#86efac}
-.ucs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
-.uc{padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--s1);display:flex;flex-direction:column;gap:14px}
-.uc small{font-size:13px;color:var(--dim);letter-spacing:.02em}
-.uc p{font-size:15.5px;line-height:1.5}
-.uc span{display:block;font:500 12px var(--fb);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
-.uc-say{padding:12px 14px;border-radius:12px 12px 12px 4px;background:var(--s3);color:var(--ink)}
-.uc-say span{color:var(--dim)}
-.uc-does{color:var(--mute)}
-.uc-does span{color:var(--red2)}
 .how{list-style:none;padding:0;display:grid;gap:0;border-top:1px solid var(--line);margin-top:18px}
 .how li{padding:18px 0;border-bottom:1px solid var(--line)}
 .how h3{font-size:18px;margin-bottom:4px}
@@ -67,18 +58,64 @@
 .ccard small{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim)}
 .ccard small .ic{width:16px;height:16px;margin-left:auto;color:var(--red2)}
 .dhome{margin-top:34px}
-/* animated use cases: typed words, a listening dot, a thinking pulse and a tick when done */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ty-h{visibility:hidden}
-.uc-say.live span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red2);margin-right:7px;vertical-align:1px;animation:ucpulse 1s ease-in-out infinite}
-.live .ty::after,.try.live .ty::after{content:"";display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--red2);animation:uccaret .7s steps(1) infinite}
-.uc-does.think span::after{content:" \25CF \25CF \25CF";letter-spacing:1px;color:var(--dim);animation:ucthink 1s ease-in-out infinite}
-.uc.done .uc-does span::after{content:" \2713";color:#4ade80;animation:ucpop .4s var(--ease)}
-.tool .try.done span::after{content:" \2713";color:#4ade80;animation:ucpop .4s var(--ease)}
-@keyframes ucpulse{50%{transform:scale(1.7);opacity:.4}}
-@keyframes uccaret{50%{opacity:0}}
-@keyframes ucthink{50%{opacity:.25}}
-@keyframes ucpop{from{transform:scale(.4);opacity:0}}
-.paused .uc-say.live span::before,.paused .live .ty::after,.paused .uc-does.think span::after{animation-play-state:paused}
+.live .ty::after{content:"";display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--red2);animation:sccaret .7s steps(1) infinite}
+.tool .try.done span::after{content:" \2713";color:#4ade80}
+.paused .live .ty::after,.paused .spin,.paused .eq i,.paused .orb{animation-play-state:paused}
+
+/* animated use-case scenes: a phone on the left, the same four steps in words on the right */
+.scs{display:grid;gap:18px;margin-top:22px}
+.sc{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--s1)}
+.sc-t{font-size:18px;margin-bottom:16px;color:var(--ink)}
+.sc-grid{display:grid;grid-template-columns:240px 1fr;gap:26px;align-items:center}
+.sph{height:318px;border:3px solid #2a2626;border-radius:26px;background:#080707;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.sph-top{display:flex;align-items:center;gap:9px;padding:12px 14px;border-bottom:1px solid var(--line);background:#100e0e}
+.sph-top b{font:600 15px var(--fh)}
+.sph-top .orb{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f09a9a,var(--red) 60%,#5a1218);flex:none}
+.sst{margin-left:auto;font:400 12px var(--fb);color:var(--dim);font-style:normal}
+.sph-body{flex:1;padding:12px;display:flex;flex-direction:column;gap:9px;overflow:hidden}
+.bub{align-self:flex-end;max-width:92%;padding:9px 12px;border-radius:14px 14px 4px 14px;background:var(--s3);color:var(--ink);font-size:13.5px;line-height:1.4;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s var(--ease)}
+.schip{align-self:flex-start;display:flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid var(--line2);border-radius:999px;font-size:12.5px;color:var(--mute);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s var(--ease)}
+.schip .ic{width:14px;height:14px;color:var(--red2)}
+.spin{width:12px;height:12px;border-radius:50%;border:2px solid var(--line2);border-top-color:var(--red2);animation:scspin .8s linear infinite}
+.schip.ok .spin{animation:none;border:0;width:auto;height:auto}
+.schip.ok .spin::before{content:"\2713";color:#4ade80;font-size:13px}
+.sres{display:flex;gap:10px;align-items:flex-start;padding:11px;border:1px solid rgba(207,47,58,.45);border-radius:12px;background:var(--accsoft);font-size:13px;line-height:1.35;opacity:0;transform:translateY(10px) scale(.97);transition:opacity .4s,transform .4s var(--ease)}
+.sres .ic{width:20px;height:20px;color:var(--red2);margin-top:1px}
+.sres b{display:block;font:600 13.5px var(--fh);margin-bottom:2px}
+.sres span{color:#e4d2d2}
+.sph-mic{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px;border-top:1px solid var(--line);background:#100e0e}
+.mic{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;transition:box-shadow .3s}
+.mic .ic{width:17px;height:17px}
+.eq{display:flex;align-items:center;gap:3px;height:22px;opacity:.25;transition:opacity .3s}
+.eq i{width:3px;height:6px;border-radius:2px;background:var(--red2)}
+.sc.s-hear .mic{box-shadow:0 0 0 6px rgba(207,47,58,.28),0 0 0 12px rgba(207,47,58,.12)}
+.sc.s-hear .bub,.sc.s-tool .bub,.sc.s-do .bub,.sc.s-say .bub,.sc.s-fin .bub{opacity:1;transform:none}
+.sc.s-tool .schip,.sc.s-do .schip,.sc.s-say .schip,.sc.s-fin .schip{opacity:1;transform:none}
+.sc.s-do .schip,.sc.s-say .schip,.sc.s-fin .schip{border-color:rgba(74,222,128,.4)}
+.sc.s-do .sres,.sc.s-say .sres,.sc.s-fin .sres{opacity:1;transform:none}
+.sc.s-say .eq{opacity:1}
+.sc.s-say .eq i{animation:sceq .7s ease-in-out infinite}
+.sc.s-say .eq i:nth-child(2){animation-delay:.12s}.sc.s-say .eq i:nth-child(3){animation-delay:.24s}.sc.s-say .eq i:nth-child(4){animation-delay:.08s}.sc.s-say .eq i:nth-child(5){animation-delay:.2s}
+.ss{list-style:none;padding:0;display:grid;gap:9px}
+.ss li{display:flex;gap:13px;align-items:center;padding:13px 15px;border:1px solid var(--line);border-radius:12px;opacity:.42;transition:opacity .35s,border-color .35s,background .35s}
+.ss li .ic{width:19px;height:19px;color:var(--dim);transition:color .35s}
+.ss li b{display:block;font:600 16px var(--fh);color:var(--ink)}
+.ss li span{display:block;font-size:14px;color:var(--mute);line-height:1.4;margin-top:1px}
+.ss li.on{opacity:1;border-color:rgba(207,47,58,.6);background:var(--accsoft)}
+.ss li.on .ic{color:var(--red2)}
+.ss li.done{opacity:1}
+.ss li.done::after{content:"\2713";margin-left:auto;color:#4ade80;font-size:17px}
+@keyframes scspin{to{transform:rotate(360deg)}}
+@keyframes sceq{50%{height:20px}}
+@keyframes sccaret{50%{opacity:0}}
+@media(max-width:700px){
+  .sc{padding:16px}
+  .sc-grid{grid-template-columns:1fr;justify-items:center}
+  .sph{width:min(260px,100%)}
+  .ss{width:100%}
+}
 @media(max-width:1020px){
   .docs{grid-template-columns:1fr;gap:20px;padding-top:92px}
   .dside{position:static;max-height:none;overflow:visible;padding:0}
@@ -90,7 +127,7 @@
   .dside-in{padding:0 8px 14px;max-height:60vh;overflow:auto}
 }
 @media(max-width:700px){
-  .cgrid2,.ucs{grid-template-columns:1fr}
+  .cgrid2{grid-template-columns:1fr}
   .tool{grid-template-columns:1fr;gap:8px}
   .facts1>div{grid-template-columns:1fr;gap:4px}
   .pn{grid-template-columns:1fr}

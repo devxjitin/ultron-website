@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261114">
-<link rel="stylesheet" href="/pages.css?v=20261114">
+<link rel="stylesheet" href="/styles.css?v=20261117">
+<link rel="stylesheet" href="/pages.css?v=20261117">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -69,18 +69,66 @@
 <div class="chips"><span class="chip">Personal data</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
 <h2 class="dh">Why you will want it</h2>
 <p class="dp">Ask where you are right now, or name a place and Ultron starts navigation in your maps app. Your location is shared only when you ask.</p>
-<div class="ucs"><article class="uc rv" style="--d:0.0s">
-<small>Lost in a new city</small>
-<p class="uc-say"><span>You say</span>Main abhi kahan hu?</p>
-<p class="uc-does"><span>Ultron</span>Tells you where the phone is right now.</p>
-</article><article class="uc rv" style="--d:0.08s">
-<small>Heading out</small>
-<p class="uc-say"><span>You say</span>Sabse paas ke petrol pump ka rasta batao.</p>
-<p class="uc-does"><span>Ultron</span>Starts navigation in your maps app.</p>
-</article><article class="uc rv" style="--d:0.16s">
-<small>Telling a friend</small>
-<p class="uc-say"><span>You say</span>Meri location kya hai?</p>
-<p class="uc-does"><span>Ultron</span>Reads out your current location so you can share it.</p>
+<div class="scs"><article class="sc rv" style="--d:0.0s">
+<h3 class="sc-t">Lost in a new city</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Main abhi kahan hu?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Current location</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-pin"/></svg><div><b>Location</b><span>Tells you where the phone is right now.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Current location</b><span>Tell where the phone is right now.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tells you where the phone is right now.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Main abhi kahan hu? Ultron: Tells you where the phone is right now.</p>
+</article><article class="sc rv" style="--d:0.06s">
+<h3 class="sc-t">Heading out</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Sabse paas ke petrol pump ka rasta batao.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Directions</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-pin"/></svg><div><b>Location</b><span>Starts navigation in your maps app.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Directions</b><span>Start navigation to a place.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Starts navigation in your maps app.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Sabse paas ke petrol pump ka rasta batao. Ultron: Starts navigation in your maps app.</p>
+</article><article class="sc rv" style="--d:0.12s">
+<h3 class="sc-t">Telling a friend</h3>
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Meri location kya hai?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Current location</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-pin"/></svg><div><b>Location</b><span>Reads out your current location so you can share it.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Current location</b><span>Tell where the phone is right now.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Reads out your current location so you can share it.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Meri location kya hai? Ultron: Reads out your current location so you can share it.</p>
 </article></div>
 <h2 class="dh" id="tools">Every tool in this connector</h2>
 <p class="dp">Tells you where you are and starts directions in your maps app. Ultron picks the right tool from what you say, so you never have to name one.</p>
@@ -102,6 +150,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261114" defer></script>
+<script src="/page.js?v=20261117" defer></script>
 </body>
 </html>
