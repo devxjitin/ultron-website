@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0d0c0c">
-<meta name="description" content="Know where you are and start directions. Know where you are and get directions.">
+<meta name="description" content="Tells you where you are and starts directions in your maps app. Know where you are and get directions.">
 <meta property="og:title" content="Location connector | Ultron Docs">
-<meta property="og:description" content="Know where you are and start directions. Know where you are and get directions.">
+<meta property="og:description" content="Tells you where you are and starts directions in your maps app. Know where you are and get directions.">
 <link rel="canonical" href="https://ultron.devxjitin.dev/docs/connectors/location.html">
 <title>Location connector | Ultron Docs</title>
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261118">
-<link rel="stylesheet" href="/pages.css?v=20261118">
+<link rel="stylesheet" href="/styles.css?v=20261119">
+<link rel="stylesheet" href="/pages.css?v=20261119">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -64,75 +64,34 @@
 <aside class="dside" aria-label="Docs"><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in"><a href="/docs/">Overview</a><a href="/docs/getting-started.html">Getting started</a><h4>Features</h4><a href="/docs/features/live-conversation.html">Live conversation</a><a href="/docs/features/phone-control.html">Working other apps</a><a href="/docs/features/knowledge.html">Questions about your documents</a><a href="/docs/features/memory.html">Memory</a><a href="/docs/features/youtube.html">YouTube</a><a href="/docs/features/personalities.html">Personalities</a><a class="solo" href="/docs/skills.html">Skills</a><h4>Connectors</h4><a href="/docs/connectors/">All connectors</a><details class="dcat"><summary>Essentials</summary><a href="/docs/connectors/device_info.html">Device info</a><a href="/docs/connectors/device_controls.html">Device controls</a><a href="/docs/connectors/alarms.html">Alarms &amp; timers</a><a href="/docs/connectors/reminders.html">Reminders</a><a href="/docs/connectors/apps_settings.html">Apps &amp; settings</a><a href="/docs/connectors/weather.html">Weather</a></details><details class="dcat"><summary>Search and media</summary><a href="/docs/connectors/duckduckgo.html">Web search</a><a href="/docs/connectors/web_reader.html">Web pages</a><a href="/docs/connectors/youtube.html">YouTube Search</a><a href="/docs/connectors/youtube_downloads.html">YouTube Downloads</a><a href="/docs/connectors/images.html">Pictures</a></details><details class="dcat" open><summary>Personal data</summary><a href="/docs/connectors/calendar.html">Calendar</a><a href="/docs/connectors/contacts.html">Contacts</a><a href="/docs/connectors/calls.html">Calls</a><a href="/docs/connectors/location.html" aria-current="page">Location</a><a href="/docs/connectors/files.html">Files</a><a href="/docs/connectors/app_usage.html">App usage</a><a href="/docs/connectors/notifications.html">Notifications</a></details><details class="dcat"><summary>Phone control</summary><a href="/docs/connectors/navigation.html">Phone navigation</a><a href="/docs/connectors/screen.html">Screen control</a></details></div></details></aside>
 <article class="dmain">
 <p class="crumb"><a href="/docs/">Docs</a><span>/</span><a href="/docs/connectors/">Connectors</a><span>/</span>Location</p>
-<div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-pin"/></svg></span><h1>Location</h1></div>
-<p class="lead">Know where you are and start directions.</p>
-<div class="chips"><span class="chip">Personal data</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Tells you where you are and starts directions in your maps app. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<section class="tl">
-<div class="tl-h rv"><h3>Current location</h3><p>Tell where the phone is right now.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
+<h1>Location</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">Tells you where you are and starts directions in your maps app.</p>
+<dl class="meta"><div><dt>Group</dt><dd>Personal data</dd></div><div><dt>Needs</dt><dd>Location access.</dd></div><div><dt>Runs on</dt><dd>Your phone</dd></div><div><dt>Privacy</dt><dd>Your location is shared when you ask where you are.</dd></div><div><dt>Default</dt><dd>Off until you add it in the app</dd></div></dl>
+<p class="note">Reads private data from your phone, such as contacts, calendar, location, files and notifications. What you ask about is sent to Gemini.</p>
+</div>
+<figure class="demo" data-demo='[{&quot;say&quot;: &quot;Main abhi kahan hu?&quot;, &quot;tool&quot;: &quot;Current location&quot;, &quot;fn&quot;: &quot;get_current_location&quot;, &quot;result&quot;: &quot;Tells you where the phone is right now.&quot;, &quot;title&quot;: &quot;Lost in a new city&quot;}, {&quot;say&quot;: &quot;Sabse paas ke petrol pump ka rasta batao.&quot;, &quot;tool&quot;: &quot;Directions&quot;, &quot;fn&quot;: &quot;get_directions&quot;, &quot;result&quot;: &quot;Starts navigation in your maps app.&quot;, &quot;title&quot;: &quot;Heading out&quot;}, {&quot;say&quot;: &quot;Meri location kya hai?&quot;, &quot;tool&quot;: &quot;Current location&quot;, &quot;fn&quot;: &quot;get_current_location&quot;, &quot;result&quot;: &quot;Reads out your current location so you can share it.&quot;, &quot;title&quot;: &quot;Telling a friend&quot;}]'>
+<div class="sph">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
 <div class="sph-body">
-<p class="bub me"><span class="ty-src">Main abhi kahan hu?</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Current location</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-pin"/></svg><div><b>Location</b><span>Tells you where the phone is right now.</span></div></div>
+<p class="bub"><span class="ty-src">Main abhi kahan hu?</span></p>
+<p class="schip ok"><span>Current location</span><i class="spin"></i></p>
+<div class="sres"><span>Tells you where the phone is right now.</span></div>
 </div>
 <div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
 </div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Current location</b><span>Tell where the phone is right now.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tells you where the phone is right now.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
+<figcaption><span class="dcap">Lost in a new city</span><span class="dots"><button type="button" aria-label="Example 1" aria-current=true></button><button type="button" aria-label="Example 2"></button><button type="button" aria-label="Example 3"></button></span></figcaption>
+</figure>
 </div>
-<p class="sr-only">You say: Main abhi kahan hu? Ultron: Tells you where the phone is right now.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Directions</h3><p>Start navigation to a place.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Sabse paas ke petrol pump ka rasta batao.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Directions</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-pin"/></svg><div><b>Location</b><span>Starts navigation in your maps app.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Directions</b><span>Start navigation to a place.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Starts navigation in your maps app.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Sabse paas ke petrol pump ka rasta batao. Ultron: Starts navigation in your maps app.</p>
-</article>
-</section>
-<h2 class="dh">Access and privacy</h2>
-<dl class="facts1 rv">
-<div><dt>Needs</dt><dd>Location access.</dd></div>
-<div><dt>Runs on</dt><dd>Your phone</dd></div>
-<div><dt>Privacy</dt><dd>Your location is shared when you ask where you are.</dd></div>
-<div><dt>Default</dt><dd>Off. You turn it on from the Connectors page in the app.</dd></div>
-</dl>
-<p class="warn rv">Reads private data from your phone, such as contacts, calendar, location, files and notifications. What you ask about is sent to Gemini.</p>
+<h2 class="dh" id="tools">Tools</h2>
+<p class="dp">Ultron picks the right tool from what you say, so you never have to name one. The phrases are only examples.</p>
+<ul class="trows"><li class="trow"><div class="tn"><h3>Current location</h3><code>get_current_location</code></div><p>Tell where the phone is right now.</p><p class="ex">Say: <q>Main abhi kahan hu?</q></p></li><li class="trow"><div class="tn"><h3>Directions</h3><code>get_directions</code></div><p>Start navigation to a place.</p><p class="ex">Say: <q>Sabse paas ke petrol pump ka rasta batao.</q></p></li></ul>
 <nav class="pn" aria-label="Previous and next"><a href="/docs/connectors/calls.html"><small>Previous</small>Calls</a><a href="/docs/connectors/files.html"><small>Next</small>Files</a></nav>
 </article>
 </main>
-<section class="cta" id="contact">
-<div class="cta-in wrap rv"><h2>Ready to try it?</h2><p>Download the app, then pick a plan. Your activation key arrives by email.</p>
-<div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div></div>
-<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
-</section>
+<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/">Home</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261118" defer></script>
+<script src="/page.js?v=20261119" defer></script>
 </body>
 </html>

@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0d0c0c">
-<meta name="description" content="Back, home, scroll, screenshot. The phone&#x27;s buttons, by voice. Go back, go home, scroll and take screenshots.">
+<meta name="description" content="Goes back and home, opens recents, scrolls, locks the screen and takes screenshots. Go back, go home, scroll and take screenshots.">
 <meta property="og:title" content="Phone navigation connector | Ultron Docs">
-<meta property="og:description" content="Back, home, scroll, screenshot. The phone&#x27;s buttons, by voice. Go back, go home, scroll and take screenshots.">
+<meta property="og:description" content="Goes back and home, opens recents, scrolls, locks the screen and takes screenshots. Go back, go home, scroll and take screenshots.">
 <link rel="canonical" href="https://ultron.devxjitin.dev/docs/connectors/navigation.html">
 <title>Phone navigation connector | Ultron Docs</title>
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261118">
-<link rel="stylesheet" href="/pages.css?v=20261118">
+<link rel="stylesheet" href="/styles.css?v=20261119">
+<link rel="stylesheet" href="/pages.css?v=20261119">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -64,282 +64,34 @@
 <aside class="dside" aria-label="Docs"><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in"><a href="/docs/">Overview</a><a href="/docs/getting-started.html">Getting started</a><h4>Features</h4><a href="/docs/features/live-conversation.html">Live conversation</a><a href="/docs/features/phone-control.html">Working other apps</a><a href="/docs/features/knowledge.html">Questions about your documents</a><a href="/docs/features/memory.html">Memory</a><a href="/docs/features/youtube.html">YouTube</a><a href="/docs/features/personalities.html">Personalities</a><a class="solo" href="/docs/skills.html">Skills</a><h4>Connectors</h4><a href="/docs/connectors/">All connectors</a><details class="dcat"><summary>Essentials</summary><a href="/docs/connectors/device_info.html">Device info</a><a href="/docs/connectors/device_controls.html">Device controls</a><a href="/docs/connectors/alarms.html">Alarms &amp; timers</a><a href="/docs/connectors/reminders.html">Reminders</a><a href="/docs/connectors/apps_settings.html">Apps &amp; settings</a><a href="/docs/connectors/weather.html">Weather</a></details><details class="dcat"><summary>Search and media</summary><a href="/docs/connectors/duckduckgo.html">Web search</a><a href="/docs/connectors/web_reader.html">Web pages</a><a href="/docs/connectors/youtube.html">YouTube Search</a><a href="/docs/connectors/youtube_downloads.html">YouTube Downloads</a><a href="/docs/connectors/images.html">Pictures</a></details><details class="dcat"><summary>Personal data</summary><a href="/docs/connectors/calendar.html">Calendar</a><a href="/docs/connectors/contacts.html">Contacts</a><a href="/docs/connectors/calls.html">Calls</a><a href="/docs/connectors/location.html">Location</a><a href="/docs/connectors/files.html">Files</a><a href="/docs/connectors/app_usage.html">App usage</a><a href="/docs/connectors/notifications.html">Notifications</a></details><details class="dcat" open><summary>Phone control</summary><a href="/docs/connectors/navigation.html" aria-current="page">Phone navigation</a><a href="/docs/connectors/screen.html">Screen control</a></details></div></details></aside>
 <article class="dmain">
 <p class="crumb"><a href="/docs/">Docs</a><span>/</span><a href="/docs/connectors/">Connectors</a><span>/</span>Phone navigation</p>
-<div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-compass"/></svg></span><h1>Phone navigation</h1></div>
-<p class="lead">Back, home, scroll, screenshot. The phone&#x27;s buttons, by voice.</p>
-<div class="chips"><span class="chip">Phone control</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Goes back and home, opens recents, scrolls, locks the screen and takes screenshots. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<section class="tl">
-<div class="tl-h rv"><h3>Back button</h3><p>Press the Back button.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
+<h1>Phone navigation</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">Goes back and home, opens recents, scrolls, locks the screen and takes screenshots.</p>
+<dl class="meta"><div><dt>Group</dt><dd>Phone control</dd></div><div><dt>Needs</dt><dd>Accessibility access. A settings screen opens when you add it.</dd></div><div><dt>Runs on</dt><dd>Your phone</dd></div><div><dt>Privacy</dt><dd>It does not read the screen.</dd></div><div><dt>Default</dt><dd>Off until you add it in the app</dd></div></dl>
+<p class="note">Lets Ultron operate other apps through Android accessibility. It can tap, type and read the screen, so turn it on only if you understand that.</p>
+</div>
+<figure class="demo" data-demo='[{&quot;say&quot;: &quot;Thoda neeche scroll karo.&quot;, &quot;tool&quot;: &quot;Scroll&quot;, &quot;fn&quot;: &quot;scroll_screen&quot;, &quot;result&quot;: &quot;Scrolls the page down by the amount you ask.&quot;, &quot;title&quot;: &quot;Reading in bed&quot;}, {&quot;say&quot;: &quot;Screenshot le lo.&quot;, &quot;tool&quot;: &quot;Screenshot&quot;, &quot;fn&quot;: &quot;take_screenshot&quot;, &quot;result&quot;: &quot;Takes a screenshot and saves it in your gallery.&quot;, &quot;title&quot;: &quot;Capture this&quot;}, {&quot;say&quot;: &quot;Back jao, phir home screen.&quot;, &quot;tool&quot;: &quot;Back button&quot;, &quot;fn&quot;: &quot;press_back&quot;, &quot;result&quot;: &quot;Presses Back, then goes to the home screen.&quot;, &quot;title&quot;: &quot;Leaving an app&quot;}]'>
+<div class="sph">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
 <div class="sph-body">
-<p class="bub me"><span class="ty-src">Back jao, phir home screen.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Back button</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Presses Back, then goes to the home screen.</span></div></div>
+<p class="bub"><span class="ty-src">Thoda neeche scroll karo.</span></p>
+<p class="schip ok"><span>Scroll</span><i class="spin"></i></p>
+<div class="sres"><span>Scrolls the page down by the amount you ask.</span></div>
 </div>
 <div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
 </div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Back button</b><span>Press the Back button.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Presses Back, then goes to the home screen.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
+<figcaption><span class="dcap">Reading in bed</span><span class="dots"><button type="button" aria-label="Example 1" aria-current=true></button><button type="button" aria-label="Example 2"></button><button type="button" aria-label="Example 3"></button></span></figcaption>
+</figure>
 </div>
-<p class="sr-only">You say: Back jao, phir home screen. Ultron: Presses Back, then goes to the home screen.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Recent apps</h3><p>Open the recent apps screen.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Recent apps dikhao.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Recent apps</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Open the recent apps screen.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Recent apps</b><span>Open the recent apps screen.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Open the recent apps screen.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Recent apps dikhao. Ultron: Open the recent apps screen.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Previous app</h3><p>Switch back to the app used before this one.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Pichli app par wapas jao.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Previous app</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Switch back to the app used before this one.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Previous app</b><span>Switch back to the app used before this one.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Switch back to the app used before this one.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Pichli app par wapas jao. Ultron: Switch back to the app used before this one.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Notification shade</h3><p>Pull down the notification panel.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Notification panel neeche kheencho.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Notification shade</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Pull down the notification panel.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Notification shade</b><span>Pull down the notification panel.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Pull down the notification panel.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Notification panel neeche kheencho. Ultron: Pull down the notification panel.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Quick settings</h3><p>Open the quick settings panel (Wi-Fi, Bluetooth tiles).</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Quick settings kholo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Quick settings</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Open the quick settings panel (Wi-Fi, Bluetooth tiles).</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Quick settings</b><span>Open the quick settings panel (Wi-Fi, Bluetooth tiles).</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Open the quick settings panel (Wi-Fi, Bluetooth tiles).</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Quick settings kholo. Ultron: Open the quick settings panel (Wi-Fi, Bluetooth tiles).</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Scroll</h3><p>Scroll or swipe the screen up, down, left or right.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Thoda neeche scroll karo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Scroll</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Scrolls the page down by the amount you ask.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Scroll</b><span>Scroll or swipe the screen up, down, left or right.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Scrolls the page down by the amount you ask.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Thoda neeche scroll karo. Ultron: Scrolls the page down by the amount you ask.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Lock screen</h3><p>Lock the phone.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Phone lock kar do.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Lock screen</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Lock the phone.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Lock screen</b><span>Lock the phone.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Lock the phone.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Phone lock kar do. Ultron: Lock the phone.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Screenshot</h3><p>Take a screenshot (saved in the gallery).</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Screenshot le lo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Screenshot</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Takes a screenshot and saves it in your gallery.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Screenshot</b><span>Take a screenshot (saved in the gallery).</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Takes a screenshot and saves it in your gallery.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Screenshot le lo. Ultron: Takes a screenshot and saves it in your gallery.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Go to home screen</h3><p>Leave the current app and show the home screen.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Home screen par chalo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Go to home screen</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Leave the current app and show the home screen.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Go to home screen</b><span>Leave the current app and show the home screen.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Leave the current app and show the home screen.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Home screen par chalo. Ultron: Leave the current app and show the home screen.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Power menu</h3><p>Open the power off and restart menu.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Power menu kholo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Power menu</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Open the power off and restart menu.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Power menu</b><span>Open the power off and restart menu.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Open the power off and restart menu.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Power menu kholo. Ultron: Open the power off and restart menu.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Split screen</h3><p>Turn split screen on or off.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Split screen on karo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Split screen</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-compass"/></svg><div><b>Phone navigation</b><span>Turn split screen on or off.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Split screen</b><span>Turn split screen on or off.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Turn split screen on or off.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Split screen on karo. Ultron: Turn split screen on or off.</p>
-</article>
-</section>
-<h2 class="dh">Access and privacy</h2>
-<dl class="facts1 rv">
-<div><dt>Needs</dt><dd>Accessibility access. A settings screen opens when you add it.</dd></div>
-<div><dt>Runs on</dt><dd>Your phone</dd></div>
-<div><dt>Privacy</dt><dd>It does not read the screen.</dd></div>
-<div><dt>Default</dt><dd>Off. You turn it on from the Connectors page in the app.</dd></div>
-</dl>
-<p class="warn rv">Lets Ultron operate other apps through Android accessibility. It can tap, type and read the screen, so turn it on only if you understand that.</p>
+<h2 class="dh" id="tools">Tools</h2>
+<p class="dp">Ultron picks the right tool from what you say, so you never have to name one. The phrases are only examples.</p>
+<ul class="trows"><li class="trow"><div class="tn"><h3>Back button</h3><code>press_back</code></div><p>Press the Back button.</p><p class="ex">Say: <q>Back jao, phir home screen.</q></p></li><li class="trow"><div class="tn"><h3>Recent apps</h3><code>open_recent_apps</code></div><p>Open the recent apps screen.</p><p class="ex">Say: <q>Recent apps dikhao.</q></p></li><li class="trow"><div class="tn"><h3>Previous app</h3><code>switch_to_previous_app</code></div><p>Switch back to the app used before this one.</p><p class="ex">Say: <q>Pichli app par wapas jao.</q></p></li><li class="trow"><div class="tn"><h3>Notification shade</h3><code>open_notification_shade</code></div><p>Pull down the notification panel.</p><p class="ex">Say: <q>Notification panel neeche kheencho.</q></p></li><li class="trow"><div class="tn"><h3>Quick settings</h3><code>open_quick_settings</code></div><p>Open the quick settings panel (Wi-Fi, Bluetooth tiles).</p><p class="ex">Say: <q>Quick settings kholo.</q></p></li><li class="trow"><div class="tn"><h3>Scroll</h3><code>scroll_screen</code></div><p>Scroll or swipe the screen up, down, left or right.</p><p class="ex">Say: <q>Thoda neeche scroll karo.</q></p></li><li class="trow"><div class="tn"><h3>Lock screen</h3><code>lock_screen</code></div><p>Lock the phone.</p><p class="ex">Say: <q>Phone lock kar do.</q></p></li><li class="trow"><div class="tn"><h3>Screenshot</h3><code>take_screenshot</code></div><p>Take a screenshot (saved in the gallery).</p><p class="ex">Say: <q>Screenshot le lo.</q></p></li><li class="trow"><div class="tn"><h3>Go to home screen</h3><code>go_to_home_screen</code></div><p>Leave the current app and show the home screen.</p><p class="ex">Say: <q>Home screen par chalo.</q></p></li><li class="trow"><div class="tn"><h3>Power menu</h3><code>open_power_menu</code></div><p>Open the power off and restart menu.</p><p class="ex">Say: <q>Power menu kholo.</q></p></li><li class="trow"><div class="tn"><h3>Split screen</h3><code>toggle_split_screen</code></div><p>Turn split screen on or off.</p><p class="ex">Say: <q>Split screen on karo.</q></p></li></ul>
 <nav class="pn" aria-label="Previous and next"><a href="/docs/connectors/notifications.html"><small>Previous</small>Notifications</a><a href="/docs/connectors/screen.html"><small>Next</small>Screen control</a></nav>
 </article>
 </main>
-<section class="cta" id="contact">
-<div class="cta-in wrap rv"><h2>Ready to try it?</h2><p>Download the app, then pick a plan. Your activation key arrives by email.</p>
-<div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div></div>
-<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
-</section>
+<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/">Home</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261118" defer></script>
+<script src="/page.js?v=20261119" defer></script>
 </body>
 </html>

@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0d0c0c">
-<meta name="description" content="Your real calendar, on voice. Check your schedule and add events.">
+<meta name="description" content="Checks your schedule, finds free time and adds or cancels events. Check your schedule and add events.">
 <meta property="og:title" content="Calendar connector | Ultron Docs">
-<meta property="og:description" content="Your real calendar, on voice. Check your schedule and add events.">
+<meta property="og:description" content="Checks your schedule, finds free time and adds or cancels events. Check your schedule and add events.">
 <link rel="canonical" href="https://ultron.devxjitin.dev/docs/connectors/calendar.html">
 <title>Calendar connector | Ultron Docs</title>
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261118">
-<link rel="stylesheet" href="/pages.css?v=20261118">
+<link rel="stylesheet" href="/styles.css?v=20261119">
+<link rel="stylesheet" href="/pages.css?v=20261119">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -64,121 +64,34 @@
 <aside class="dside" aria-label="Docs"><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in"><a href="/docs/">Overview</a><a href="/docs/getting-started.html">Getting started</a><h4>Features</h4><a href="/docs/features/live-conversation.html">Live conversation</a><a href="/docs/features/phone-control.html">Working other apps</a><a href="/docs/features/knowledge.html">Questions about your documents</a><a href="/docs/features/memory.html">Memory</a><a href="/docs/features/youtube.html">YouTube</a><a href="/docs/features/personalities.html">Personalities</a><a class="solo" href="/docs/skills.html">Skills</a><h4>Connectors</h4><a href="/docs/connectors/">All connectors</a><details class="dcat"><summary>Essentials</summary><a href="/docs/connectors/device_info.html">Device info</a><a href="/docs/connectors/device_controls.html">Device controls</a><a href="/docs/connectors/alarms.html">Alarms &amp; timers</a><a href="/docs/connectors/reminders.html">Reminders</a><a href="/docs/connectors/apps_settings.html">Apps &amp; settings</a><a href="/docs/connectors/weather.html">Weather</a></details><details class="dcat"><summary>Search and media</summary><a href="/docs/connectors/duckduckgo.html">Web search</a><a href="/docs/connectors/web_reader.html">Web pages</a><a href="/docs/connectors/youtube.html">YouTube Search</a><a href="/docs/connectors/youtube_downloads.html">YouTube Downloads</a><a href="/docs/connectors/images.html">Pictures</a></details><details class="dcat" open><summary>Personal data</summary><a href="/docs/connectors/calendar.html" aria-current="page">Calendar</a><a href="/docs/connectors/contacts.html">Contacts</a><a href="/docs/connectors/calls.html">Calls</a><a href="/docs/connectors/location.html">Location</a><a href="/docs/connectors/files.html">Files</a><a href="/docs/connectors/app_usage.html">App usage</a><a href="/docs/connectors/notifications.html">Notifications</a></details><details class="dcat"><summary>Phone control</summary><a href="/docs/connectors/navigation.html">Phone navigation</a><a href="/docs/connectors/screen.html">Screen control</a></details></div></details></aside>
 <article class="dmain">
 <p class="crumb"><a href="/docs/">Docs</a><span>/</span><a href="/docs/connectors/">Connectors</a><span>/</span>Calendar</p>
-<div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-cal"/></svg></span><h1>Calendar</h1></div>
-<p class="lead">Your real calendar, on voice.</p>
-<div class="chips"><span class="chip">Personal data</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Checks your schedule, finds free time and adds or cancels events. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<section class="tl">
-<div class="tl-h rv"><h3>Read calendar</h3><p>Tell the upcoming calendar events.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
+<h1>Calendar</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">Checks your schedule, finds free time and adds or cancels events.</p>
+<dl class="meta"><div><dt>Group</dt><dd>Personal data</dd></div><div><dt>Needs</dt><dd>Calendar access.</dd></div><div><dt>Runs on</dt><dd>Your phone</dd></div><div><dt>Privacy</dt><dd>Event names and times are shared when you ask. Changes happen in your real calendar.</dd></div><div><dt>Default</dt><dd>Off until you add it in the app</dd></div></dl>
+<p class="note">Reads private data from your phone, such as contacts, calendar, location, files and notifications. What you ask about is sent to Gemini.</p>
+</div>
+<figure class="demo" data-demo='[{&quot;say&quot;: &quot;Aaj mere kya kya events hain?&quot;, &quot;tool&quot;: &quot;Read calendar&quot;, &quot;fn&quot;: &quot;get_upcoming_events&quot;, &quot;result&quot;: &quot;Reads today&#x27;s events from your calendar.&quot;, &quot;title&quot;: &quot;Morning check&quot;}, {&quot;say&quot;: &quot;Kal shaam 4 baje free hu kya?&quot;, &quot;tool&quot;: &quot;Calendar conflicts&quot;, &quot;fn&quot;: &quot;check_calendar_conflicts&quot;, &quot;result&quot;: &quot;Checks that slot for conflicts.&quot;, &quot;title&quot;: &quot;Finding a slot&quot;}, {&quot;say&quot;: &quot;Shukravar 6 baje dentist ka event add karo.&quot;, &quot;tool&quot;: &quot;Add calendar event&quot;, &quot;fn&quot;: &quot;create_calendar_event&quot;, &quot;result&quot;: &quot;Adds the event to your calendar.&quot;, &quot;title&quot;: &quot;Booking&quot;}]'>
+<div class="sph">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
 <div class="sph-body">
-<p class="bub me"><span class="ty-src">Aaj mere kya kya events hain?</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Read calendar</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-cal"/></svg><div><b>Calendar</b><span>Reads today&#x27;s events from your calendar.</span></div></div>
+<p class="bub"><span class="ty-src">Aaj mere kya kya events hain?</span></p>
+<p class="schip ok"><span>Read calendar</span><i class="spin"></i></p>
+<div class="sres"><span>Reads today&#x27;s events from your calendar.</span></div>
 </div>
 <div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
 </div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Read calendar</b><span>Tell the upcoming calendar events.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Reads today&#x27;s events from your calendar.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
+<figcaption><span class="dcap">Morning check</span><span class="dots"><button type="button" aria-label="Example 1" aria-current=true></button><button type="button" aria-label="Example 2"></button><button type="button" aria-label="Example 3"></button></span></figcaption>
+</figure>
 </div>
-<p class="sr-only">You say: Aaj mere kya kya events hain? Ultron: Reads today&#x27;s events from your calendar.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Calendar conflicts</h3><p>Check if a time slot is free.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Kal shaam 4 baje free hu kya?</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Calendar conflicts</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-cal"/></svg><div><b>Calendar</b><span>Checks that slot for conflicts.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Calendar conflicts</b><span>Check if a time slot is free.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Checks that slot for conflicts.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Kal shaam 4 baje free hu kya? Ultron: Checks that slot for conflicts.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Add calendar event</h3><p>Add an event to the calendar by itself.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Shukravar 6 baje dentist ka event add karo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Add calendar event</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-cal"/></svg><div><b>Calendar</b><span>Adds the event to your calendar.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Add calendar event</b><span>Add an event to the calendar by itself.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Adds the event to your calendar.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Shukravar 6 baje dentist ka event add karo. Ultron: Adds the event to your calendar.</p>
-</article>
-</section><section class="tl">
-<div class="tl-h rv"><h3>Cancel calendar event</h3><p>Delete an event from the calendar by itself.</p></div>
-<article class="sc rv" style="--d:0.0s">
-
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Kal ki meeting cancel karo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Cancel calendar event</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-cal"/></svg><div><b>Calendar</b><span>Delete an event from the calendar by itself.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Cancel calendar event</b><span>Delete an event from the calendar by itself.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Delete an event from the calendar by itself.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Kal ki meeting cancel karo. Ultron: Delete an event from the calendar by itself.</p>
-</article>
-</section>
-<h2 class="dh">Access and privacy</h2>
-<dl class="facts1 rv">
-<div><dt>Needs</dt><dd>Calendar access.</dd></div>
-<div><dt>Runs on</dt><dd>Your phone</dd></div>
-<div><dt>Privacy</dt><dd>Event names and times are shared when you ask. Changes happen in your real calendar.</dd></div>
-<div><dt>Default</dt><dd>Off. You turn it on from the Connectors page in the app.</dd></div>
-</dl>
-<p class="warn rv">Reads private data from your phone, such as contacts, calendar, location, files and notifications. What you ask about is sent to Gemini.</p>
+<h2 class="dh" id="tools">Tools</h2>
+<p class="dp">Ultron picks the right tool from what you say, so you never have to name one. The phrases are only examples.</p>
+<ul class="trows"><li class="trow"><div class="tn"><h3>Read calendar</h3><code>get_upcoming_events</code></div><p>Tell the upcoming calendar events.</p><p class="ex">Say: <q>Aaj mere kya kya events hain?</q></p></li><li class="trow"><div class="tn"><h3>Calendar conflicts</h3><code>check_calendar_conflicts</code></div><p>Check if a time slot is free.</p><p class="ex">Say: <q>Kal shaam 4 baje free hu kya?</q></p></li><li class="trow"><div class="tn"><h3>Add calendar event</h3><code>create_calendar_event</code></div><p>Add an event to the calendar by itself.</p><p class="ex">Say: <q>Shukravar 6 baje dentist ka event add karo.</q></p></li><li class="trow"><div class="tn"><h3>Cancel calendar event</h3><code>cancel_calendar_event</code></div><p>Delete an event from the calendar by itself.</p><p class="ex">Say: <q>Kal ki meeting cancel karo.</q></p></li></ul>
 <nav class="pn" aria-label="Previous and next"><a href="/docs/connectors/images.html"><small>Previous</small>Pictures</a><a href="/docs/connectors/contacts.html"><small>Next</small>Contacts</a></nav>
 </article>
 </main>
-<section class="cta" id="contact">
-<div class="cta-in wrap rv"><h2>Ready to try it?</h2><p>Download the app, then pick a plan. Your activation key arrives by email.</p>
-<div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div></div>
-<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
-</section>
+<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/">Home</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261118" defer></script>
+<script src="/page.js?v=20261119" defer></script>
 </body>
 </html>

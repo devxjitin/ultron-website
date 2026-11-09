@@ -3,6 +3,9 @@ copy in scripts/usecases.py (connectors) and scripts/docs_content.py (getting st
 
 Run from the site folder:  python scripts/build_pages.py
 The output is plain HTML committed under dist/, so the site stays static and needs no build on deploy.
+
+Docs are written as reference pages: plain text, one list of tools per connector with an example phrase each, and one
+phone demo per page that plays through that page's examples.
 """
 import json
 import shutil
@@ -10,12 +13,12 @@ from html import escape as e
 from pathlib import Path
 
 from docs_content import FEATURE_SCENE_TOOLS, FEATURES, GETTING_STARTED, SKILLS, SKILLS_SCENE_TOOLS
-from usecases import ACCESS_TEXT, CONNECTORS, SCENE_TOOLS, TOOLS
+from usecases import CONNECTORS, SCENE_TOOLS, TOOLS
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 DOCS = DIST / "docs"
-V = "20261118"
+V = "20261119"
 SITE = "https://ultron.devxjitin.dev"
 DOWNLOAD = "https://api.devxjitin.dev/v1/releases/download"
 
@@ -26,12 +29,6 @@ CAT_NOTE = {
     "Search and media": "Web search, web pages, YouTube and pictures.",
     "Personal data": "Reads private data from your phone, such as contacts, calendar, location, files and notifications. What you ask about is sent to Gemini.",
     "Phone control": "Lets Ultron operate other apps through Android accessibility. It can tap, type and read the screen, so turn it on only if you understand that.",
-}
-ICON = {
-    "device_info": "i-chart", "device_controls": "i-flash", "alarms": "i-clock", "reminders": "i-bell", "apps_settings": "i-grid",
-    "weather": "i-sun", "duckduckgo": "i-search", "web_reader": "i-globe", "youtube": "i-play", "youtube_downloads": "i-down",
-    "calendar": "i-cal", "contacts": "i-user", "calls": "i-phone", "location": "i-pin", "files": "i-files", "images": "i-img",
-    "app_usage": "i-chart", "notifications": "i-msg", "navigation": "i-compass", "screen": "i-touch",
 }
 ICONS_SVG = (DIST / "index.html").read_text(encoding="utf-8").split("<defs>")[1].split("</defs>")[0]
 
@@ -79,20 +76,12 @@ def head(title, desc, path):
 
 
 def foot():
-    return f"""<section class="cta" id="contact">
-<div class="cta-in wrap rv"><h2>Ready to try it?</h2><p>Download the app, then pick a plan. Your activation key arrives by email.</p>
-<div class="cta-row"><a class="btn" href="{DOWNLOAD}" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div></div>
-<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
-</section>
+    return f"""<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/">Home</a><a href="/#pricing">Pricing</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/page.js?v={V}" defer></script>
 </body>
 </html>
 """
-
-
-def icon(name):
-    return f'<svg class="ic"><use href="#{name}"/></svg>'
 
 
 def sidebar(current):
@@ -130,88 +119,59 @@ def page(title, desc, path, crumbs, inner, pn=None):
 """ + foot()
 
 
-def scene_card(title, say, does, fn, ic, name, delay=0.0):
-    """One animated scene: a phone that hears the request, picks a tool, does it and answers, next to the same four
-    steps in words. `fn` is the tool function name, or None when no tool is involved."""
-    t = ALL_TOOLS.get(fn)
-    label = t["label"] if t else "Understanding you"
-    hint = t["hint"] if t else "Gemini works out what you mean and answers."
-    step2 = f"Picks {label}" if t else "Works out what you mean"
-    head_t = f'<h3 class="sc-t">{e(title)}</h3>' if title else ""
-    return f"""<article class="sc rv" style="--d:{delay}s">
-{head_t}
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
+def demo(items):
+    """One phone for the whole page. `items` is a list of (situation, say, result, tool function or None). The page script
+    plays them one after another; the first one is already in the markup so the page reads fine without scripts."""
+    data = []
+    for situation, say, result, fn in items:
+        t = ALL_TOOLS.get(fn)
+        data.append({"say": say, "tool": t["label"] if t else "Understanding", "fn": t["fn"] if t else "", "result": result, "title": situation})
+    first = data[0]
+    dots = "".join(f'<button type="button" aria-label="Example {i + 1}"{" aria-current=true" if i == 0 else ""}></button>' for i in range(len(data)))
+    return f"""<figure class="demo" data-demo='{e(json.dumps(data, ensure_ascii=False), quote=True)}'>
+<div class="sph">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
 <div class="sph-body">
-<p class="bub me"><span class="ty-src">{e(say)}</span></p>
-<p class="schip">{icon("i-spark")}<span>{e(label)}</span><i class="spin"></i></p>
-<div class="sres">{icon(ic)}<div><b>{e(name)}</b><span>{e(does)}</span></div></div>
+<p class="bub"><span class="ty-src">{e(first["say"])}</span></p>
+<p class="schip ok"><span>{e(first["tool"])}</span><i class="spin"></i></p>
+<div class="sres"><span>{e(first["result"])}</span></div>
 </div>
-<div class="sph-mic"><span class="mic">{icon("i-mic")}</span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+<div class="sph-mic"><span class="mic">{'<svg class="ic"><use href="#i-mic"/></svg>'}</span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
 </div>
-<ol class="ss">
-<li>{icon("i-mic")}<div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li>{icon("i-search")}<div><b>{e(step2)}</b><span>{e(hint)}</span></div></li>
-<li>{icon("i-touch")}<div><b>Does it</b><span>{e(does)}</span></div></li>
-<li>{icon("i-vol")}<div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: {e(say)} Ultron: {e(does)}</p>
-</article>"""
+<figcaption><span class="dcap">{e(first["title"])}</span><span class="dots">{dots}</span></figcaption>
+</figure>"""
 
 
-def scenes_html(scenes, tools, ic, name):
-    cards = [scene_card(s, q, a, fn, ic, name, i * .06) for i, ((s, q, a), fn) in enumerate(zip(scenes, tools))]
-    return '<div class="scs">' + "".join(cards) + "</div>"
-
-
-def tool_blocks(c):
-    """One block per tool: its name, what it does and an animated example. Where a hand-written scene already uses the
-    tool, that richer scene is shown; otherwise the example is built from the tool's own line."""
-    by_fn = {}
-    for fn, sc in zip(SCENE_TOOLS[c["id"]], c["copy"]["scenes"]):
-        by_fn.setdefault(fn, sc)
-    out = []
-    for t in c["tools"]:
-        sc = by_fn.get(t["fn"])
-        say, does = (sc[1], sc[2]) if sc else (t["say"], t["hint"])
-        out.append(f"""<section class="tl">
-<div class="tl-h rv"><h3>{e(t["label"])}</h3><p>{e(t["hint"])}</p></div>
-{scene_card("", say, does, t["fn"], ICON[c["id"]], c["name"])}
-</section>""")
-    return "".join(out)
-
-
-def how_html(items):
-    return '<ul class="how">' + "".join(f'<li class="rv"><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t, d in items) + "</ul>"
-
-
-def notes_html(notes):
-    return "".join(f'<p class="warn rv">{e(n)}</p>' for n in notes)
+def meta_rows(rows):
+    return '<dl class="meta">' + "".join(f"<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>" for k, v in rows) + "</dl>"
 
 
 def connector_page(c, p, n):
     cp = c["copy"]
-    chips = (f'<span class="chip">{e(c["cat"])}</span><span class="chip">Runs on: {e(c["runs"])}</span>'
-             f'<span class="chip {"on" if c["on"] else ""}">{"On for a fresh install" if c["on"] else "Off until you add it"}</span>')
     nt = len(c["tools"])
-    warn = notes_html([CAT_NOTE[c["cat"]]]) if c["cat"] in ("Phone control", "Personal data") else ""
-    inner = f"""<div class="ph-row"><span class="ph-ic">{icon(ICON[c["id"]])}</span><h1>{e(c["name"])}</h1></div>
-<p class="lead">{e(cp["lead"])}</p>
-<div class="chips">{chips}</div>
-<h2 class="dh" id="tools">{"Every tool" if nt > 1 else "The tool"} in this connector</h2>
-<p class="dp">{e(c["about"])} Ultron picks the right tool from what you say, so you never have to name one.</p>
-{tool_blocks(c)}
-<h2 class="dh">Access and privacy</h2>
-<dl class="facts1 rv">
-<div><dt>Needs</dt><dd>{e(c["needs"])}</dd></div>
-<div><dt>Runs on</dt><dd>{e(c["runs"])}</dd></div>
-<div><dt>Privacy</dt><dd>{e(c["privacy"])}</dd></div>
-<div><dt>Default</dt><dd>{"On for a fresh install." if c["on"] else "Off. You turn it on from the Connectors page in the app."}</dd></div>
-</dl>
-{warn}"""
-    return page(f'{c["name"]} connector | Ultron Docs', f'{cp["lead"]} {c["desc"]}', f'/docs/connectors/{c["id"]}.html',
+    by_fn = {}
+    for fn, sc in zip(SCENE_TOOLS[c["id"]], cp["scenes"]):
+        by_fn.setdefault(fn, sc)
+    rows = []
+    for t in c["tools"]:
+        sc = by_fn.get(t["fn"])
+        say = sc[1] if sc else t["say"]
+        rows.append(f"""<li class="trow"><div class="tn"><h3>{e(t["label"])}</h3><code>{e(t["fn"])}</code></div><p>{e(t["hint"])}</p><p class="ex">Say: <q>{e(say)}</q></p></li>""")
+    scenes = [(s, q, a, fn) for (s, q, a), fn in zip(cp["scenes"], SCENE_TOOLS[c["id"]])]
+    note = f'<p class="note">{e(CAT_NOTE[c["cat"]])}</p>' if c["cat"] in ("Phone control", "Personal data") else ""
+    inner = f"""<h1>{e(c["name"])}</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">{e(c["about"])}</p>
+{meta_rows([("Group", c["cat"]), ("Needs", c["needs"]), ("Runs on", c["runs"]), ("Privacy", c["privacy"]), ("Default", "On for a fresh install" if c["on"] else "Off until you add it in the app")])}
+{note}
+</div>
+{demo(scenes)}
+</div>
+<h2 class="dh" id="tools">{"Tools" if nt > 1 else "Tool"}</h2>
+<p class="dp">Ultron picks the right tool from what you say, so you never have to name one. The phrases are only examples.</p>
+<ul class="trows">{"".join(rows)}</ul>"""
+    return page(f'{c["name"]} connector | Ultron Docs', f'{c["about"]} {c["desc"]}', f'/docs/connectors/{c["id"]}.html',
                 [("Docs", "/docs/"), ("Connectors", "/docs/connectors/"), (c["name"], None)], inner,
                 ((p["name"], f'/docs/connectors/{p["id"]}.html'), (n["name"], f'/docs/connectors/{n["id"]}.html')))
 
@@ -221,32 +181,34 @@ def connectors_index():
     groups = ""
     for cat in ORDER:
         items = [c for c in conns if c["cat"] == cat]
-        cards = "".join(f"""<a class="ccard rv" href="/docs/connectors/{c["id"]}.html" style="--d:{i % 2 * .07}s">
-<span class="ph-ic">{icon(ICON[c["id"]])}</span>
-<h3>{e(c["name"])}</h3>
-<p>{e(c["copy"]["lead"])}</p>
-<small>{len(c["tools"])} tool{"s" if len(c["tools"]) != 1 else ""} · {"on by default" if c["on"] else "off by default"}{icon("i-arrow")}</small>
-</a>""" for i, c in enumerate(items))
-        groups += f'<h2 class="dh">{e(cat)}</h2><p class="dp">{e(CAT_NOTE[cat])}</p><div class="cgrid2">{cards}</div>'
-    inner = f"""<h1>{len(conns)} connectors, {total} tools</h1>
-<p class="lead">A connector is a bundle of tools for one job, like Calendar or YouTube Downloads. Open any of them to see what it does, what to say to use it, and exactly what access it needs. Risky ones stay off until you switch them on.</p>
+        rows = "".join(f"""<li><a href="/docs/connectors/{c["id"]}.html"><b>{e(c["name"])}</b><span>{e(c["desc"])}</span><em>{len(c["tools"])} tool{"s" if len(c["tools"]) != 1 else ""}</em></a></li>""" for c in items)
+        groups += f'<h2 class="dh">{e(cat)}</h2><p class="dp">{e(CAT_NOTE[cat])}</p><ul class="idx">{rows}</ul>'
+    inner = f"""<h1>Connectors</h1>
+<p class="sum">A connector is a bundle of tools for one job, like Calendar or YouTube Downloads. There are {len(conns)} connectors with {total} tools in all. A fresh install switches on the everyday ones and leaves the rest off until you add them.</p>
 {groups}"""
-    return page("Connectors | Ultron Docs", f"{len(conns)} connectors and {total} tools. See what each one does, what to say to use it, and what access it needs.",
+    return page("Connectors | Ultron Docs", f"{len(conns)} connectors and {total} tools, with what each does and what access it needs.",
                 "/docs/connectors/", [("Docs", "/docs/"), ("Connectors", None)], inner)
 
 
+def dlist(items):
+    return '<dl class="dl">' + "".join(f"<div><dt>{e(t)}</dt><dd>{e(d)}</dd></div>" for t, d in items) + "</dl>"
+
+
 def feature_page(f, p, n):
-    links = "".join(f'<a class="btn btn-ghost btn-sm" href="{h}">{e(t)}</a>' for t, h in f["links"])
-    inner = f"""<div class="ph-row"><span class="ph-ic">{icon(f["icon"])}</span><h1>{e(f["name"])}</h1></div>
-<p class="lead">{e(f["lead"])}</p>
-<h2 class="dh">What it is</h2>
-<p class="dp">{e(f["why"])}</p>
+    scenes = [(s, q, a, fn) for (s, q, a), fn in zip(f["scenes"], FEATURE_SCENE_TOOLS[f["slug"]])]
+    links = "".join(f'<li><a class="inline" href="{h}">{e(t)}</a></li>' for t, h in f["links"])
+    notes = "".join(f'<p class="note">{e(x)}</p>' for x in f["notes"])
+    inner = f"""<h1>{e(f["name"])}</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">{e(f["why"])}</p>
+{notes}
+</div>
+{demo(scenes)}
+</div>
 <h2 class="dh">How it works</h2>
-{how_html(f["how"])}
-<h2 class="dh">What it looks like</h2>
-{scenes_html(f["scenes"], FEATURE_SCENE_TOOLS[f["slug"]], f["icon"], f["name"])}
-{notes_html(f["notes"])}
-{('<div class="cta-row dlinks">' + links + '</div>') if links else ''}"""
+{dlist(f["how"])}
+{('<h2 class="dh">Related</h2><ul class="rel">' + links + '</ul>') if links else ''}"""
     return page(f'{f["name"]} | Ultron Docs', f["lead"] + " " + f["why"], f'/docs/features/{f["slug"]}.html',
                 [("Docs", "/docs/"), ("Features", "/docs/features/live-conversation.html"), (f["name"], None)], inner,
                 ((p["name"], f'/docs/features/{p["slug"]}.html'), (n["name"], f'/docs/features/{n["slug"]}.html')))
@@ -254,43 +216,46 @@ def feature_page(f, p, n):
 
 def skills_page():
     s = SKILLS
-    inner = f"""<div class="ph-row"><span class="ph-ic">{icon("i-spark")}</span><h1>{e(s["title"])}</h1></div>
-<p class="lead">{e(s["lead"])}</p>
-<h2 class="dh">What a skill is</h2>
-<p class="dp">{e(s["why"])}</p>
+    scenes = [(a, b, c_, fn) for (a, b, c_), fn in zip(s["scenes"], SKILLS_SCENE_TOOLS)]
+    notes = "".join(f'<p class="note">{e(x)}</p>' for x in s["notes"])
+    inner = f"""<h1>{e(s["title"])}</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">{e(s["why"])}</p>
+{notes}
+</div>
+{demo(scenes)}
+</div>
 <h2 class="dh">How they work</h2>
-{how_html(s["how"])}
-<h2 class="dh">What it looks like</h2>
-{scenes_html(s["scenes"], SKILLS_SCENE_TOOLS, "i-spark", "Skills")}
-{notes_html(s["notes"])}"""
-    return page("Skills | Ultron Docs", s["lead"] + " " + s["why"], "/docs/skills.html", [("Docs", "/docs/"), ("Skills", None)], inner)
+{dlist(s["how"])}"""
+    return page("Skills | Ultron Docs", s["why"], "/docs/skills.html", [("Docs", "/docs/"), ("Skills", None)], inner)
 
 
 def getting_started_page():
     g = GETTING_STARTED
-    steps = "".join(f'<li class="step rv"><b>{i}</b><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for i, (t, d) in enumerate(g["steps"], 1))
+    steps = "".join(f"<li><h3>{e(t)}</h3><p>{e(d)}</p></li>" for t, d in g["steps"])
     inner = f"""<h1>{e(g["title"])}</h1>
-<p class="lead">{e(g["lead"])}</p>
-<div class="cta-row dlinks"><a class="btn" href="{DOWNLOAD}" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div>
-<ol class="steps dsteps">{steps}</ol>
+<p class="sum">Download, install, activate and talk. Ultron is not on the Play Store, so the APK comes straight from this site.</p>
+<p class="dp"><a class="btn" href="{DOWNLOAD}" download rel="nofollow">Download APK</a></p>
+<ol class="osteps">{steps}</ol>
 <h2 class="dh">Good to know</h2>
-{how_html(g["notes"])}"""
-    return page("Getting started | Ultron Docs", g["lead"], "/docs/getting-started.html", [("Docs", "/docs/"), ("Getting started", None)], inner)
+{dlist(g["notes"])}"""
+    return page("Getting started | Ultron Docs", "How to download, install and activate Ultron.", "/docs/getting-started.html", [("Docs", "/docs/"), ("Getting started", None)], inner)
 
 
 def docs_home():
     total = sum(len(c["tools"]) for c in conns)
-    cards = [
-        ("/docs/getting-started.html", "i-down", "Getting started", "Download, install, activate and say hello."),
-        ("/docs/features/live-conversation.html", "i-mic", "Features", f"{len(FEATURES)} features explained: voice, working other apps, documents, memory, YouTube and personalities."),
-        ("/docs/connectors/", "i-grid", "Connectors", f"{len(conns)} connectors and {total} tools, each with what to say and what access it needs."),
-        ("/docs/skills.html", "i-spark", "Skills", "Short Markdown routines that teach Ultron your own steps."),
+    rows = [
+        ("/docs/getting-started.html", "Getting started", "Download, install, activate and say hello."),
+        ("/docs/features/live-conversation.html", "Features", f"{len(FEATURES)} pages: voice, working other apps, documents, memory, YouTube and personalities."),
+        ("/docs/connectors/", "Connectors", f"{len(conns)} connectors and {total} tools, with what each does and what access it needs."),
+        ("/docs/skills.html", "Skills", "Short Markdown routines that teach Ultron your own steps."),
     ]
-    grid = "".join(f"""<a class="ccard rv" href="{h}" style="--d:{i * .07}s"><span class="ph-ic">{icon(ic)}</span><h3>{e(t)}</h3><p>{e(d)}</p><small>Open{icon("i-arrow")}</small></a>""" for i, (h, ic, t, d) in enumerate(cards))
-    inner = f"""<h1>Ultron docs</h1>
-<p class="lead">Everything Ultron can do, explained with what to say and what happens. Start with Getting started, or jump straight to the connector you are curious about.</p>
-<div class="cgrid2 dhome">{grid}</div>"""
-    return page("Ultron Docs", "Everything Ultron can do, explained with what to say and what happens.", "/docs/", [("Docs", None)], inner)
+    lst = "".join(f'<li><a href="{h}"><b>{e(t)}</b><span>{e(d)}</span></a></li>' for h, t, d in rows)
+    inner = f"""<h1>Docs</h1>
+<p class="sum">What Ultron does and how each part works. If you are new, start with Getting started.</p>
+<ul class="idx">{lst}</ul>"""
+    return page("Ultron Docs", "What Ultron does and how each part works.", "/docs/", [("Docs", None)], inner)
 
 
 def write(path, html):
