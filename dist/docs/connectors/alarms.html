@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261117">
-<link rel="stylesheet" href="/pages.css?v=20261117">
+<link rel="stylesheet" href="/styles.css?v=20261118">
+<link rel="stylesheet" href="/pages.css?v=20261118">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -67,10 +67,12 @@
 <div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-clock"/></svg></span><h1>Alarms &amp; timers</h1></div>
 <p class="lead">Set, change and cancel alarms and timers by talking.</p>
 <div class="chips"><span class="chip">Essentials</span><span class="chip">Runs on: Your phone</span><span class="chip on">On for a fresh install</span></div>
-<h2 class="dh">Why you will want it</h2>
-<p class="dp">Alarms go into your real clock app, so they ring with sound even if Ultron is closed. You can also ask what is already set, so you never stack two alarms by accident.</p>
-<div class="scs"><article class="sc rv" style="--d:0.0s">
-<h3 class="sc-t">Early morning</h3>
+<h2 class="dh" id="tools">Every tool in this connector</h2>
+<p class="dp">Sets alarms and timers in your clock app, and lets you change or cancel alarms. Ultron picks the right tool from what you say, so you never have to name one.</p>
+<section class="tl">
+<div class="tl-h rv"><h3>Set alarm</h3><p>Set an alarm that rings with sound.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -89,28 +91,57 @@
 </ol>
 </div>
 <p class="sr-only">You say: Kal subah 5:30 ka alarm laga do. Ultron: Creates the alarm in your clock app.</p>
-</article><article class="sc rv" style="--d:0.06s">
-<h3 class="sc-t">Cooking</h3>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>List alarms</h3><p>See the alarms that are set.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
 <div class="sph-body">
-<p class="bub me"><span class="ty-src">Ten minute ka timer start karo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Set timer</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-clock"/></svg><div><b>Alarms &amp; timers</b><span>Starts a countdown that rings with sound.</span></div></div>
+<p class="bub me"><span class="ty-src">Meri saari alarms batao.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>List alarms</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-clock"/></svg><div><b>Alarms &amp; timers</b><span>See the alarms that are set.</span></div></div>
 </div>
 <div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
 </div>
 <ol class="ss">
 <li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Set timer</b><span>Start a countdown timer that rings with sound.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Starts a countdown that rings with sound.</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks List alarms</b><span>See the alarms that are set.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>See the alarms that are set.</span></div></li>
 <li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
 </ol>
 </div>
-<p class="sr-only">You say: Ten minute ka timer start karo. Ultron: Starts a countdown that rings with sound.</p>
-</article><article class="sc rv" style="--d:0.12s">
-<h3 class="sc-t">Plans change</h3>
+<p class="sr-only">You say: Meri saari alarms batao. Ultron: See the alarms that are set.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Cancel alarm</h3><p>Cancel an alarm.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">6 baje wali alarm cancel karo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Cancel alarm</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-clock"/></svg><div><b>Alarms &amp; timers</b><span>Cancel an alarm.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Cancel alarm</b><span>Cancel an alarm.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Cancel an alarm.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: 6 baje wali alarm cancel karo. Ultron: Cancel an alarm.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Change an alarm</h3><p>Move an alarm to a new time.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -129,10 +160,77 @@
 </ol>
 </div>
 <p class="sr-only">You say: Meri 5:30 wali alarm 6 baje kar do. Ultron: Moves that alarm to the new time.</p>
-</article></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Sets alarms and timers in your clock app, and lets you change or cancel alarms. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<ul class="tools"><li class="tool rv"><div><h3>Set alarm</h3><p>Set an alarm that rings with sound.</p></div><p class="try"><span>Try saying</span>Kal subah 6 baje ka alarm lagao.</p></li><li class="tool rv"><div><h3>List alarms</h3><p>See the alarms that are set.</p></div><p class="try"><span>Try saying</span>Meri saari alarms batao.</p></li><li class="tool rv"><div><h3>Cancel alarm</h3><p>Cancel an alarm.</p></div><p class="try"><span>Try saying</span>6 baje wali alarm cancel karo.</p></li><li class="tool rv"><div><h3>Change an alarm</h3><p>Move an alarm to a new time.</p></div><p class="try"><span>Try saying</span>Wo alarm 6:30 par shift kar do.</p></li><li class="tool rv"><div><h3>Set timer</h3><p>Start a countdown timer that rings with sound.</p></div><p class="try"><span>Try saying</span>Paanch minute ka timer lagao.</p></li><li class="tool rv"><div><h3>List timers</h3><p>See the running timers.</p></div><p class="try"><span>Try saying</span>Kaun kaun se timer chal rahe hain?</p></li><li class="tool rv"><div><h3>Cancel timer</h3><p>Stop a running timer.</p></div><p class="try"><span>Try saying</span>Timer band kar do.</p></li></ul>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Set timer</h3><p>Start a countdown timer that rings with sound.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Ten minute ka timer start karo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Set timer</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-clock"/></svg><div><b>Alarms &amp; timers</b><span>Starts a countdown that rings with sound.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Set timer</b><span>Start a countdown timer that rings with sound.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Starts a countdown that rings with sound.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Ten minute ka timer start karo. Ultron: Starts a countdown that rings with sound.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>List timers</h3><p>See the running timers.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Kaun kaun se timer chal rahe hain?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>List timers</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-clock"/></svg><div><b>Alarms &amp; timers</b><span>See the running timers.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks List timers</b><span>See the running timers.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>See the running timers.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Kaun kaun se timer chal rahe hain? Ultron: See the running timers.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Cancel timer</h3><p>Stop a running timer.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Timer band kar do.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Cancel timer</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-clock"/></svg><div><b>Alarms &amp; timers</b><span>Stop a running timer.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Cancel timer</b><span>Stop a running timer.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Stop a running timer.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Timer band kar do. Ultron: Stop a running timer.</p>
+</article>
+</section>
 <h2 class="dh">Access and privacy</h2>
 <dl class="facts1 rv">
 <div><dt>Needs</dt><dd>Nothing to allow.</dd></div>
@@ -150,6 +248,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261117" defer></script>
+<script src="/page.js?v=20261118" defer></script>
 </body>
 </html>

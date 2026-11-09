@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261117">
-<link rel="stylesheet" href="/pages.css?v=20261117">
+<link rel="stylesheet" href="/styles.css?v=20261118">
+<link rel="stylesheet" href="/pages.css?v=20261118">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -67,10 +67,12 @@
 <div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-files"/></svg></span><h1>Files</h1></div>
 <p class="lead">Find any file by saying roughly what it is called.</p>
 <div class="chips"><span class="chip">Personal data</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
-<h2 class="dh">Why you will want it</h2>
-<p class="dp">You never remember the exact name. Ultron searches by partial names, typos, folders and dates like yesterday or last week, then opens the file in your own apps or sends it to WhatsApp.</p>
-<div class="scs"><article class="sc rv" style="--d:0.0s">
-<h3 class="sc-t">Need a document</h3>
+<h2 class="dh" id="tools">Every tool in this connector</h2>
+<p class="dp">Looks inside any folder on the phone, finds photos, videos, music, documents and any other file by name, and opens them in your own apps. Ultron picks the right tool from what you say, so you never have to name one.</p>
+<section class="tl">
+<div class="tl-h rv"><h3>Search files</h3><p>Find images, videos, audio and documents by name.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -89,28 +91,34 @@
 </ol>
 </div>
 <p class="sr-only">You say: Pichle hafte wali bill ki PDF dikhao. Ultron: Finds the best match and opens it.</p>
-</article><article class="sc rv" style="--d:0.06s">
-<h3 class="sc-t">Sharing a photo</h3>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Open a file</h3><p>Show a file in the phone&#x27;s default app.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
 <div class="sph-body">
-<p class="bub me"><span class="ty-src">Kal wali photo WhatsApp par bhejo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Share a file</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-files"/></svg><div><b>Files</b><span>Finds the photo and opens the share sheet to the app.</span></div></div>
+<p class="bub me"><span class="ty-src">Pehli wali file kholo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Open a file</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-files"/></svg><div><b>Files</b><span>Show a file in the phone&#x27;s default app.</span></div></div>
 </div>
 <div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
 </div>
 <ol class="ss">
 <li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Share a file</b><span>Send a found photo, video or document into an app such as WhatsApp.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Finds the photo and opens the share sheet to the app.</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Open a file</b><span>Show a file in the phone&#x27;s default app.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Show a file in the phone&#x27;s default app.</span></div></li>
 <li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
 </ol>
 </div>
-<p class="sr-only">You say: Kal wali photo WhatsApp par bhejo. Ultron: Finds the photo and opens the share sheet to the app.</p>
-</article><article class="sc rv" style="--d:0.12s">
-<h3 class="sc-t">Poking around</h3>
+<p class="sr-only">You say: Pehli wali file kholo. Ultron: Show a file in the phone&#x27;s default app.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Browse a folder</h3><p>Look inside a folder on the phone.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -129,10 +137,31 @@
 </ol>
 </div>
 <p class="sr-only">You say: Download folder mein kya hai? Ultron: Lists the files and folders inside it.</p>
-</article></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Looks inside any folder on the phone, finds photos, videos, music, documents and any other file by name, and opens them in your own apps. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<ul class="tools"><li class="tool rv"><div><h3>Search files</h3><p>Find images, videos, audio and documents by name.</p></div><p class="try"><span>Try saying</span>Pichle hafte wali bill ki PDF dhundo.</p></li><li class="tool rv"><div><h3>Open a file</h3><p>Show a file in the phone&#x27;s default app.</p></div><p class="try"><span>Try saying</span>Pehli wali file kholo.</p></li><li class="tool rv"><div><h3>Browse a folder</h3><p>Look inside a folder on the phone.</p></div><p class="try"><span>Try saying</span>Download folder mein kya hai?</p></li><li class="tool rv"><div><h3>Share a file</h3><p>Send a found photo, video or document into an app such as WhatsApp.</p></div><p class="try"><span>Try saying</span>Ye photo WhatsApp par bhejo.</p></li></ul>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Share a file</h3><p>Send a found photo, video or document into an app such as WhatsApp.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Kal wali photo WhatsApp par bhejo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Share a file</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-files"/></svg><div><b>Files</b><span>Finds the photo and opens the share sheet to the app.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Share a file</b><span>Send a found photo, video or document into an app such as WhatsApp.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Finds the photo and opens the share sheet to the app.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Kal wali photo WhatsApp par bhejo. Ultron: Finds the photo and opens the share sheet to the app.</p>
+</article>
+</section>
 <h2 class="dh">Access and privacy</h2>
 <dl class="facts1 rv">
 <div><dt>Needs</dt><dd>All files access. A settings screen opens when you add it.</dd></div>
@@ -150,6 +179,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261117" defer></script>
+<script src="/page.js?v=20261118" defer></script>
 </body>
 </html>

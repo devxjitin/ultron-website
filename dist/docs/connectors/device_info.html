@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261117">
-<link rel="stylesheet" href="/pages.css?v=20261117">
+<link rel="stylesheet" href="/styles.css?v=20261118">
+<link rel="stylesheet" href="/pages.css?v=20261118">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -67,10 +67,35 @@
 <div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-chart"/></svg></span><h1>Device info</h1></div>
 <p class="lead">Ask your phone how it is doing, out loud.</p>
 <div class="chips"><span class="chip">Essentials</span><span class="chip">Runs on: Your phone</span><span class="chip on">On for a fresh install</span></div>
-<h2 class="dh">Why you will want it</h2>
-<p class="dp">You are driving, cooking or in bed and the phone is across the room. Instead of unlocking and digging through settings, ask. Ultron reads the real value from the phone each time, so the answer is never a guess.</p>
-<div class="scs"><article class="sc rv" style="--d:0.0s">
-<h3 class="sc-t">Before a long trip</h3>
+<h2 class="dh" id="tools">Every tool in this connector</h2>
+<p class="dp">Tells you the time, battery, storage, network, Bluetooth, steps and light. It only reads. Ultron picks the right tool from what you say, so you never have to name one.</p>
+<section class="tl">
+<div class="tl-h rv"><h3>Date and time</h3><p>Tell the current date and time.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Abhi kitne baje hain? What is today&#x27;s date?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Date and time</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-chart"/></svg><div><b>Device info</b><span>Tell the current date and time.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Date and time</b><span>Tell the current date and time.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tell the current date and time.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Abhi kitne baje hain? What is today&#x27;s date? Ultron: Tell the current date and time.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Battery</h3><p>Tell the battery level and charging state.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -89,28 +114,11 @@
 </ol>
 </div>
 <p class="sr-only">You say: Battery kitna hai, aur kitna storage bacha hai? Ultron: Reads the battery level and charging state, then free storage and RAM, in one answer.</p>
-</article><article class="sc rv" style="--d:0.06s">
-<h3 class="sc-t">Slow internet at a cafe</h3>
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Kaunsa Wi-Fi laga hai aur signal kaisa hai?</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Wi-Fi details</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-chart"/></svg><div><b>Device info</b><span>Tells you the network name, the signal strength and whether you are on Wi-Fi or mobile data.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Wi-Fi details</b><span>Tell the Wi-Fi network name and signal.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tells you the network name, the signal strength and whether you are on Wi-Fi or mobile data.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Kaunsa Wi-Fi laga hai aur signal kaisa hai? Ultron: Tells you the network name, the signal strength and whether you are on Wi-Fi or mobile data.</p>
-</article><article class="sc rv" style="--d:0.12s">
-<h3 class="sc-t">Selling your old phone</h3>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Device info</h3><p>Tell the phone model, Android version, screen, language and time zone.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -129,10 +137,146 @@
 </ol>
 </div>
 <p class="sr-only">You say: What phone model and Android version is this? Ultron: Gives the model, Android version, screen size, language and time zone.</p>
-</article></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Tells you the time, battery, storage, network, Bluetooth, steps and light. It only reads. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<ul class="tools"><li class="tool rv"><div><h3>Date and time</h3><p>Tell the current date and time.</p></div><p class="try"><span>Try saying</span>Abhi kitne baje hain? What is today&#x27;s date?</p></li><li class="tool rv"><div><h3>Battery</h3><p>Tell the battery level and charging state.</p></div><p class="try"><span>Try saying</span>Battery kitni bachi hai? Is it charging?</p></li><li class="tool rv"><div><h3>Device info</h3><p>Tell the phone model, Android version, screen, language and time zone.</p></div><p class="try"><span>Try saying</span>Mera phone kaunsa model hai aur Android version kya hai?</p></li><li class="tool rv"><div><h3>Storage and memory</h3><p>Tell free storage and free RAM.</p></div><p class="try"><span>Try saying</span>Kitna storage aur RAM free hai?</p></li><li class="tool rv"><div><h3>Network status</h3><p>Tell whether Wi-Fi or mobile data is connected.</p></div><p class="try"><span>Try saying</span>Main Wi-Fi par hu ya mobile data par?</p></li><li class="tool rv"><div><h3>Wi-Fi details</h3><p>Tell the Wi-Fi network name and signal.</p></div><p class="try"><span>Try saying</span>Kaunsa Wi-Fi laga hai aur signal kaisa hai?</p></li><li class="tool rv"><div><h3>Bluetooth status</h3><p>Tell if Bluetooth is on and which devices are paired.</p></div><p class="try"><span>Try saying</span>Bluetooth on hai? Kaun kaun se devices paired hain?</p></li><li class="tool rv"><div><h3>Step counter</h3><p>Tell the steps counted by the phone.</p></div><p class="try"><span>Try saying</span>Aaj maine kitne steps chale?</p></li><li class="tool rv"><div><h3>Light sensor</h3><p>Tell how bright the room is.</p></div><p class="try"><span>Try saying</span>Is kamre mein kitni roshni hai?</p></li></ul>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Storage and memory</h3><p>Tell free storage and free RAM.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Kitna storage aur RAM free hai?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Storage and memory</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-chart"/></svg><div><b>Device info</b><span>Tell free storage and free RAM.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Storage and memory</b><span>Tell free storage and free RAM.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tell free storage and free RAM.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Kitna storage aur RAM free hai? Ultron: Tell free storage and free RAM.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Network status</h3><p>Tell whether Wi-Fi or mobile data is connected.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Main Wi-Fi par hu ya mobile data par?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Network status</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-chart"/></svg><div><b>Device info</b><span>Tell whether Wi-Fi or mobile data is connected.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Network status</b><span>Tell whether Wi-Fi or mobile data is connected.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tell whether Wi-Fi or mobile data is connected.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Main Wi-Fi par hu ya mobile data par? Ultron: Tell whether Wi-Fi or mobile data is connected.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Wi-Fi details</h3><p>Tell the Wi-Fi network name and signal.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Kaunsa Wi-Fi laga hai aur signal kaisa hai?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Wi-Fi details</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-chart"/></svg><div><b>Device info</b><span>Tells you the network name, the signal strength and whether you are on Wi-Fi or mobile data.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Wi-Fi details</b><span>Tell the Wi-Fi network name and signal.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tells you the network name, the signal strength and whether you are on Wi-Fi or mobile data.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Kaunsa Wi-Fi laga hai aur signal kaisa hai? Ultron: Tells you the network name, the signal strength and whether you are on Wi-Fi or mobile data.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Bluetooth status</h3><p>Tell if Bluetooth is on and which devices are paired.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Bluetooth on hai? Kaun kaun se devices paired hain?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Bluetooth status</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-chart"/></svg><div><b>Device info</b><span>Tell if Bluetooth is on and which devices are paired.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Bluetooth status</b><span>Tell if Bluetooth is on and which devices are paired.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tell if Bluetooth is on and which devices are paired.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Bluetooth on hai? Kaun kaun se devices paired hain? Ultron: Tell if Bluetooth is on and which devices are paired.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Step counter</h3><p>Tell the steps counted by the phone.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Aaj maine kitne steps chale?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Step counter</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-chart"/></svg><div><b>Device info</b><span>Tell the steps counted by the phone.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Step counter</b><span>Tell the steps counted by the phone.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tell the steps counted by the phone.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Aaj maine kitne steps chale? Ultron: Tell the steps counted by the phone.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Light sensor</h3><p>Tell how bright the room is.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Is kamre mein kitni roshni hai?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Light sensor</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-chart"/></svg><div><b>Device info</b><span>Tell how bright the room is.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Light sensor</b><span>Tell how bright the room is.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tell how bright the room is.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Is kamre mein kitni roshni hai? Ultron: Tell how bright the room is.</p>
+</article>
+</section>
 <h2 class="dh">Access and privacy</h2>
 <dl class="facts1 rv">
 <div><dt>Needs</dt><dd>Nothing to allow.</dd></div>
@@ -150,6 +294,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261117" defer></script>
+<script src="/page.js?v=20261118" defer></script>
 </body>
 </html>

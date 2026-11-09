@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261117">
-<link rel="stylesheet" href="/pages.css?v=20261117">
+<link rel="stylesheet" href="/styles.css?v=20261118">
+<link rel="stylesheet" href="/pages.css?v=20261118">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -67,10 +67,12 @@
 <div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-bell"/></svg></span><h1>Reminders</h1></div>
 <p class="lead">Reminders that ring, not just notifications you swipe away.</p>
 <div class="chips"><span class="chip">Essentials</span><span class="chip">Runs on: Your phone</span><span class="chip on">On for a fresh install</span></div>
-<h2 class="dh">Why you will want it</h2>
-<p class="dp">Tell Ultron what to remember and when. It rings and vibrates at the time, once or every day or week. It all runs on the phone.</p>
-<div class="scs"><article class="sc rv" style="--d:0.0s">
-<h3 class="sc-t">Medicine</h3>
+<h2 class="dh" id="tools">Every tool in this connector</h2>
+<p class="dp">Reminds you at a time or after a while, once or every day or week. It rings and vibrates. Ultron picks the right tool from what you say, so you never have to name one.</p>
+<section class="tl">
+<div class="tl-h rv"><h3>Reminder</h3><p>Remind you at a time or after a while, with a sound.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -89,28 +91,57 @@
 </ol>
 </div>
 <p class="sr-only">You say: Roz raat 9 baje dawai ka reminder lagao. Ultron: Schedules a reminder that repeats every day.</p>
-</article><article class="sc rv" style="--d:0.06s">
-<h3 class="sc-t">A call to return</h3>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>List reminders</h3><p>See the reminders that are still waiting.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
 <div class="sph-body">
-<p class="bub me"><span class="ty-src">Ek ghante baad mummy ko call karna yaad dilana.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Reminder</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-bell"/></svg><div><b>Reminders</b><span>Sets a one time reminder after an hour.</span></div></div>
+<p class="bub me"><span class="ty-src">Mere pending reminders kya hain?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>List reminders</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-bell"/></svg><div><b>Reminders</b><span>See the reminders that are still waiting.</span></div></div>
 </div>
 <div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
 </div>
 <ol class="ss">
 <li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Reminder</b><span>Remind you at a time or after a while, with a sound.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Sets a one time reminder after an hour.</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks List reminders</b><span>See the reminders that are still waiting.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>See the reminders that are still waiting.</span></div></li>
 <li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
 </ol>
 </div>
-<p class="sr-only">You say: Ek ghante baad mummy ko call karna yaad dilana. Ultron: Sets a one time reminder after an hour.</p>
-</article><article class="sc rv" style="--d:0.12s">
-<h3 class="sc-t">Changed your mind</h3>
+<p class="sr-only">You say: Mere pending reminders kya hain? Ultron: See the reminders that are still waiting.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Cancel a reminder</h3><p>Cancel a waiting reminder.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Doodh wala reminder hata do.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Cancel a reminder</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-bell"/></svg><div><b>Reminders</b><span>Cancel a waiting reminder.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Cancel a reminder</b><span>Cancel a waiting reminder.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Cancel a waiting reminder.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Doodh wala reminder hata do. Ultron: Cancel a waiting reminder.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Change a reminder</h3><p>Change the time or text of a waiting reminder.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -129,10 +160,8 @@
 </ol>
 </div>
 <p class="sr-only">You say: Wo kal wala reminder 4 baje kar do. Ultron: Changes the time of a waiting reminder.</p>
-</article></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Reminds you at a time or after a while, once or every day or week. It rings and vibrates. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<ul class="tools"><li class="tool rv"><div><h3>Reminder</h3><p>Remind you at a time or after a while, with a sound.</p></div><p class="try"><span>Try saying</span>Shaam 7 baje doodh lene ka reminder do.</p></li><li class="tool rv"><div><h3>List reminders</h3><p>See the reminders that are still waiting.</p></div><p class="try"><span>Try saying</span>Mere pending reminders kya hain?</p></li><li class="tool rv"><div><h3>Cancel a reminder</h3><p>Cancel a waiting reminder.</p></div><p class="try"><span>Try saying</span>Doodh wala reminder hata do.</p></li><li class="tool rv"><div><h3>Change a reminder</h3><p>Change the time or text of a waiting reminder.</p></div><p class="try"><span>Try saying</span>Wo reminder 8 baje kar do.</p></li></ul>
+</article>
+</section>
 <h2 class="dh">Access and privacy</h2>
 <dl class="facts1 rv">
 <div><dt>Needs</dt><dd>Keep notifications on for Ultron.</dd></div>
@@ -150,6 +179,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261117" defer></script>
+<script src="/page.js?v=20261118" defer></script>
 </body>
 </html>

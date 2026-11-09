@@ -15,7 +15,7 @@ from usecases import ACCESS_TEXT, CONNECTORS, SCENE_TOOLS, TOOLS
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 DOCS = DIST / "docs"
-V = "20261117"
+V = "20261118"
 SITE = "https://ultron.devxjitin.dev"
 DOWNLOAD = "https://api.devxjitin.dev/v1/releases/download"
 
@@ -130,17 +130,16 @@ def page(title, desc, path, crumbs, inner, pn=None):
 """ + foot()
 
 
-def scenes_html(scenes, tools, ic, name):
-    """One animated scene per use case: a phone that hears the request, picks a tool, does it and answers, next to
-    the same four steps in words. `tools` is the tool function name for each scene, or None when no tool is involved."""
-    out = []
-    for i, ((situation, say, does), fn) in enumerate(zip(scenes, tools)):
-        t = ALL_TOOLS.get(fn)
-        label = t["label"] if t else "Understanding you"
-        hint = t["hint"] if t else "Gemini works out what you mean and answers."
-        step2 = f"Picks {label}" if t else "Works out what you mean"
-        out.append(f"""<article class="sc rv" style="--d:{i * .06}s">
-<h3 class="sc-t">{e(situation)}</h3>
+def scene_card(title, say, does, fn, ic, name, delay=0.0):
+    """One animated scene: a phone that hears the request, picks a tool, does it and answers, next to the same four
+    steps in words. `fn` is the tool function name, or None when no tool is involved."""
+    t = ALL_TOOLS.get(fn)
+    label = t["label"] if t else "Understanding you"
+    hint = t["hint"] if t else "Gemini works out what you mean and answers."
+    step2 = f"Picks {label}" if t else "Works out what you mean"
+    head_t = f'<h3 class="sc-t">{e(title)}</h3>' if title else ""
+    return f"""<article class="sc rv" style="--d:{delay}s">
+{head_t}
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -159,8 +158,29 @@ def scenes_html(scenes, tools, ic, name):
 </ol>
 </div>
 <p class="sr-only">You say: {e(say)} Ultron: {e(does)}</p>
-</article>""")
-    return '<div class="scs">' + "".join(out) + "</div>"
+</article>"""
+
+
+def scenes_html(scenes, tools, ic, name):
+    cards = [scene_card(s, q, a, fn, ic, name, i * .06) for i, ((s, q, a), fn) in enumerate(zip(scenes, tools))]
+    return '<div class="scs">' + "".join(cards) + "</div>"
+
+
+def tool_blocks(c):
+    """One block per tool: its name, what it does and an animated example. Where a hand-written scene already uses the
+    tool, that richer scene is shown; otherwise the example is built from the tool's own line."""
+    by_fn = {}
+    for fn, sc in zip(SCENE_TOOLS[c["id"]], c["copy"]["scenes"]):
+        by_fn.setdefault(fn, sc)
+    out = []
+    for t in c["tools"]:
+        sc = by_fn.get(t["fn"])
+        say, does = (sc[1], sc[2]) if sc else (t["say"], t["hint"])
+        out.append(f"""<section class="tl">
+<div class="tl-h rv"><h3>{e(t["label"])}</h3><p>{e(t["hint"])}</p></div>
+{scene_card("", say, does, t["fn"], ICON[c["id"]], c["name"])}
+</section>""")
+    return "".join(out)
 
 
 def how_html(items):
@@ -175,18 +195,14 @@ def connector_page(c, p, n):
     cp = c["copy"]
     chips = (f'<span class="chip">{e(c["cat"])}</span><span class="chip">Runs on: {e(c["runs"])}</span>'
              f'<span class="chip {"on" if c["on"] else ""}">{"On for a fresh install" if c["on"] else "Off until you add it"}</span>')
-    tools = "".join(f"""<li class="tool rv"><div><h3>{e(t["label"])}</h3><p>{e(t["hint"])}</p></div><p class="try"><span>Try saying</span>{e(t["say"])}</p></li>""" for t in c["tools"])
     nt = len(c["tools"])
     warn = notes_html([CAT_NOTE[c["cat"]]]) if c["cat"] in ("Phone control", "Personal data") else ""
     inner = f"""<div class="ph-row"><span class="ph-ic">{icon(ICON[c["id"]])}</span><h1>{e(c["name"])}</h1></div>
 <p class="lead">{e(cp["lead"])}</p>
 <div class="chips">{chips}</div>
-<h2 class="dh">Why you will want it</h2>
-<p class="dp">{e(cp["why"])}</p>
-{scenes_html(cp["scenes"], SCENE_TOOLS[c["id"]], ICON[c["id"]], c["name"])}
 <h2 class="dh" id="tools">{"Every tool" if nt > 1 else "The tool"} in this connector</h2>
 <p class="dp">{e(c["about"])} Ultron picks the right tool from what you say, so you never have to name one.</p>
-<ul class="tools">{tools}</ul>
+{tool_blocks(c)}
 <h2 class="dh">Access and privacy</h2>
 <dl class="facts1 rv">
 <div><dt>Needs</dt><dd>{e(c["needs"])}</dd></div>

@@ -58,6 +58,12 @@
 .ccard small{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim)}
 .ccard small .ic{width:16px;height:16px;margin-left:auto;color:var(--red2)}
 .dhome{margin-top:34px}
+.tl{margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.tl:first-of-type{margin-top:24px}
+.tl-h{margin-bottom:16px}
+.tl-h h3{font-size:clamp(22px,2.4vw,27px);margin-bottom:6px}
+.tl-h p{font-size:16.5px;max-width:38em}
+.tl .scs,.tl .sc{margin-top:0}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ty-h{visibility:hidden}
 .live .ty::after{content:"";display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--red2);animation:sccaret .7s steps(1) infinite}

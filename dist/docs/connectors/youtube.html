@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261117">
-<link rel="stylesheet" href="/pages.css?v=20261117">
+<link rel="stylesheet" href="/styles.css?v=20261118">
+<link rel="stylesheet" href="/pages.css?v=20261118">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -67,10 +67,12 @@
 <div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-play"/></svg></span><h1>YouTube Search</h1></div>
 <p class="lead">Search YouTube, read captions, browse a channel.</p>
 <div class="chips"><span class="chip">Search and media</span><span class="chip">Runs on: Ultron&#x27;s server</span><span class="chip ">Off until you add it</span></div>
-<h2 class="dh">Why you will want it</h2>
-<p class="dp">Find the right video without scrolling. Ultron can search, show a video&#x27;s details, read its captions so you can get the gist without watching, and list what a channel or playlist has.</p>
-<div class="scs"><article class="sc rv" style="--d:0.0s">
-<h3 class="sc-t">Learning something</h3>
+<h2 class="dh" id="tools">Every tool in this connector</h2>
+<p class="dp">Searches videos and shows details, captions and playlists. YouTube sometimes blocks this. Ultron picks the right tool from what you say, so you never have to name one.</p>
+<section class="tl">
+<div class="tl-h rv"><h3>Search YouTube</h3><p>Search YouTube videos.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -89,8 +91,34 @@
 </ol>
 </div>
 <p class="sr-only">You say: YouTube par React hooks ke best tutorials dhundo. Ultron: Searches YouTube and lists the top videos.</p>
-</article><article class="sc rv" style="--d:0.06s">
-<h3 class="sc-t">No time to watch</h3>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Video details</h3><p>Get the details of a YouTube video.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Is video ke baare mein batao: kitni lambi hai, kisne banayi.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Video details</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-play"/></svg><div><b>YouTube Search</b><span>Get the details of a YouTube video.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Video details</b><span>Get the details of a YouTube video.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Get the details of a YouTube video.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Is video ke baare mein batao: kitni lambi hai, kisne banayi. Ultron: Get the details of a YouTube video.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Video transcript</h3><p>Read the captions of a YouTube video.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -109,8 +137,11 @@
 </ol>
 </div>
 <p class="sr-only">You say: Is video ka transcript padh ke summary do. Ultron: Reads the captions and summarises them.</p>
-</article><article class="sc rv" style="--d:0.12s">
-<h3 class="sc-t">Catching up</h3>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Channel or playlist videos</h3><p>List the videos of a channel or playlist.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -129,10 +160,8 @@
 </ol>
 </div>
 <p class="sr-only">You say: Is channel ke latest videos dikhao. Ultron: Lists the newest videos from that channel or playlist.</p>
-</article></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Searches videos and shows details, captions and playlists. YouTube sometimes blocks this. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<ul class="tools"><li class="tool rv"><div><h3>Search YouTube</h3><p>Search YouTube videos.</p></div><p class="try"><span>Try saying</span>YouTube par lo-fi beats dhundo.</p></li><li class="tool rv"><div><h3>Video details</h3><p>Get the details of a YouTube video.</p></div><p class="try"><span>Try saying</span>Is video ke baare mein batao: kitni lambi hai, kisne banayi.</p></li><li class="tool rv"><div><h3>Video transcript</h3><p>Read the captions of a YouTube video.</p></div><p class="try"><span>Try saying</span>Is video ke captions padh kar summary do.</p></li><li class="tool rv"><div><h3>Channel or playlist videos</h3><p>List the videos of a channel or playlist.</p></div><p class="try"><span>Try saying</span>Is channel ke latest video dikhao.</p></li></ul>
+</article>
+</section>
 <h2 class="dh">Access and privacy</h2>
 <dl class="facts1 rv">
 <div><dt>Needs</dt><dd>Internet only.</dd></div>
@@ -150,6 +179,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261117" defer></script>
+<script src="/page.js?v=20261118" defer></script>
 </body>
 </html>

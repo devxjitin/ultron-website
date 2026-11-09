@@ -12,8 +12,8 @@
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261117">
-<link rel="stylesheet" href="/pages.css?v=20261117">
+<link rel="stylesheet" href="/styles.css?v=20261118">
+<link rel="stylesheet" href="/pages.css?v=20261118">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -67,30 +67,12 @@
 <div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-touch"/></svg></span><h1>Screen control</h1></div>
 <p class="lead">Ultron can read the screen and use other apps for you.</p>
 <div class="chips"><span class="chip">Phone control</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
-<h2 class="dh">Why you will want it</h2>
-<p class="dp">The strongest and most sensitive connector. With accessibility on, Ultron reads what is on screen, taps, types and swipes, so it can do things inside apps that have no shortcuts. Screen text goes to Gemini and can be private, so switch it on only if you understand that.</p>
-<div class="scs"><article class="sc rv" style="--d:0.0s">
-<h3 class="sc-t">An app with no shortcut</h3>
-<div class="sc-grid">
-<div class="sph" aria-hidden="true">
-<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
-<div class="sph-body">
-<p class="bub me"><span class="ty-src">Swiggy kholo aur pizza search karo.</span></p>
-<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Type text</span><i class="spin"></i></p>
-<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Opens the app, taps the search box, types and presses Enter.</span></div></div>
-</div>
-<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
-</div>
-<ol class="ss">
-<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
-<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Type text</b><span>Type into the text field on screen.</span></div></li>
-<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Opens the app, taps the search box, types and presses Enter.</span></div></li>
-<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
-</ol>
-</div>
-<p class="sr-only">You say: Swiggy kholo aur pizza search karo. Ultron: Opens the app, taps the search box, types and presses Enter.</p>
-</article><article class="sc rv" style="--d:0.06s">
-<h3 class="sc-t">What is on my screen?</h3>
+<h2 class="dh" id="tools">Every tool in this connector</h2>
+<p class="dp">Reads the screen and taps and types for you, so the assistant can use other apps. Ultron picks the right tool from what you say, so you never have to name one.</p>
+<section class="tl">
+<div class="tl-h rv"><h3>Read the screen</h3><p>See the text and buttons on screen (sends them to Gemini).</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -109,8 +91,172 @@
 </ol>
 </div>
 <p class="sr-only">You say: Is screen par kya likha hai? Ultron: Reads the text and buttons on screen and tells you.</p>
-</article><article class="sc rv" style="--d:0.12s">
-<h3 class="sc-t">Waiting on a page</h3>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Look at the screen</h3><p>See the screen as a picture when an app gives no readable text (sends a screenshot to Gemini).</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Is screen ko dekh kar batao, isme text nahi aa raha.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Look at the screen</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>See the screen as a picture when an app gives no readable text (sends a screenshot to Gemini).</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Look at the screen</b><span>See the screen as a picture when an app gives no readable text (sends a screenshot to Gemini).</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>See the screen as a picture when an app gives no readable text (sends a screenshot to Gemini).</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Is screen ko dekh kar batao, isme text nahi aa raha. Ultron: See the screen as a picture when an app gives no readable text (sends a screenshot to Gemini).</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Current app</h3><p>Tell which app is on screen.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Abhi kaunsi app khuli hai?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Current app</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Tell which app is on screen.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Current app</b><span>Tell which app is on screen.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tell which app is on screen.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Abhi kaunsi app khuli hai? Ultron: Tell which app is on screen.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Click by text</h3><p>Tap a button or link by its label.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Login button dabao.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Click by text</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Tap a button or link by its label.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Click by text</b><span>Tap a button or link by its label.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tap a button or link by its label.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Login button dabao. Ultron: Tap a button or link by its label.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Click by number</h3><p>Tap an item by its number from the last screen reading.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Teen number wala option dabao.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Click by number</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Tap an item by its number from the last screen reading.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Click by number</b><span>Tap an item by its number from the last screen reading.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tap an item by its number from the last screen reading.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Teen number wala option dabao. Ultron: Tap an item by its number from the last screen reading.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Tap a position</h3><p>Tap at exact screen coordinates.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Screen ke beech mein tap karo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Tap a position</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Tap at exact screen coordinates.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Tap a position</b><span>Tap at exact screen coordinates.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Tap at exact screen coordinates.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Screen ke beech mein tap karo. Ultron: Tap at exact screen coordinates.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Type text</h3><p>Type into the text field on screen.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Swiggy kholo aur pizza search karo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Type text</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Opens the app, taps the search box, types and presses Enter.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Type text</b><span>Type into the text field on screen.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Opens the app, taps the search box, types and presses Enter.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Swiggy kholo aur pizza search karo. Ultron: Opens the app, taps the search box, types and presses Enter.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Press Enter</h3><p>Submit the text field (Search/Go/Send).</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Enter dabao.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Press Enter</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Submit the text field (Search/Go/Send).</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Press Enter</b><span>Submit the text field (Search/Go/Send).</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Submit the text field (Search/Go/Send).</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Enter dabao. Ultron: Submit the text field (Search/Go/Send).</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Wait for text</h3><p>Wait until some text appears on screen.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
 <div class="sc-grid">
 <div class="sph" aria-hidden="true">
 <div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
@@ -129,10 +275,54 @@
 </ol>
 </div>
 <p class="sr-only">You say: Jab payment successful dikhe tab batana. Ultron: Waits until that text appears on the screen.</p>
-</article></div>
-<h2 class="dh" id="tools">Every tool in this connector</h2>
-<p class="dp">Reads the screen and taps and types for you, so the assistant can use other apps. Ultron picks the right tool from what you say, so you never have to name one.</p>
-<ul class="tools"><li class="tool rv"><div><h3>Read the screen</h3><p>See the text and buttons on screen (sends them to Gemini).</p></div><p class="try"><span>Try saying</span>Screen par kya hai, padh kar batao.</p></li><li class="tool rv"><div><h3>Look at the screen</h3><p>See the screen as a picture when an app gives no readable text (sends a screenshot to Gemini).</p></div><p class="try"><span>Try saying</span>Is screen ko dekh kar batao, isme text nahi aa raha.</p></li><li class="tool rv"><div><h3>Current app</h3><p>Tell which app is on screen.</p></div><p class="try"><span>Try saying</span>Abhi kaunsi app khuli hai?</p></li><li class="tool rv"><div><h3>Click by text</h3><p>Tap a button or link by its label.</p></div><p class="try"><span>Try saying</span>Login button dabao.</p></li><li class="tool rv"><div><h3>Click by number</h3><p>Tap an item by its number from the last screen reading.</p></div><p class="try"><span>Try saying</span>Teen number wala option dabao.</p></li><li class="tool rv"><div><h3>Tap a position</h3><p>Tap at exact screen coordinates.</p></div><p class="try"><span>Try saying</span>Screen ke beech mein tap karo.</p></li><li class="tool rv"><div><h3>Type text</h3><p>Type into the text field on screen.</p></div><p class="try"><span>Try saying</span>Search box mein biryani likho.</p></li><li class="tool rv"><div><h3>Press Enter</h3><p>Submit the text field (Search/Go/Send).</p></div><p class="try"><span>Try saying</span>Enter dabao.</p></li><li class="tool rv"><div><h3>Wait for text</h3><p>Wait until some text appears on screen.</p></div><p class="try"><span>Try saying</span>Jab Done dikhe tab batana.</p></li><li class="tool rv"><div><h3>Swipe or drag</h3><p>Swipe or drag between two points on the screen.</p></div><p class="try"><span>Try saying</span>Screen ko left se right swipe karo.</p></li><li class="tool rv"><div><h3>Long press</h3><p>Press and hold at screen coordinates.</p></div><p class="try"><span>Try saying</span>Is jagah par long press karo.</p></li></ul>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Swipe or drag</h3><p>Swipe or drag between two points on the screen.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Screen ko left se right swipe karo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Swipe or drag</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Swipe or drag between two points on the screen.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Swipe or drag</b><span>Swipe or drag between two points on the screen.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Swipe or drag between two points on the screen.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Screen ko left se right swipe karo. Ultron: Swipe or drag between two points on the screen.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Long press</h3><p>Press and hold at screen coordinates.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Is jagah par long press karo.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Long press</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-touch"/></svg><div><b>Screen control</b><span>Press and hold at screen coordinates.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Long press</b><span>Press and hold at screen coordinates.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Press and hold at screen coordinates.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Is jagah par long press karo. Ultron: Press and hold at screen coordinates.</p>
+</article>
+</section>
 <h2 class="dh">Access and privacy</h2>
 <dl class="facts1 rv">
 <div><dt>Needs</dt><dd>Accessibility access. A settings screen opens when you add it.</dd></div>
@@ -150,6 +340,6 @@
 <footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261117" defer></script>
+<script src="/page.js?v=20261118" defer></script>
 </body>
 </html>
