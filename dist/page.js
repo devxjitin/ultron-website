@@ -12,6 +12,18 @@ if(tg&&links){
   $$('a',links).forEach(a=>a.addEventListener('click',close));
 }
 
+// docs menu: open on wide screens, collapsed behind a button on phones
+const dm=$('.dside-m');
+if(dm){
+  // wide screens always show the menu; phones start with it collapsed behind the button
+  let narrow=null;
+  const fit=()=>{const n=innerWidth<=1020;if(n===narrow)return;narrow=n;dm.open=!n};
+  fit();addEventListener('resize',fit);
+}
+const cur=$('.dside a[aria-current=page]');
+const side=$('.dside');
+if(cur&&side&&side.scrollHeight>side.clientHeight)side.scrollTop=Math.max(0,cur.offsetTop-160);
+
 // smooth scrolling, same feel as the home page
 let lenis=null;
 if(window.Lenis&&!still){

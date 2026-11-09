@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0d0c0c">
-<meta name="description" content="Ultron can read the screen and use other apps for you. Read the screen, tap and type.">
-<meta property="og:title" content="Screen control connector | Ultron">
-<meta property="og:description" content="Ultron can read the screen and use other apps for you. Read the screen, tap and type.">
-<link rel="canonical" href="https://ultron.devxjitin.dev/connectors/screen.html">
-<title>Screen control connector | Ultron</title>
+<meta name="description" content="Ultron reads the screen, finds the button, taps it, types and scrolls. With Accessibility turned on, Ultron can use any app that Android lets it see. That covers the apps that have no shortcut or voice command of their own.">
+<meta property="og:title" content="Working other apps | Ultron Docs">
+<meta property="og:description" content="Ultron reads the screen, finds the button, taps it, types and scrolls. With Accessibility turned on, Ultron can use any app that Android lets it see. That covers the apps that have no shortcut or voice command of their own.">
+<link rel="canonical" href="https://ultron.devxjitin.dev/docs/features/phone-control.html">
+<title>Working other apps | Ultron Docs</title>
 <link rel="icon" href="/assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/styles.css?v=20261113">
-<link rel="stylesheet" href="/pages.css?v=20261113">
+<link rel="stylesheet" href="/styles.css?v=20261114">
+<link rel="stylesheet" href="/pages.css?v=20261114">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -54,67 +54,47 @@
 <nav class="nav" aria-label="Main">
 <a class="brand" href="/"><img src="/assets/mark.svg" alt="" width="28" height="28">Ultron</a>
 <div class="nav-links" id="nav-links">
-<a href="/#features">Features</a><a href="/connectors/" class=on>Connectors</a><a href="/#skills">Skills</a><a href="/#pricing">Plans</a><a href="/#faq">FAQ</a>
+<a href="/">Home</a><a href="/#features">Features</a><a href="/#connectors">Connectors</a><a href="/#pricing">Plans</a><a href="/docs/" class="on">Docs</a>
 </div>
 <a class="btn btn-sm" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a>
 <button class="menu-toggle" aria-label="Open navigation" aria-controls="nav-links" aria-expanded="false"><span></span><span></span></button>
 </nav>
 </header>
-<main id="main">
-
-<section class="page-hero wrap">
-<p class="crumb"><a href="/connectors/">Connectors</a><span>/</span>Phone control</p>
-<div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-touch"/></svg></span><h1>Screen control</h1></div>
-<p class="lead">Ultron can read the screen and use other apps for you.</p>
-<div class="chips"><span class="chip">Phone control</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
-<div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="#tools">See all 11 tools</a></div>
-</section>
-
-<section class="section wrap">
-<div class="head rv"><h2>Why you will want it</h2><p>The strongest and most sensitive connector. With accessibility on, Ultron reads what is on screen, taps, types and swipes, so it can do things inside apps that have no shortcuts. Screen text goes to Gemini and can be private, so switch it on only if you understand that.</p></div>
+<main id="main" class="docs wrap">
+<aside class="dside" aria-label="Docs"><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in"><a href="/docs/">Overview</a><a href="/docs/getting-started.html">Getting started</a><h4>Features</h4><a href="/docs/features/live-conversation.html">Live conversation</a><a href="/docs/features/phone-control.html" aria-current="page">Working other apps</a><a href="/docs/features/knowledge.html">Questions about your documents</a><a href="/docs/features/memory.html">Memory</a><a href="/docs/features/youtube.html">YouTube</a><a href="/docs/features/personalities.html">Personalities</a><a class="solo" href="/docs/skills.html">Skills</a><h4>Connectors</h4><a href="/docs/connectors/">All connectors</a><details class="dcat"><summary>Essentials</summary><a href="/docs/connectors/device_info.html">Device info</a><a href="/docs/connectors/device_controls.html">Device controls</a><a href="/docs/connectors/alarms.html">Alarms &amp; timers</a><a href="/docs/connectors/reminders.html">Reminders</a><a href="/docs/connectors/apps_settings.html">Apps &amp; settings</a><a href="/docs/connectors/weather.html">Weather</a></details><details class="dcat"><summary>Search and media</summary><a href="/docs/connectors/duckduckgo.html">Web search</a><a href="/docs/connectors/web_reader.html">Web pages</a><a href="/docs/connectors/youtube.html">YouTube Search</a><a href="/docs/connectors/youtube_downloads.html">YouTube Downloads</a><a href="/docs/connectors/images.html">Pictures</a></details><details class="dcat"><summary>Personal data</summary><a href="/docs/connectors/calendar.html">Calendar</a><a href="/docs/connectors/contacts.html">Contacts</a><a href="/docs/connectors/calls.html">Calls</a><a href="/docs/connectors/location.html">Location</a><a href="/docs/connectors/files.html">Files</a><a href="/docs/connectors/app_usage.html">App usage</a><a href="/docs/connectors/notifications.html">Notifications</a></details><details class="dcat"><summary>Phone control</summary><a href="/docs/connectors/navigation.html">Phone navigation</a><a href="/docs/connectors/screen.html">Screen control</a></details></div></details></aside>
+<article class="dmain">
+<p class="crumb"><a href="/docs/">Docs</a><span>/</span><a href="/docs/features/live-conversation.html">Features</a><span>/</span>Working other apps</p>
+<div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-touch"/></svg></span><h1>Working other apps</h1></div>
+<p class="lead">Ultron reads the screen, finds the button, taps it, types and scrolls.</p>
+<h2 class="dh">What it is</h2>
+<p class="dp">With Accessibility turned on, Ultron can use any app that Android lets it see. That covers the apps that have no shortcut or voice command of their own.</p>
+<h2 class="dh">How it works</h2>
+<ul class="how"><li class="rv"><h3>Reads the screen</h3><p>It reads the text and numbers every item it can press, so it can say which one to tap.</p></li><li class="rv"><h3>Taps, types and scrolls</h3><p>It taps, types, scrolls and waits for text to appear before it goes on.</p></li><li class="rv"><h3>System buttons</h3><p>Back, home, recents, quick settings and screenshots.</p></li><li class="rv"><h3>You stay in control</h3><p>It stays off until you grant Android&#x27;s permission yourself.</p></li></ul>
+<h2 class="dh">What it looks like</h2>
 <div class="ucs"><article class="uc rv" style="--d:0.0s">
 <small>An app with no shortcut</small>
 <p class="uc-say"><span>You say</span>Swiggy kholo aur pizza search karo.</p>
 <p class="uc-does"><span>Ultron</span>Opens the app, taps the search box, types and presses Enter.</p>
 </article><article class="uc rv" style="--d:0.08s">
-<small>What is on my screen?</small>
-<p class="uc-say"><span>You say</span>Is screen par kya likha hai?</p>
-<p class="uc-does"><span>Ultron</span>Reads the text and buttons on screen and tells you.</p>
+<small>Reading a long page</small>
+<p class="uc-say"><span>You say</span>Neeche scroll karte raho.</p>
+<p class="uc-does"><span>Ultron</span>Scrolls page by page as you ask.</p>
 </article><article class="uc rv" style="--d:0.16s">
-<small>Waiting on a page</small>
+<small>Waiting on something</small>
 <p class="uc-say"><span>You say</span>Jab payment successful dikhe tab batana.</p>
-<p class="uc-does"><span>Ultron</span>Waits until that text appears on the screen.</p>
+<p class="uc-does"><span>Ultron</span>Waits until that text appears on screen, then tells you.</p>
 </article></div>
-</section>
-
-<section class="section wrap" id="tools">
-<div class="head rv"><h2>Every tool in this connector</h2><p>Reads the screen and taps and types for you, so the assistant can use other apps. Ultron picks the right tool from what you say, so you never have to name one.</p></div>
-<ul class="tools"><li class="tool rv"><div><h3>Read the screen</h3><p>See the text and buttons on screen (sends them to Gemini).</p></div><p class="try"><span>Try saying</span>Screen par kya hai, padh kar batao.</p></li><li class="tool rv"><div><h3>Look at the screen</h3><p>See the screen as a picture when an app gives no readable text (sends a screenshot to Gemini).</p></div><p class="try"><span>Try saying</span>Is screen ko dekh kar batao, isme text nahi aa raha.</p></li><li class="tool rv"><div><h3>Current app</h3><p>Tell which app is on screen.</p></div><p class="try"><span>Try saying</span>Abhi kaunsi app khuli hai?</p></li><li class="tool rv"><div><h3>Click by text</h3><p>Tap a button or link by its label.</p></div><p class="try"><span>Try saying</span>Login button dabao.</p></li><li class="tool rv"><div><h3>Click by number</h3><p>Tap an item by its number from the last screen reading.</p></div><p class="try"><span>Try saying</span>Teen number wala option dabao.</p></li><li class="tool rv"><div><h3>Tap a position</h3><p>Tap at exact screen coordinates.</p></div><p class="try"><span>Try saying</span>Screen ke beech mein tap karo.</p></li><li class="tool rv"><div><h3>Type text</h3><p>Type into the text field on screen.</p></div><p class="try"><span>Try saying</span>Search box mein biryani likho.</p></li><li class="tool rv"><div><h3>Press Enter</h3><p>Submit the text field (Search/Go/Send).</p></div><p class="try"><span>Try saying</span>Enter dabao.</p></li><li class="tool rv"><div><h3>Wait for text</h3><p>Wait until some text appears on screen.</p></div><p class="try"><span>Try saying</span>Jab Done dikhe tab batana.</p></li><li class="tool rv"><div><h3>Swipe or drag</h3><p>Swipe or drag between two points on the screen.</p></div><p class="try"><span>Try saying</span>Screen ko left se right swipe karo.</p></li><li class="tool rv"><div><h3>Long press</h3><p>Press and hold at screen coordinates.</p></div><p class="try"><span>Try saying</span>Is jagah par long press karo.</p></li></ul>
-</section>
-
-<section class="section wrap narrow">
-<div class="head rv"><h2>Access and privacy</h2></div>
-<dl class="facts rv">
-<div><dt>Needs</dt><dd>Accessibility access. A settings screen opens when you add it.</dd></div>
-<div><dt>Runs on</dt><dd>Your phone</dd></div>
-<div><dt>Privacy</dt><dd>Screen text is shared with Gemini and can be private. Use with care.</dd></div>
-<div><dt>Default</dt><dd>Off. You turn it on from the Connectors page in the app.</dd></div>
-</dl>
-<p class="warn rv">Lets Ultron operate other apps through Android accessibility. It can tap, type and read the screen, so turn it on only if you understand that.</p>
-</section>
-
-<nav class="pn wrap" aria-label="More connectors">
-<a href="/connectors/navigation.html"><small>Previous</small>Phone navigation</a>
-<a href="/connectors/" class="all">All connectors</a>
-<a href="/connectors/device_info.html"><small>Next</small>Device info</a>
-</nav>
+<p class="warn rv">Screen text is shared with Gemini and can be private. Use it with care and switch it on only if you understand that.</p>
+<div class="cta-row dlinks"><a class="btn btn-ghost btn-sm" href="/docs/connectors/screen.html">Screen control connector</a><a class="btn btn-ghost btn-sm" href="/docs/connectors/navigation.html">Phone navigation connector</a></div>
+<nav class="pn" aria-label="Previous and next"><a href="/docs/features/live-conversation.html"><small>Previous</small>Live conversation</a><a href="/docs/features/knowledge.html"><small>Next</small>Questions about your documents</a></nav>
+</article>
 </main>
 <section class="cta" id="contact">
 <div class="cta-in wrap rv"><h2>Ready to try it?</h2><p>Download the app, then pick a plan. Your activation key arrives by email.</p>
 <div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div></div>
-<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/connectors/">Connectors</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
+<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="/page.js?v=20261113" defer></script>
+<script src="/page.js?v=20261114" defer></script>
 </body>
 </html>
