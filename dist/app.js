@@ -87,7 +87,7 @@ const secIO=new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting)return;
   navA.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));
 }),{rootMargin:'-45% 0px -50% 0px'});
-navA.forEach(a=>{const s=$(a.getAttribute('href'));if(s)secIO.observe(s)});
+navA.forEach(a=>{const h=a.getAttribute('href');const s=h[0]==='#'?$(h):null;if(s)secIO.observe(s)});
 
 const hero=$('#top'),hph=$('#hphone');
 

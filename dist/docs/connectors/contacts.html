@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d0c0c">
+<meta name="description" content="Find a number or a birthday without opening Contacts. Find contacts, birthdays and save new contacts.">
+<meta property="og:title" content="Contacts connector | Ultron Docs">
+<meta property="og:description" content="Find a number or a birthday without opening Contacts. Find contacts, birthdays and save new contacts.">
+<link rel="canonical" href="https://ultron.devxjitin.dev/docs/connectors/contacts.html">
+<title>Contacts connector | Ultron Docs</title>
+<link rel="icon" href="/assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/styles.css?v=20261118">
+<link rel="stylesheet" href="/pages.css?v=20261118">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10"/></symbol>
+<symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4zM10 21h4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.5-8 5.5 5.5 0 0 1 10.6 1A3.5 3.5 0 0 1 17 18z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9.5v5l4-2.5z"/></symbol>
+<symbol id="i-tri" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+<symbol id="i-files" viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+<symbol id="i-touch" viewBox="0 0 24 24"><path d="M9 11V5a2 2 0 0 1 4 0v5l5 1.5a2 2 0 0 1 1.4 2.3L18.5 19a2 2 0 0 1-2 1.5H11a2 2 0 0 1-1.6-.8L5 14a2 2 0 0 1 3-2.4z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-7z"/></symbol>
+<symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
+<symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M4 18l5-5 4 4 3-3 4 4"/></symbol>
+<symbol id="i-flash" viewBox="0 0 24 24"><path d="M9 2h6v5l-2 3v12h-2V10L9 7z"/></symbol>
+<symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 3l14 7-6 2-2 6z" fill="#fff" stroke="#000" stroke-width="1.2"/></symbol>
+</defs></svg>
+<div id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav-wrap">
+<nav class="nav" aria-label="Main">
+<a class="brand" href="/"><img src="/assets/mark.svg" alt="" width="28" height="28">Ultron</a>
+<div class="nav-links" id="nav-links">
+<a href="/">Home</a><a href="/#features">Features</a><a href="/#connectors">Connectors</a><a href="/#pricing">Plans</a><a href="/docs/" class="on">Docs</a>
+</div>
+<a class="btn btn-sm" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a>
+<button class="menu-toggle" aria-label="Open navigation" aria-controls="nav-links" aria-expanded="false"><span></span><span></span></button>
+</nav>
+</header>
+<main id="main" class="docs wrap">
+<aside class="dside" aria-label="Docs"><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in"><a href="/docs/">Overview</a><a href="/docs/getting-started.html">Getting started</a><h4>Features</h4><a href="/docs/features/live-conversation.html">Live conversation</a><a href="/docs/features/phone-control.html">Working other apps</a><a href="/docs/features/knowledge.html">Questions about your documents</a><a href="/docs/features/memory.html">Memory</a><a href="/docs/features/youtube.html">YouTube</a><a href="/docs/features/personalities.html">Personalities</a><a class="solo" href="/docs/skills.html">Skills</a><h4>Connectors</h4><a href="/docs/connectors/">All connectors</a><details class="dcat"><summary>Essentials</summary><a href="/docs/connectors/device_info.html">Device info</a><a href="/docs/connectors/device_controls.html">Device controls</a><a href="/docs/connectors/alarms.html">Alarms &amp; timers</a><a href="/docs/connectors/reminders.html">Reminders</a><a href="/docs/connectors/apps_settings.html">Apps &amp; settings</a><a href="/docs/connectors/weather.html">Weather</a></details><details class="dcat"><summary>Search and media</summary><a href="/docs/connectors/duckduckgo.html">Web search</a><a href="/docs/connectors/web_reader.html">Web pages</a><a href="/docs/connectors/youtube.html">YouTube Search</a><a href="/docs/connectors/youtube_downloads.html">YouTube Downloads</a><a href="/docs/connectors/images.html">Pictures</a></details><details class="dcat" open><summary>Personal data</summary><a href="/docs/connectors/calendar.html">Calendar</a><a href="/docs/connectors/contacts.html" aria-current="page">Contacts</a><a href="/docs/connectors/calls.html">Calls</a><a href="/docs/connectors/location.html">Location</a><a href="/docs/connectors/files.html">Files</a><a href="/docs/connectors/app_usage.html">App usage</a><a href="/docs/connectors/notifications.html">Notifications</a></details><details class="dcat"><summary>Phone control</summary><a href="/docs/connectors/navigation.html">Phone navigation</a><a href="/docs/connectors/screen.html">Screen control</a></details></div></details></aside>
+<article class="dmain">
+<p class="crumb"><a href="/docs/">Docs</a><span>/</span><a href="/docs/connectors/">Connectors</a><span>/</span>Contacts</p>
+<div class="ph-row"><span class="ph-ic"><svg class="ic"><use href="#i-user"/></svg></span><h1>Contacts</h1></div>
+<p class="lead">Find a number or a birthday without opening Contacts.</p>
+<div class="chips"><span class="chip">Personal data</span><span class="chip">Runs on: Your phone</span><span class="chip ">Off until you add it</span></div>
+<h2 class="dh" id="tools">Every tool in this connector</h2>
+<p class="dp">Finds a contact&#x27;s number and birthday, and opens a form to save a new contact. Ultron picks the right tool from what you say, so you never have to name one.</p>
+<section class="tl">
+<div class="tl-h rv"><h3>Search contacts</h3><p>Find a contact&#x27;s number by name.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Rahul ka number kya hai?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Search contacts</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-user"/></svg><div><b>Contacts</b><span>Finds the contact and tells you the number.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Search contacts</b><span>Find a contact&#x27;s number by name.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Finds the contact and tells you the number.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Rahul ka number kya hai? Ultron: Finds the contact and tells you the number.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Contact birthday</h3><p>Tell a contact&#x27;s birthday.</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Priya ka birthday kab hai?</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Contact birthday</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-user"/></svg><div><b>Contacts</b><span>Reads the birthday saved on that contact.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Contact birthday</b><span>Tell a contact&#x27;s birthday.</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Reads the birthday saved on that contact.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Priya ka birthday kab hai? Ultron: Reads the birthday saved on that contact.</p>
+</article>
+</section><section class="tl">
+<div class="tl-h rv"><h3>Add a contact</h3><p>Open a new-contact form (you press save).</p></div>
+<article class="sc rv" style="--d:0.0s">
+
+<div class="sc-grid">
+<div class="sph" aria-hidden="true">
+<div class="sph-top"><i class="orb"></i><b>Ultron</b><em class="sst">Ready</em></div>
+<div class="sph-body">
+<p class="bub me"><span class="ty-src">Naya contact save karo, naam Aman.</span></p>
+<p class="schip"><svg class="ic"><use href="#i-spark"/></svg><span>Add a contact</span><i class="spin"></i></p>
+<div class="sres"><svg class="ic"><use href="#i-user"/></svg><div><b>Contacts</b><span>Opens a new contact form. You press save.</span></div></div>
+</div>
+<div class="sph-mic"><span class="mic"><svg class="ic"><use href="#i-mic"/></svg></span><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<ol class="ss">
+<li><svg class="ic"><use href="#i-mic"/></svg><div><b>Hears you</b><span>Live voice, in your own language</span></div></li>
+<li><svg class="ic"><use href="#i-search"/></svg><div><b>Picks Add a contact</b><span>Open a new-contact form (you press save).</span></div></li>
+<li><svg class="ic"><use href="#i-touch"/></svg><div><b>Does it</b><span>Opens a new contact form. You press save.</span></div></li>
+<li><svg class="ic"><use href="#i-vol"/></svg><div><b>Tells you</b><span>Answers by voice and on screen</span></div></li>
+</ol>
+</div>
+<p class="sr-only">You say: Naya contact save karo, naam Aman. Ultron: Opens a new contact form. You press save.</p>
+</article>
+</section>
+<h2 class="dh">Access and privacy</h2>
+<dl class="facts1 rv">
+<div><dt>Needs</dt><dd>Contacts access.</dd></div>
+<div><dt>Runs on</dt><dd>Your phone</dd></div>
+<div><dt>Privacy</dt><dd>Shared only when you ask.</dd></div>
+<div><dt>Default</dt><dd>Off. You turn it on from the Connectors page in the app.</dd></div>
+</dl>
+<p class="warn rv">Reads private data from your phone, such as contacts, calendar, location, files and notifications. What you ask about is sent to Gemini.</p>
+<nav class="pn" aria-label="Previous and next"><a href="/docs/connectors/calendar.html"><small>Previous</small>Calendar</a><a href="/docs/connectors/calls.html"><small>Next</small>Calls</a></nav>
+</article>
+</main>
+<section class="cta" id="contact">
+<div class="cta-in wrap rv"><h2>Ready to try it?</h2><p>Download the app, then pick a plan. Your activation key arrives by email.</p>
+<div class="cta-row"><a class="btn" href="https://api.devxjitin.dev/v1/releases/download" download rel="nofollow">Download APK</a><a class="btn btn-ghost" href="/#pricing">See plans</a></div></div>
+<footer class="foot wrap"><span>Built by Jitin Kumar Sengar and Sonia</span><nav><a href="/docs/">Docs</a><a href="/#pricing">Pricing</a><a href="/#install">Install</a><a href="/#faq">FAQ</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav><button class="motion" aria-pressed="false">Pause motion</button></footer>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="/page.js?v=20261118" defer></script>
+</body>
+</html>

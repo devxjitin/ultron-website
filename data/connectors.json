@@ -1,0 +1,892 @@
+[
+ {
+  "id": "device_info",
+  "name": "Device info",
+  "desc": "Battery, storage, network, time and more.",
+  "sub": "On your phone",
+  "cat": "Essentials",
+  "kind": "phone",
+  "access": "NONE",
+  "on": true,
+  "tools": [
+   {
+    "fn": "get_current_time",
+    "label": "Date and time",
+    "hint": "Tell the current date and time.",
+    "key": "TIME"
+   },
+   {
+    "fn": "get_battery_status",
+    "label": "Battery",
+    "hint": "Tell the battery level and charging state.",
+    "key": "BATTERY"
+   },
+   {
+    "fn": "get_device_info",
+    "label": "Device info",
+    "hint": "Tell the phone model, Android version, screen, language and time zone.",
+    "key": "DEVICE_INFO"
+   },
+   {
+    "fn": "get_storage_and_memory",
+    "label": "Storage and memory",
+    "hint": "Tell free storage and free RAM.",
+    "key": "STORAGE_MEMORY"
+   },
+   {
+    "fn": "get_network_status",
+    "label": "Network status",
+    "hint": "Tell whether Wi-Fi or mobile data is connected.",
+    "key": "NETWORK"
+   },
+   {
+    "fn": "get_wifi_info",
+    "label": "Wi-Fi details",
+    "hint": "Tell the Wi-Fi network name and signal.",
+    "key": "WIFI_INFO"
+   },
+   {
+    "fn": "get_bluetooth_status",
+    "label": "Bluetooth status",
+    "hint": "Tell if Bluetooth is on and which devices are paired.",
+    "key": "BLUETOOTH"
+   },
+   {
+    "fn": "get_step_count",
+    "label": "Step counter",
+    "hint": "Tell the steps counted by the phone.",
+    "key": "STEPS"
+   },
+   {
+    "fn": "get_light_level",
+    "label": "Light sensor",
+    "hint": "Tell how bright the room is.",
+    "key": "LIGHT"
+   }
+  ],
+  "about": "Tells you the time, battery, storage, network, Bluetooth, steps and light. It only reads.",
+  "needs": "Nothing to allow.",
+  "privacy": "Shared only when you ask.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "device_controls",
+  "name": "Device controls",
+  "desc": "Flashlight, volume, brightness and phone modes.",
+  "sub": "On your phone",
+  "cat": "Essentials",
+  "kind": "phone",
+  "access": "NONE",
+  "on": true,
+  "tools": [
+   {
+    "fn": "set_flashlight",
+    "label": "Flashlight",
+    "hint": "Turn the flashlight on or off.",
+    "key": "FLASHLIGHT"
+   },
+   {
+    "fn": "set_brightness",
+    "label": "Set brightness",
+    "hint": "Make the screen brighter or dimmer.",
+    "key": "BRIGHTNESS"
+   },
+   {
+    "fn": "get_brightness",
+    "label": "Read brightness",
+    "hint": "Tell the current screen brightness.",
+    "key": "GET_BRIGHTNESS"
+   },
+   {
+    "fn": "set_volume",
+    "label": "Set volume",
+    "hint": "Raise or lower the assistant or media volume.",
+    "key": "VOLUME"
+   },
+   {
+    "fn": "get_volume",
+    "label": "Read volume",
+    "hint": "Tell the current volumes (assistant, media, ring, alarm).",
+    "key": "GET_VOLUME"
+   },
+   {
+    "fn": "get_ringer_mode",
+    "label": "Read ringer mode",
+    "hint": "Tell if the phone is on normal, vibrate or silent.",
+    "key": "GET_RINGER"
+   },
+   {
+    "fn": "set_ringer_mode",
+    "label": "Set ringer mode",
+    "hint": "Switch the phone to normal, vibrate or silent.",
+    "key": "SET_RINGER"
+   },
+   {
+    "fn": "vibrate_device",
+    "label": "Vibrate",
+    "hint": "Make the phone vibrate.",
+    "key": "VIBRATE"
+   },
+   {
+    "fn": "set_do_not_disturb",
+    "label": "Do Not Disturb",
+    "hint": "Turn Do Not Disturb on or off.",
+    "key": "SET_DND"
+   },
+   {
+    "fn": "media_control",
+    "label": "Media control",
+    "hint": "Play, pause, or skip music in other apps.",
+    "key": "MEDIA_CONTROL"
+   },
+   {
+    "fn": "set_screen_timeout",
+    "label": "Screen timeout",
+    "hint": "Change how long the screen stays on.",
+    "key": "SCREEN_TIMEOUT"
+   },
+   {
+    "fn": "set_auto_rotate",
+    "label": "Auto-rotate",
+    "hint": "Turn screen auto-rotate on or off.",
+    "key": "AUTO_ROTATE"
+   },
+   {
+    "fn": "open_connectivity_panel",
+    "label": "Wi-Fi, NFC and volume panels",
+    "hint": "Show the quick panel for Wi-Fi, mobile data, NFC or volume.",
+    "key": "OPEN_PANEL"
+   }
+  ],
+  "about": "Changes simple settings for you: flashlight, brightness, volume, ringer, Do Not Disturb, media keys and auto-rotate.",
+  "needs": "Android asks the first time for settings and Do Not Disturb.",
+  "privacy": "Nothing leaves your phone.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "alarms",
+  "name": "Alarms & timers",
+  "desc": "Set alarms and timers.",
+  "sub": "On your phone",
+  "cat": "Essentials",
+  "kind": "phone",
+  "access": "NONE",
+  "on": true,
+  "tools": [
+   {
+    "fn": "set_alarm",
+    "label": "Set alarm",
+    "hint": "Set an alarm that rings with sound.",
+    "key": "SET_ALARM"
+   },
+   {
+    "fn": "list_alarms",
+    "label": "List alarms",
+    "hint": "See the alarms that are set.",
+    "key": "LIST_ALARMS"
+   },
+   {
+    "fn": "cancel_alarm",
+    "label": "Cancel alarm",
+    "hint": "Cancel an alarm.",
+    "key": "CANCEL_ALARM"
+   },
+   {
+    "fn": "modify_alarm",
+    "label": "Change an alarm",
+    "hint": "Move an alarm to a new time.",
+    "key": "MODIFY_ALARM"
+   },
+   {
+    "fn": "set_timer",
+    "label": "Set timer",
+    "hint": "Start a countdown timer that rings with sound.",
+    "key": "SET_TIMER"
+   },
+   {
+    "fn": "list_timers",
+    "label": "List timers",
+    "hint": "See the running timers.",
+    "key": "LIST_TIMERS"
+   },
+   {
+    "fn": "cancel_timer",
+    "label": "Cancel timer",
+    "hint": "Stop a running timer.",
+    "key": "CANCEL_TIMER"
+   }
+  ],
+  "about": "Sets alarms and timers in your clock app, and lets you change or cancel alarms.",
+  "needs": "Nothing to allow.",
+  "privacy": "Nothing leaves your phone.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "reminders",
+  "name": "Reminders",
+  "desc": "Get reminded at a time, with a sound.",
+  "sub": "On your phone",
+  "cat": "Essentials",
+  "kind": "phone",
+  "access": "NONE",
+  "on": true,
+  "tools": [
+   {
+    "fn": "schedule_reminder",
+    "label": "Reminder",
+    "hint": "Remind you at a time or after a while, with a sound.",
+    "key": "SCHEDULE_REMINDER"
+   },
+   {
+    "fn": "list_reminders",
+    "label": "List reminders",
+    "hint": "See the reminders that are still waiting.",
+    "key": "LIST_REMINDERS"
+   },
+   {
+    "fn": "cancel_reminder",
+    "label": "Cancel a reminder",
+    "hint": "Cancel a waiting reminder.",
+    "key": "CANCEL_REMINDER"
+   },
+   {
+    "fn": "modify_reminder",
+    "label": "Change a reminder",
+    "hint": "Change the time or text of a waiting reminder.",
+    "key": "MODIFY_REMINDER"
+   }
+  ],
+  "about": "Reminds you at a time or after a while, once or every day or week. It rings and vibrates.",
+  "needs": "Keep notifications on for Ultron.",
+  "privacy": "Nothing leaves your phone.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "apps_settings",
+  "name": "Apps & settings",
+  "desc": "Open apps and settings, use the clipboard.",
+  "sub": "On your phone",
+  "cat": "Essentials",
+  "kind": "phone",
+  "access": "NONE",
+  "on": true,
+  "tools": [
+   {
+    "fn": "open_app",
+    "label": "Open apps",
+    "hint": "Launch an installed app by name.",
+    "key": "OPEN_APP"
+   },
+   {
+    "fn": "open_camera",
+    "label": "Open camera",
+    "hint": "Open the camera for a photo or video.",
+    "key": "OPEN_CAMERA"
+   },
+   {
+    "fn": "open_app_settings",
+    "label": "App settings page",
+    "hint": "Open an app's info page (permissions, storage, uninstall).",
+    "key": "OPEN_APP_SETTINGS"
+   },
+   {
+    "fn": "open_settings",
+    "label": "Open settings",
+    "hint": "Open a system settings screen.",
+    "key": "OPEN_SETTINGS"
+   },
+   {
+    "fn": "get_clipboard_text",
+    "label": "Read clipboard",
+    "hint": "Read the text the user copied.",
+    "key": "GET_CLIPBOARD"
+   },
+   {
+    "fn": "set_clipboard_text",
+    "label": "Write clipboard",
+    "hint": "Copy text to the clipboard.",
+    "key": "SET_CLIPBOARD"
+   },
+   {
+    "fn": "show_notification",
+    "label": "Show notification",
+    "hint": "Post a notification on the phone.",
+    "key": "SHOW_NOTIFICATION"
+   },
+   {
+    "fn": "list_installed_apps",
+    "label": "List installed apps",
+    "hint": "List the apps that can be opened.",
+    "key": "LIST_APPS"
+   },
+   {
+    "fn": "open_url",
+    "label": "Open a web link",
+    "hint": "Open a web address in the browser.",
+    "key": "OPEN_URL"
+   },
+   {
+    "fn": "share_text",
+    "label": "Share text",
+    "hint": "Open the Android share sheet with some text.",
+    "key": "SHARE_TEXT"
+   }
+  ],
+  "about": "Opens apps, the camera and settings, uses the clipboard and shows notifications.",
+  "needs": "Nothing to allow.",
+  "privacy": "Clipboard text is shared only when you ask.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "weather",
+  "name": "Weather",
+  "desc": "Weather now and for the next few days.",
+  "sub": "Free, no sign-in",
+  "cat": "Essentials",
+  "kind": "online",
+  "access": "NONE",
+  "on": true,
+  "tools": [
+   {
+    "fn": "get_weather",
+    "label": "Weather",
+    "hint": "Tell the weather now and the forecast (free, no sign-in).",
+    "key": "GET_WEATHER"
+   }
+  ],
+  "about": "Tells you the weather now and for the next few days, for where you are or any city.",
+  "needs": "Location access, only for where you are.",
+  "privacy": "A city name or your location goes to a free weather service.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "duckduckgo",
+  "name": "Web search",
+  "desc": "Search the web.",
+  "sub": "No sign-in",
+  "cat": "Search and media",
+  "kind": "online",
+  "access": "NONE",
+  "on": true,
+  "tools": [
+   {
+    "fn": "web_search",
+    "label": "Search the web",
+    "hint": "Look up the latest information on the web.",
+    "key": "WEB_SEARCH"
+   }
+  ],
+  "about": "Searches the web and answers from the results.",
+  "needs": "Nothing to allow.",
+  "privacy": "Your search words go to Ultron's server, which asks search engines. If it is down, your phone asks DuckDuckGo itself.",
+  "runs": "Ultron's server"
+ },
+ {
+  "id": "web_reader",
+  "name": "Web pages",
+  "desc": "Read any web page or link.",
+  "sub": "Free, no sign-in",
+  "cat": "Search and media",
+  "kind": "online",
+  "access": "NONE",
+  "on": true,
+  "tools": [
+   {
+    "fn": "fetch_webpage",
+    "label": "Read a web page",
+    "hint": "Read the main text of a web page from its address.",
+    "key": "FETCH_WEBPAGE"
+   }
+  ],
+  "about": "Reads a web page and gives you the main text.",
+  "needs": "Nothing to allow.",
+  "privacy": "The link you ask about goes to Ultron's server. Nothing is stored.",
+  "runs": "Ultron's server"
+ },
+ {
+  "id": "youtube",
+  "name": "YouTube Search",
+  "desc": "Search YouTube videos and playlists.",
+  "sub": "On AWS",
+  "cat": "Search and media",
+  "kind": "online",
+  "access": "NONE",
+  "on": false,
+  "tools": [
+   {
+    "fn": "youtube_search",
+    "label": "Search YouTube",
+    "hint": "Search YouTube videos.",
+    "key": "YOUTUBE_SEARCH"
+   },
+   {
+    "fn": "youtube_video_info",
+    "label": "Video details",
+    "hint": "Get the details of a YouTube video.",
+    "key": "YOUTUBE_INFO"
+   },
+   {
+    "fn": "youtube_transcript",
+    "label": "Video transcript",
+    "hint": "Read the captions of a YouTube video.",
+    "key": "YOUTUBE_TRANSCRIPT"
+   },
+   {
+    "fn": "youtube_list_videos",
+    "label": "Channel or playlist videos",
+    "hint": "List the videos of a channel or playlist.",
+    "key": "YOUTUBE_CHANNEL"
+   }
+  ],
+  "about": "Searches videos and shows details, captions and playlists. YouTube sometimes blocks this.",
+  "needs": "Internet only.",
+  "privacy": "Your search goes to Ultron's server, which asks YouTube.",
+  "runs": "Ultron's server"
+ },
+ {
+  "id": "youtube_downloads",
+  "name": "YouTube Downloads",
+  "desc": "Save YouTube videos or audio to your phone.",
+  "sub": "On your phone",
+  "cat": "Search and media",
+  "kind": "phone",
+  "access": "NONE",
+  "on": false,
+  "tools": [
+   {
+    "fn": "youtube_download_options",
+    "label": "Download options",
+    "hint": "List the formats and qualities a video can be downloaded in.",
+    "key": "YOUTUBE_DOWNLOAD_OPTIONS"
+   },
+   {
+    "fn": "download_youtube_video",
+    "label": "Download YouTube video",
+    "hint": "Save a YouTube video or its audio to Downloads/Ultron.",
+    "key": "DOWNLOAD_YOUTUBE"
+   }
+  ],
+  "about": "Lets you pick a quality, then saves the video or audio to Downloads/Ultron.",
+  "needs": "Internet and free space.",
+  "privacy": "Files stay on your phone. Download only what you may keep.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "calendar",
+  "name": "Calendar",
+  "desc": "Check your schedule and add events.",
+  "sub": "On your phone",
+  "cat": "Personal data",
+  "kind": "phone",
+  "access": "NONE",
+  "on": false,
+  "tools": [
+   {
+    "fn": "get_upcoming_events",
+    "label": "Read calendar",
+    "hint": "Tell the upcoming calendar events.",
+    "key": "UPCOMING_EVENTS"
+   },
+   {
+    "fn": "check_calendar_conflicts",
+    "label": "Calendar conflicts",
+    "hint": "Check if a time slot is free.",
+    "key": "CALENDAR_CONFLICTS"
+   },
+   {
+    "fn": "create_calendar_event",
+    "label": "Add calendar event",
+    "hint": "Add an event to the calendar by itself.",
+    "key": "CREATE_EVENT"
+   },
+   {
+    "fn": "cancel_calendar_event",
+    "label": "Cancel calendar event",
+    "hint": "Delete an event from the calendar by itself.",
+    "key": "CANCEL_EVENT"
+   }
+  ],
+  "about": "Checks your schedule, finds free time and adds or cancels events.",
+  "needs": "Calendar access.",
+  "privacy": "Event names and times are shared when you ask. Changes happen in your real calendar.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "contacts",
+  "name": "Contacts",
+  "desc": "Find contacts, birthdays and save new contacts.",
+  "sub": "On your phone",
+  "cat": "Personal data",
+  "kind": "phone",
+  "access": "NONE",
+  "on": false,
+  "tools": [
+   {
+    "fn": "search_contact",
+    "label": "Search contacts",
+    "hint": "Find a contact's number by name.",
+    "key": "SEARCH_CONTACT"
+   },
+   {
+    "fn": "get_contact_birthday",
+    "label": "Contact birthday",
+    "hint": "Tell a contact's birthday.",
+    "key": "CONTACT_BIRTHDAY"
+   },
+   {
+    "fn": "create_contact",
+    "label": "Add a contact",
+    "hint": "Open a new-contact form (you press save).",
+    "key": "CREATE_CONTACT"
+   }
+  ],
+  "about": "Finds a contact's number and birthday, and opens a form to save a new contact.",
+  "needs": "Contacts access.",
+  "privacy": "Shared only when you ask.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "calls",
+  "name": "Calls",
+  "desc": "Call a contact by name.",
+  "sub": "On your phone",
+  "cat": "Personal data",
+  "kind": "phone",
+  "access": "NONE",
+  "on": false,
+  "tools": [
+   {
+    "fn": "make_call",
+    "label": "Call someone",
+    "hint": "Call a contact by name, or a number.",
+    "key": "MAKE_CALL"
+   }
+  ],
+  "about": "Calls the contact you name straight away, even when it is spelled differently on your phone. If two contacts fit, it asks which.",
+  "needs": "Phone and Contacts access.",
+  "privacy": "The call is placed on your phone and the name is matched on your phone. Nothing is sent except what you say to Gemini.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "location",
+  "name": "Location",
+  "desc": "Know where you are and get directions.",
+  "sub": "On your phone",
+  "cat": "Personal data",
+  "kind": "phone",
+  "access": "NONE",
+  "on": false,
+  "tools": [
+   {
+    "fn": "get_current_location",
+    "label": "Current location",
+    "hint": "Tell where the phone is right now.",
+    "key": "LOCATION"
+   },
+   {
+    "fn": "get_directions",
+    "label": "Directions",
+    "hint": "Start navigation to a place.",
+    "key": "DIRECTIONS"
+   }
+  ],
+  "about": "Tells you where you are and starts directions in your maps app.",
+  "needs": "Location access.",
+  "privacy": "Your location is shared when you ask where you are.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "files",
+  "name": "Files",
+  "desc": "Browse folders, find any file and open it.",
+  "sub": "On your phone",
+  "cat": "Personal data",
+  "kind": "phone",
+  "access": "ALL_FILES",
+  "on": false,
+  "tools": [
+   {
+    "fn": "search_files",
+    "label": "Search files",
+    "hint": "Find images, videos, audio and documents by name.",
+    "key": "SEARCH_FILES"
+   },
+   {
+    "fn": "open_file",
+    "label": "Open a file",
+    "hint": "Show a file in the phone's default app.",
+    "key": "OPEN_FILE"
+   },
+   {
+    "fn": "list_folder",
+    "label": "Browse a folder",
+    "hint": "Look inside a folder on the phone.",
+    "key": "LIST_FOLDER"
+   },
+   {
+    "fn": "share_file",
+    "label": "Share a file",
+    "hint": "Send a found photo, video or document into an app such as WhatsApp.",
+    "key": "SHARE_FILE"
+   }
+  ],
+  "about": "Looks inside any folder on the phone, finds photos, videos, music, documents and any other file by name, and opens them in your own apps.",
+  "needs": "All files access. A settings screen opens when you add it.",
+  "privacy": "Names and folders are read on your phone. File contents are not sent anywhere unless you ask Ultron to read a file aloud.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "images",
+  "name": "Pictures",
+  "desc": "Show pictures you saved in Ultron, or photos from your phone.",
+  "sub": "On your phone",
+  "cat": "Search and media",
+  "kind": "phone",
+  "access": "NONE",
+  "on": false,
+  "tools": [
+   {
+    "fn": "show_image",
+    "label": "Show a picture",
+    "hint": "Show a picture on the screen.",
+    "key": "SHOW_IMAGE"
+   }
+  ],
+  "about": "Shows a picture on the screen when you ask, from the pictures you added on the Images page or from a photo found with Files.",
+  "needs": "Nothing. Add pictures on the Images page.",
+  "privacy": "Pictures stay on your phone. They are not sent anywhere.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "app_usage",
+  "name": "App usage",
+  "desc": "See which apps you use most.",
+  "sub": "On your phone",
+  "cat": "Personal data",
+  "kind": "phone",
+  "access": "USAGE_ACCESS",
+  "on": false,
+  "tools": [
+   {
+    "fn": "get_most_used_apps",
+    "label": "Most used apps",
+    "hint": "Tell which apps are used most (sends app names to Gemini).",
+    "key": "MOST_USED_APPS"
+   },
+   {
+    "fn": "get_app_usage_time",
+    "label": "App usage time",
+    "hint": "Tell how long one app was used (sends it to Gemini).",
+    "key": "APP_USAGE"
+   }
+  ],
+  "about": "Shows which apps you use most and for how long.",
+  "needs": "Usage access.",
+  "privacy": "App names and times are shared when you ask.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "notifications",
+  "name": "Notifications",
+  "desc": "Read and reply to notifications.",
+  "sub": "On your phone",
+  "cat": "Personal data",
+  "kind": "phone",
+  "access": "NOTIFICATION_ACCESS",
+  "on": false,
+  "tools": [
+   {
+    "fn": "read_notifications",
+    "label": "Read notifications",
+    "hint": "Read the phone's current notifications (sends their text to Gemini).",
+    "key": "READ_NOTIFICATIONS"
+   },
+   {
+    "fn": "reply_to_notification",
+    "label": "Reply to a notification",
+    "hint": "Reply to a chat notification, for example WhatsApp (sends text).",
+    "key": "REPLY_NOTIFICATION"
+   },
+   {
+    "fn": "dismiss_notification",
+    "label": "Dismiss notifications",
+    "hint": "Clear notifications from one app or all of them.",
+    "key": "DISMISS_NOTIFICATION"
+   },
+   {
+    "fn": "get_now_playing",
+    "label": "What is playing",
+    "hint": "Tell which song or video is playing and in which app.",
+    "key": "NOW_PLAYING"
+   }
+  ],
+  "about": "Reads your notifications so the assistant can tell you what you missed.",
+  "needs": "Notification access.",
+  "privacy": "Notifications can be private. They are shared whenever you ask.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "navigation",
+  "name": "Phone navigation",
+  "desc": "Go back, go home, scroll and take screenshots.",
+  "sub": "On your phone",
+  "cat": "Phone control",
+  "kind": "phone",
+  "access": "ACCESSIBILITY",
+  "on": false,
+  "tools": [
+   {
+    "fn": "press_back",
+    "label": "Back button",
+    "hint": "Press the Back button.",
+    "key": "PRESS_BACK"
+   },
+   {
+    "fn": "open_recent_apps",
+    "label": "Recent apps",
+    "hint": "Open the recent apps screen.",
+    "key": "RECENT_APPS"
+   },
+   {
+    "fn": "switch_to_previous_app",
+    "label": "Previous app",
+    "hint": "Switch back to the app used before this one.",
+    "key": "PREVIOUS_APP"
+   },
+   {
+    "fn": "open_notification_shade",
+    "label": "Notification shade",
+    "hint": "Pull down the notification panel.",
+    "key": "NOTIFICATION_SHADE"
+   },
+   {
+    "fn": "open_quick_settings",
+    "label": "Quick settings",
+    "hint": "Open the quick settings panel (Wi-Fi, Bluetooth tiles).",
+    "key": "QUICK_SETTINGS"
+   },
+   {
+    "fn": "scroll_screen",
+    "label": "Scroll",
+    "hint": "Scroll or swipe the screen up, down, left or right.",
+    "key": "SCROLL"
+   },
+   {
+    "fn": "lock_screen",
+    "label": "Lock screen",
+    "hint": "Lock the phone.",
+    "key": "LOCK_SCREEN"
+   },
+   {
+    "fn": "take_screenshot",
+    "label": "Screenshot",
+    "hint": "Take a screenshot (saved in the gallery).",
+    "key": "SCREENSHOT"
+   },
+   {
+    "fn": "go_to_home_screen",
+    "label": "Go to home screen",
+    "hint": "Leave the current app and show the home screen.",
+    "key": "HOME_SCREEN"
+   },
+   {
+    "fn": "open_power_menu",
+    "label": "Power menu",
+    "hint": "Open the power off and restart menu.",
+    "key": "POWER_MENU"
+   },
+   {
+    "fn": "toggle_split_screen",
+    "label": "Split screen",
+    "hint": "Turn split screen on or off.",
+    "key": "SPLIT_SCREEN"
+   }
+  ],
+  "about": "Goes back and home, opens recents, scrolls, locks the screen and takes screenshots.",
+  "needs": "Accessibility access. A settings screen opens when you add it.",
+  "privacy": "It does not read the screen.",
+  "runs": "Your phone"
+ },
+ {
+  "id": "screen",
+  "name": "Screen control",
+  "desc": "Read the screen, tap and type.",
+  "sub": "On your phone",
+  "cat": "Phone control",
+  "kind": "phone",
+  "access": "ACCESSIBILITY",
+  "on": false,
+  "tools": [
+   {
+    "fn": "read_screen",
+    "label": "Read the screen",
+    "hint": "See the text and buttons on screen (sends them to Gemini).",
+    "key": "READ_SCREEN"
+   },
+   {
+    "fn": "look_at_screen",
+    "label": "Look at the screen",
+    "hint": "See the screen as a picture when an app gives no readable text (sends a screenshot to Gemini).",
+    "key": "LOOK_AT_SCREEN"
+   },
+   {
+    "fn": "get_current_app",
+    "label": "Current app",
+    "hint": "Tell which app is on screen.",
+    "key": "CURRENT_APP"
+   },
+   {
+    "fn": "click_on_text",
+    "label": "Click by text",
+    "hint": "Tap a button or link by its label.",
+    "key": "CLICK_TEXT"
+   },
+   {
+    "fn": "click_screen_item",
+    "label": "Click by number",
+    "hint": "Tap an item by its number from the last screen reading.",
+    "key": "CLICK_ITEM"
+   },
+   {
+    "fn": "tap_screen_position",
+    "label": "Tap a position",
+    "hint": "Tap at exact screen coordinates.",
+    "key": "TAP_POSITION"
+   },
+   {
+    "fn": "type_text",
+    "label": "Type text",
+    "hint": "Type into the text field on screen.",
+    "key": "TYPE_TEXT"
+   },
+   {
+    "fn": "press_enter",
+    "label": "Press Enter",
+    "hint": "Submit the text field (Search/Go/Send).",
+    "key": "PRESS_ENTER"
+   },
+   {
+    "fn": "wait_for_screen_text",
+    "label": "Wait for text",
+    "hint": "Wait until some text appears on screen.",
+    "key": "WAIT_FOR_TEXT"
+   },
+   {
+    "fn": "swipe_screen",
+    "label": "Swipe or drag",
+    "hint": "Swipe or drag between two points on the screen.",
+    "key": "SWIPE"
+   },
+   {
+    "fn": "long_press_position",
+    "label": "Long press",
+    "hint": "Press and hold at screen coordinates.",
+    "key": "LONG_PRESS"
+   }
+  ],
+  "about": "Reads the screen and taps and types for you, so the assistant can use other apps.",
+  "needs": "Accessibility access. A settings screen opens when you add it.",
+  "privacy": "Screen text is shared with Gemini and can be private. Use with care.",
+  "runs": "Your phone"
+ }
+]
