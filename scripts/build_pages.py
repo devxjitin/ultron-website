@@ -14,6 +14,7 @@ from pathlib import Path
 
 from docs_content import FEATURE_SCENE_TOOLS, FEATURES, GETTING_STARTED, SKILLS, SKILLS_SCENE_TOOLS
 from scenes import CONNECTORS as CONN_SCREENS, FEATURES as FEAT_SCREENS, SKILLS as SKILL_SCREENS
+from skills_content import FEATURES_SKILL, WA_GROUPS, WA_TASKS, WHATSAPP
 from usecases import CONNECTORS, SCENE_TOOLS, TOOLS
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -93,7 +94,11 @@ def sidebar(current):
     out = ['<aside class="dside" aria-label="Docs" data-lenis-prevent><details class="dside-m" open><summary>Docs menu</summary><div class="dside-in" data-lenis-prevent>']
     out.append(a("/docs/", "Overview") + a("/docs/getting-started.html", "Getting started"))
     out.append('<h4>Features</h4>' + "".join(a(f"/docs/features/{f['slug']}.html", f["name"]) for f in FEATURES))
-    out.append(a("/docs/skills.html", "Skills").replace("<a", '<a class="solo"', 1))
+    in_skills = current.startswith("/docs/skills")
+    out.append("<h4>Skills</h4>" + a("/docs/skills.html", "All skills") + a("/docs/skills/ultron-features.html", FEATURES_SKILL["name"]))
+    wa_open = " open" if current.startswith("/docs/skills/whatsapp") else ""
+    out.append(f'<details class="dcat"{wa_open}><summary>WhatsApp</summary>' + a("/docs/skills/whatsapp.html", "All WhatsApp tasks")
+               + "".join(a(f"/docs/skills/whatsapp/{k['id']}.html", k["name"]) for k in WA_TASKS) + "</details>")
     out.append(f'<h4>Connectors</h4>{a("/docs/connectors/", "All connectors")}')
     for cat in ORDER:
         items = [c for c in conns if c["cat"] == cat]
@@ -127,7 +132,7 @@ def demo(items):
     data = []
     for situation, say, result, fn, screen in items:
         t = ALL_TOOLS.get(fn)
-        item = {"title": situation, "say": say, "tool": t["label"] if t else "Understanding", "result": result, "reply": result}
+        item = {"title": situation, "say": say, "tool": t["label"] if t else (fn or "Understanding"), "result": result, "reply": result}
         item.update(screen)
         data.append(item)
     first = data[0]
@@ -221,6 +226,11 @@ def skills_page():
     s = SKILLS
     scenes = [(a, b, c_, fn, sc) for (a, b, c_), fn, sc in zip(s["scenes"], SKILLS_SCENE_TOOLS, SKILL_SCREENS)]
     notes = "".join(f'<p class="note">{e(x)}</p>' for x in s["notes"])
+    cards = [
+        ("/docs/skills/whatsapp.html", WHATSAPP["name"], WHATSAPP["summary"], f'{WHATSAPP["category"]}, {len(WA_TASKS)} tasks'),
+        ("/docs/skills/ultron-features.html", FEATURES_SKILL["name"], FEATURES_SKILL["summary"], FEATURES_SKILL["category"]),
+    ]
+    lst = "".join(f'<li><a href="{h}"><b>{e(n)}</b><span>{e(d)}</span><em>{e(m)}</em></a></li>' for h, n, d, m in cards)
     inner = f"""<h1>{e(s["title"])}</h1>
 <div class="top">
 <div class="top-text">
@@ -229,9 +239,85 @@ def skills_page():
 </div>
 {demo(scenes)}
 </div>
+<h2 class="dh">Built-in skills</h2>
+<p class="dp">These come with the app. Open one to see what it does, what it needs and a showcase of every task.</p>
+<ul class="idx">{lst}</ul>
 <h2 class="dh">How they work</h2>
 {dlist(s["how"])}"""
     return page("Skills | Ultron Docs", s["why"], "/docs/skills.html", [("Docs", "/docs/"), ("Skills", None)], inner)
+
+
+def wa_task_card(k):
+    return (f'<li class="trow"><div class="tn"><h3><a class="inline" href="/docs/skills/whatsapp/{k["id"]}.html">{e(k["name"])}</a></h3>'
+            f'<code>{e(k["id"])}</code></div><p>{e(k["about"])}</p><p class="ex">Say: <q>{e(k["say"][0])}</q></p></li>')
+
+
+def whatsapp_page():
+    w = WHATSAPP
+    scenes = [(a, b, c_, fn, sc) for (a, b, c_, fn, sc) in (k["scene"] for k in WA_TASKS)]
+    notes = "".join(f'<p class="note">{e(x)}</p>' for x in w["notes"])
+    groups = ""
+    for g, note in WA_GROUPS:
+        items = [k for k in WA_TASKS if k["group"] == g]
+        groups += f'<h2 class="dh" id="{e(g.lower().replace(" ", "-"))}">{e(g)}</h2><p class="dp">{e(note)}</p><ul class="trows">{"".join(wa_task_card(k) for k in items)}</ul>'
+    inner = f"""<h1>WhatsApp skill</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">{e(w["why"])}</p>
+{meta_rows([("Group", w["category"]), ("Tasks", str(len(WA_TASKS))), ("Needs", NEEDS_SCREEN_TEXT), ("Runs on", "The WhatsApp app on your phone")])}
+{notes}
+</div>
+{demo(scenes)}
+</div>
+<h2 class="dh">How it works</h2>
+{dlist(w["how"])}
+{groups}"""
+    return page("WhatsApp skill | Ultron Docs", f'{w["summary"]} {len(WA_TASKS)} tasks, each with an example.', "/docs/skills/whatsapp.html",
+                [("Docs", "/docs/"), ("Skills", "/docs/skills.html"), ("WhatsApp", None)], inner)
+
+
+NEEDS_SCREEN_TEXT = "Screen control and Phone navigation connectors, plus Files for sending files"
+
+
+def whatsapp_task_page(k, p, n):
+    sit, say, result, fn, screen = k["scene"]
+    say_rows = "".join(f"<li><q>{e(x)}</q></li>" for x in k["say"])
+    notes = "".join(f'<p class="note">{e(x)}</p>' for x in k["notes"])
+    inner = f"""<h1>{e(k["name"])}</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">{e(k["about"])}</p>
+{meta_rows([("Skill", "WhatsApp"), ("Group", k["group"]), ("Task id", k["id"]), ("Needs", k["needs"])])}
+{notes}
+</div>
+{demo([k["scene"]])}
+</div>
+<h2 class="dh">Ways to say it</h2>
+<p class="dp">Ultron works from what you mean, so these are only examples. English, Hindi and Hinglish all work.</p>
+<ul class="rel">{say_rows}</ul>
+<h2 class="dh">Related</h2>
+<ul class="rel"><li><a class="inline" href="/docs/skills/whatsapp.html">All WhatsApp tasks</a></li><li><a class="inline" href="/docs/skills.html">How skills work</a></li></ul>"""
+    return page(f'{k["name"]} on WhatsApp | Ultron Docs', f'{k["about"]}', f'/docs/skills/whatsapp/{k["id"]}.html',
+                [("Docs", "/docs/"), ("Skills", "/docs/skills.html"), ("WhatsApp", "/docs/skills/whatsapp.html"), (k["name"], None)], inner,
+                ((p["name"], f'/docs/skills/whatsapp/{p["id"]}.html'), (n["name"], f'/docs/skills/whatsapp/{n["id"]}.html')))
+
+
+def features_skill_page():
+    f = FEATURES_SKILL
+    notes = "".join(f'<p class="note">{e(x)}</p>' for x in f["notes"])
+    inner = f"""<h1>{e(f["name"])}</h1>
+<div class="top">
+<div class="top-text">
+<p class="sum">{e(f["why"])}</p>
+{meta_rows([("Skill", "ultron-features"), ("Group", f["category"]), ("Needs", "Nothing"), ("Runs on", "Inside the app")])}
+{notes}
+</div>
+{demo([f["scene"]])}
+</div>
+<h2 class="dh">How it works</h2>
+{dlist(f["how"])}"""
+    return page(f'{f["name"]} skill | Ultron Docs', f["summary"] + " " + f["why"], "/docs/skills/ultron-features.html",
+                [("Docs", "/docs/"), ("Skills", "/docs/skills.html"), (f["name"], None)], inner)
 
 
 def getting_started_page():
@@ -252,7 +338,7 @@ def docs_home():
         ("/docs/getting-started.html", "Getting started", "Download, install, activate and say hello."),
         ("/docs/features/live-conversation.html", "Features", f"{len(FEATURES)} pages: voice, working other apps, documents, memory, YouTube and personalities."),
         ("/docs/connectors/", "Connectors", f"{len(conns)} connectors and {total} tools, with what each does and what access it needs."),
-        ("/docs/skills.html", "Skills", "Short Markdown routines that teach Ultron your own steps."),
+        ("/docs/skills.html", "Skills", f"Short routines that teach Ultron a job. The WhatsApp skill alone has {len(WA_TASKS)} tasks."),
     ]
     lst = "".join(f'<li><a href="{h}"><b>{e(t)}</b><span>{e(d)}</span></a></li>' for h, t, d in rows)
     inner = f"""<h1>Docs</h1>
@@ -274,6 +360,12 @@ def main():
     write(DOCS / "index.html", docs_home())
     write(DOCS / "getting-started.html", getting_started_page())
     write(DOCS / "skills.html", skills_page())
+    write(DOCS / "skills" / "whatsapp.html", whatsapp_page())
+    write(DOCS / "skills" / "ultron-features.html", features_skill_page())
+    urls += ["/docs/skills/whatsapp.html", "/docs/skills/ultron-features.html"]
+    for i, k in enumerate(WA_TASKS):
+        write(DOCS / "skills" / "whatsapp" / f"{k['id']}.html", whatsapp_task_page(k, WA_TASKS[i - 1], WA_TASKS[(i + 1) % len(WA_TASKS)]))
+        urls.append(f"/docs/skills/whatsapp/{k['id']}.html")
     write(DOCS / "connectors" / "index.html", connectors_index())
     for i, f in enumerate(FEATURES):
         write(DOCS / "features" / f"{f['slug']}.html", feature_page(f, FEATURES[i - 1], FEATURES[(i + 1) % len(FEATURES)]))
