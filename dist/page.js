@@ -78,6 +78,8 @@ const rowsHtml=(a,x='')=>a.map(r=>`<div class="p-row ${x}">${esc(r)}</div>`).joi
 // the screens: html(p) builds the markup, run(el,p,w) plays the automation. w(ms) waits and stops the run when the page leaves.
 const K={};
 const pcur=(el,x,y,tap)=>{const c=$('.p-cur',el);c.style.left=x+'%';c.style.top=y+'%';if(tap)setTimeout(()=>{c.classList.remove('tap');void c.offsetWidth;c.classList.add('tap')},720)};
+// Move the cursor onto a real element, so it lands right whatever height the phone screen has.
+const pcurOn=(el,t,tap)=>{const sc=$('.kscr',el)||el,r=sc.getBoundingClientRect(),b=t.getBoundingClientRect();pcur(el,(b.left+b.width/2-r.left)/r.width*100,(b.top+b.height/2-r.top)/r.height*100,tap)};
 const reveal=async(els,w,gap=160)=>{for(const e of els){e.classList.add('show');await w(gap)}};
 const typeText=async(node,text,w,ms=70)=>{node.textContent='';for(const ch of text){node.textContent+=ch;await w(ms)}};
 
@@ -94,9 +96,9 @@ K.chat={
   html:p=>`<div class="p-hd"><i></i><b>${esc(p.name)}<small>online</small></b></div><div class="p-msgs"><p>${esc(p.incoming)}</p><p class="out"></p></div><div class="p-comp"><div class="p-fld"><span class="tx"></span></div><span class="p-send">${ico('send')}</span></div>${CUR}`,
   async run(el,p,w){
     const f=$('.p-fld',el),tx=$('.tx',el),out=$('.p-msgs .out',el),sd=$('.p-send',el);
-    out.textContent=p.reply;pcur(el,40,60);await w(600);pcur(el,45,86);await w(800);pcur(el,45,87,true);await w(400);
+    out.textContent=p.reply;pcur(el,40,60);await w(600);pcurOn(el,f);await w(800);pcurOn(el,f,true);await w(400);
     f.classList.add('act');await typeText(tx,p.reply,w,55);await w(400);
-    pcur(el,88,87);await w(800);sd.classList.add('press');pcur(el,88,87,true);await w(300);sd.classList.remove('press');
+    pcurOn(el,sd);await w(800);sd.classList.add('press');pcurOn(el,sd,true);await w(300);sd.classList.remove('press');
     tx.textContent='';f.classList.remove('act');out.classList.add('show');await w(1400);
   }};
 K.scan={
