@@ -101,6 +101,111 @@ K.chat={
     pcurOn(el,sd);await w(800);sd.classList.add('press');pcurOn(el,sd,true);await w(300);sd.classList.remove('press');
     tx.textContent='';f.classList.remove('act');out.classList.add('show');await w(1400);
   }};
+// WhatsApp, opened the way the WhatsApp skill does it: open_app, open the chat, check the header, then the task's own steps.
+// p.flow picks the task: text, file, loc, live, call, vcall, read, search, statuses, view, ptext, pfile.
+K.wa={
+  html:p=>{
+    const nm=p.name||'Rohan';
+    const names=[nm,...['Rohan','Mummy','Papa','Priya','Family group'].filter(n=>n!==nm)].slice(0,5);
+    const last={Rohan:'Kab tak aa rahe ho?',Mummy:'Khana kha liya?',Papa:'Ok beta',Priya:'Thanks!','Family group':'Papa: Sunday ko aana'};
+    const rows=names.map((n,i)=>`<div class="wa-row" data-n="${esc(n)}"><i></i><div><b>${esc(n)}</b><small>${esc(last[n]||'Hi')}</small></div><em>${i?'Yesterday':'10:42'}</em></div>`).join('');
+    const sts=['Rahul','Mummy','Priya'].map(n=>`<div class="wa-row wa-st" data-n="${n}"><i class="ring"></i><div><b>${n}</b><small>Today, 9:${n.length}0</small></div></div>`).join('');
+    const apps=['Phone','Messages','Camera','Gallery','WhatsApp','Maps','Clock','Settings'].map(a=>`<div class="wa-ic${a==='WhatsApp'?' wa-app':''}"><i>${a==='WhatsApp'?ico('msg'):''}</i><small>${a}</small></div>`).join('');
+    return `<div class="wa">
+<div class="wa-step"></div>
+<div class="wa-v" data-v="home"><div class="wa-grid">${apps}</div></div>
+<div class="wa-v" data-v="list"><div class="wa-top"><b>WhatsApp</b></div><div class="wa-rows">${rows}</div><div class="wa-tabs"><span class="t-ch on">Chats</span><span class="t-up">Updates</span><span>Calls</span></div></div>
+<div class="wa-v" data-v="chat"><div class="wa-top wa-chd"><i></i><b>${esc(nm)}<small>online</small></b><span class="wa-hi h-call">${ico('phone')}</span><span class="wa-hi h-vid">${ico('play')}</span><span class="wa-hi h-srch">${ico('search')}</span></div>
+<div class="wa-sb"><span class="sb-tx"></span></div><div class="wa-msgs"></div>
+<div class="wa-comp"><span class="wa-clip">${ico('files')}</span><div class="wa-fld"><span class="tx"></span></div><span class="wa-snd">${ico('send')}</span></div>
+<div class="wa-sheet"></div>
+<div class="wa-prev"><div class="wa-th"></div><div class="wa-capt"></div><span class="wa-snd wa-pgo">${ico('send')}</span></div></div>
+<div class="wa-v wa-call" data-v="call"><i class="big"></i><b>${esc(nm)}</b><small class="cs">Calling</small><span class="wa-end"></span></div>
+<div class="wa-v" data-v="upd"><div class="wa-top"><b>Updates</b></div><div class="wa-lab">Status</div><div class="wa-row wa-my"><i class="me"></i><div><b>My status</b><small class="my-s">Tap to add status update</small></div></div><div class="wa-lab">Recent updates</div><div class="wa-rows">${sts}</div><span class="wa-pen">${ico('spark')}</span><div class="wa-tabs"><span>Chats</span><span class="on">Updates</span><span>Calls</span></div></div>
+<div class="wa-v wa-stv" data-v="stat"><div class="wa-bar"><span></span></div><div class="wa-sh"><i></i><b>${esc(nm)}<small>Today</small></b></div><div class="wa-sc"></div></div>
+<div class="wa-v wa-cmp" data-v="cmp"><div class="wa-ct"><span class="tx"></span></div><span class="wa-snd">${ico('send')}</span></div>
+<div class="wa-v" data-v="to"><div class="wa-top"><b>Send to</b></div><div class="wa-lab">Status</div><div class="wa-row wa-tos"><i class="me"></i><div><b>My status</b></div><span class="wa-tick"></span></div><div class="wa-lab">Recent chats</div><div class="wa-rows">${rows}</div><span class="wa-snd wa-tog">${ico('send')}</span></div>
+${CUR}</div>`;
+  },
+  async run(el,p,w){
+    const q=s=>$(s,el),nm=p.name||'Rohan',fk=p.fkind||'photo',file=p.file||'Photo';
+    const view=n=>$$('.wa-v',el).forEach(v=>v.classList.toggle('on',v.dataset.v===n));
+    const step=(t,a)=>{const s=q('.wa-step');s.innerHTML=`<b>${esc(t)}</b><span>${esc(a||'')}</span>`;s.classList.add('on')};
+    const tap=async e=>{pcurOn(el,e);await w(750);pcurOn(el,e,true);await w(500)};
+    const row=n=>$$('.wa-rows .wa-row',q('[data-v=list]')).find(r=>r.dataset.n===n);
+    const out=(h,cls='')=>{const m=q('.wa-msgs');m.insertAdjacentHTML('beforeend',h);return m.lastElementChild};
+    const bub=(t,cls='out')=>out(`<p class="${cls} show">${esc(t)}${cls==='out'?'<small>✓✓</small>':''}</p>`);
+    const type=async t=>{const f=q('.wa-fld'),x=q('.wa-fld .tx');f.classList.add('act');await typeText(x,t,w,55);await w(350)};
+    const sendNow=async()=>{step('click_on_text','Send');await tap(q('.wa-comp .wa-snd'));q('.wa-fld .tx').textContent='';q('.wa-fld').classList.remove('act')};
+    const sheet=(items,pick)=>{const s=q('.wa-sheet');s.innerHTML=items.map((t,i)=>`<span class="${i===pick?'pk':''}">${esc(t)}</span>`).join('');s.classList.add('on');return $$('span',s)[pick]};
+    const thumb=k=>k==='photo'?'<div class="wa-img"></div>':k==='video'?'<div class="wa-img v"><b>▶</b></div>':k==='doc'?`<div class="wa-doc"><b>PDF</b>${esc(file)}</div>`:`<div class="wa-aud"><b>▶</b><u></u>0:42</div>`;
+    const status=['statuses','view','ptext','pfile'].includes(p.flow);
+
+    q('.wa-msgs').innerHTML='';
+    // 1. open_app WhatsApp
+    step('open_app','WhatsApp');view('home');pcur(el,50,75);await w(800);
+    await tap(q('.wa-app'));
+    view('list');step('read_screen','chat list');await w(900);
+    if(status){
+      step('click_on_text','Updates');await tap(q('.t-up'));view('upd');step('read_screen','Recent updates');await w(1000);
+    }else{
+      // 2. open the person's chat and check the header
+      step('click_on_text',nm);await tap(row(nm));
+      view('chat');
+      if(['text','read','reply','search'].includes(p.flow))out(`<p class="in">${esc(p.incoming||'Kab tak aa rahe ho?')}</p>`);
+      step('read_screen','header shows '+nm);q('.wa-chd').classList.add('ok');await w(1300);q('.wa-chd').classList.remove('ok');
+    }
+
+    if(p.flow==='text'){
+      step('type_text',p.text);await type(p.text);
+      await sendNow();bub(p.text);step('read_screen','message is the newest bubble');await w(1500);
+    }else if(p.flow==='read'){
+      step('read_screen','new messages');(p.msgs||[]).forEach(m=>out(`<p class="in">${esc(m)}</p>`));
+      q('.wa-msgs').classList.add('speak');await w(2600);
+    }else if(p.flow==='file'){
+      step('search_files',`${fk}: "${file}"`);await w(1100);
+      step('share_file','WhatsApp, to '+nm);q('.wa-th').innerHTML=thumb(fk);q('.wa-capt').textContent=file;q('.wa-prev').classList.add('on');await w(1300);
+      step('click_on_text','Send');await tap(q('.wa-pgo'));q('.wa-prev').classList.remove('on');
+      out(`<p class="out show wa-file">${thumb(fk)}<small>✓✓</small></p>`);
+      step('read_screen','file is the newest bubble');await w(1500);
+    }else if(p.flow==='loc'||p.flow==='live'){
+      step('click_on_text','Attach');await tap(q('.wa-clip'));
+      let t=await sheet(['Document','Camera','Gallery','Audio','Location','Contact'],4);
+      step('click_on_text','Location');await tap(t);
+      t=await sheet(p.flow==='loc'?['Send your current location','Share live location']:['Send your current location','Share live location'],p.flow==='loc'?0:1);
+      step('click_on_text',p.flow==='loc'?'Send your current location':'Share live location');await tap(t);
+      if(p.flow==='live'){t=await sheet(['15 minutes','1 hour','8 hours'],1);step('click_on_text',p.dur||'1 hour');await tap(t);t=await sheet(['Send'],0);await tap(t)}
+      q('.wa-sheet').classList.remove('on');
+      out(`<p class="out show wa-loc"><span class="map"><b></b></span>${p.flow==='live'?'<em>Live for '+esc(p.dur||'1 hour')+'</em>':''}<small>✓✓</small></p>`);
+      step('read_screen','location is the newest bubble');await w(1600);
+    }else if(p.flow==='call'||p.flow==='vcall'){
+      step('click_on_text',p.flow==='call'?'Voice call':'Video call');await tap(q(p.flow==='call'?'.h-call':'.h-vid'));
+      view('call');q('.wa-call').classList.toggle('vid',p.flow==='vcall');step('read_screen','call screen');await w(1100);
+      q('.cs').textContent='Ringing';await w(1700);
+    }else if(p.flow==='search'){
+      step('click_on_text','Search');await tap(q('.h-srch'));
+      q('.wa-sb').classList.add('on');step('type_text',p.q);await typeText(q('.sb-tx'),p.q,w,70);
+      out(`<p class="in hit">${esc(p.found)}</p>`);step('read_screen','match found');await w(2000);
+    }else if(p.flow==='statuses'){
+      $$('.wa-st',q('[data-v=upd]')).forEach(r=>r.classList.add('hl'));
+      step('read_screen','names under Recent updates');await w(2800);
+    }else if(p.flow==='view'){
+      step('click_on_text',nm);await tap($$('.wa-st',q('[data-v=upd]')).find(r=>r.dataset.n===nm));
+      view('stat');q('.wa-sc').textContent=p.caption||'Weekend';q('.wa-bar span').classList.remove('go');void q('.wa-bar').offsetWidth;q('.wa-bar span').classList.add('go');
+      step('look_at_screen','describe the status');await w(3200);
+    }else if(p.flow==='ptext'){
+      step('click_screen_item','pencil');await tap(q('.wa-pen'));
+      view('cmp');step('type_text',p.text);await typeText(q('.wa-ct .tx'),p.text,w,70);await w(400);
+      step('click_on_text','Send');await tap(q('[data-v=cmp] .wa-snd'));
+      view('upd');q('.my-s').textContent='Just now';q('.wa-my').classList.add('hl');step('read_screen','My status shows a recent time');await w(2000);
+    }else if(p.flow==='pfile'){
+      step('search_files',`${fk}: "${file}"`);await w(1000);
+      step('share_file','WhatsApp, no phone number');view('to');await w(1200);
+      step('click_on_text','Status');await tap(q('.wa-tos'));q('.wa-tos').classList.add('sel');await w(300);
+      step('click_on_text','Send');await tap(q('.wa-tog'));
+      view('upd');q('.my-s').textContent='Just now';q('.wa-my').classList.add('hl');step('read_screen','My status shows a recent time');await w(2000);
+    }
+  }};
 K.scan={
   html:p=>`<div class="p-hd"><b>Screen</b></div><div class="p-list p-rel" style="padding-top:12px">${p.rows.map((r,i)=>`<div class="p-row show" style="position:relative">${esc(r)}<span class="p-tag" data-i="${i}">${i+1}</span></div>`).join('')}<div class="p-scan"></div></div><p class="p-note"></p>`,
   async run(el,p,w){
